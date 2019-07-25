@@ -129,19 +129,27 @@ public class BYRN {
         ventana.contenedor.revalidate();
         ventana.contenedor.repaint();
         
+        //ingresa titulo
         ventana.setTitle(titulo);
+        //la pantalla no se pueda modificar tamaño
         ventana.setResizable(false);
+        //oculte la ventana al dar al boton cerrar
         ventana.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         
-        ventana.setSize(ventana.contenedor.getSize());
+        //botiene el tamaño de la barra de titulo
         int h = ventana.getHeight()-ventana.contenedor.getHeight();
+        //nuevo tamaño a la ventana
         ventana.setSize(tam.width, tam.height+h);
+        //ventana centrada
         ventana.setLocationRelativeTo(null);
+        //ventana visible
         ventana.setVisible(true);
     }
     
     public static void saltoVentana(String titulo,JPanel panel){
+        //cambia titulo de app
         app.setTitle("BYRN - "+titulo);
+        //se muestra nuevo contenido
         addPanel(dashboard.contenido, panel);
     }
     
@@ -149,11 +157,15 @@ public class BYRN {
     private static int tiempoAnimacion = 200;
     //animacion de entrada
     public static void fadeIn(){
+        //frame invisible
         start.setOpacity(0f);
+        //frame visible
         start.setVisible(true);
         for (float i = 0; i <= 10; i++) {
+            //actualiza opacidad de frame
             start.setOpacity(i/10);
             try {
+                //tiempo de pausa
                 java.util.concurrent.TimeUnit.MILLISECONDS.sleep(tiempoAnimacion/10);
             } catch (InterruptedException ex) {
                 Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
@@ -164,8 +176,10 @@ public class BYRN {
     //animacion de salida
     public static void fadeOut(){
         for (float i = 10; i >= 0; i--) {
+            //actualiza opacidad de frame
             start.setOpacity(i/10);
             try {
+                //tiempo de pausa
                 java.util.concurrent.TimeUnit.MILLISECONDS.sleep(tiempoAnimacion/10);
             } catch (InterruptedException ex) {
                 Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
@@ -175,21 +189,27 @@ public class BYRN {
     
     //abrir login 
     public static void login(){
+        //se crea nuevo login
         Login iniciosesion = new Login();
         InicioSesionDAO iniciosesiondao = new InicioSesionDAO();
         ControladorInicioSesion control = new ControladorInicioSesion(iniciosesiondao, iniciosesion);
-        start.setOpacity(0f);
+        //se añade login al frame start
         addPanelFull(iniciosesion,false);
         start.setLocationRelativeTo(null);
+        //se visualiza login
         fadeIn();
     }
     
     //carga app
     public static void carga(){
+        //se crea nuevo panel de carga
         Load load = new Load();
+        //se añade panel al frame
         addPanelFull(load,false);
         start.setLocationRelativeTo(null);
+        //se visualiza load
         fadeIn();
+        //simulacion de carga
         for (int i = 0; i <= 100; i++) {
             load.porcentaje(i);
             try {
