@@ -3,7 +3,7 @@ package Modelo;
 
 /**
  *
- * @author Samlmld
+ * @author CST-UTJ
  */
 public class AuthUser {
     private String token;
