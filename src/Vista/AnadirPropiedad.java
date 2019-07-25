@@ -41,7 +41,7 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         btnGuardarNuevaPropiedad = new javax.swing.JButton();
-        btnAñadirCita = new javax.swing.JButton();
+        btnAnadirCita = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -126,12 +126,12 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         PanAñadirPropiedad.add(btnGuardarNuevaPropiedad);
         btnGuardarNuevaPropiedad.setBounds(220, 330, 120, 50);
 
-        btnAñadirCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnAñadirCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
-        btnAñadirCita.setText("Añadir Cita");
-        btnAñadirCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        PanAñadirPropiedad.add(btnAñadirCita);
-        btnAñadirCita.setBounds(780, 330, 140, 50);
+        btnAnadirCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnAnadirCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
+        btnAnadirCita.setText("Añadir Cita");
+        btnAnadirCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanAñadirPropiedad.add(btnAnadirCita);
+        btnAnadirCita.setBounds(780, 330, 140, 50);
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel10.setText("Añadir Propiedad");
@@ -205,7 +205,7 @@ public class AnadirPropiedad extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanAñadirPropiedad;
-    public javax.swing.JButton btnAñadirCita;
+    public javax.swing.JButton btnAnadirCita;
     public javax.swing.JButton btnGuardarNuevaPropiedad;
     private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;

@@ -21,11 +21,19 @@ public class ControladorAnadirPropiedad implements ActionListener{
     public ControladorAnadirPropiedad(AnadirPropiedad jf, AnadirPropiedadDAO dao) {
         this.jf = jf;
         this.dao = dao;
+        
+        jf.btnGuardarNuevaPropiedad.addActionListener((ActionListener)this);
+        jf.btnAnadirCita.addActionListener((ActionListener)this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if (jf.btnGuardarNuevaPropiedad==e.getSource()) {
+            
+        }
+        if (jf.btnAnadirCita==e.getSource()) {
+            
+        }
     }
 
     
