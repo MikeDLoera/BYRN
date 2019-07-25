@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import Modelo.AgregarCitaDAO;
@@ -12,7 +8,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author miker
+ * @author CST-UTJ
  */
 public class ControladorAgregarCita implements ActionListener{
     private AgregarCita jf;
@@ -31,9 +27,4 @@ public class ControladorAgregarCita implements ActionListener{
             
         }
     }
-
-    
-    
-    
-    
 }

@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista;
 
 /**
  *
- * @author Samlml
+ * @author CST-UTJ
  */
 public class AnadirPropiedad extends javax.swing.JPanel {
 

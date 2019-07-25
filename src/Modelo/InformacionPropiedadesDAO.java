@@ -5,6 +5,6 @@ package Modelo;
  *
  * @author CST-UTJ
  */
-public class CitasDAO {
+public class InformacionPropiedadesDAO {
     
 }
