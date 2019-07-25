@@ -5,7 +5,7 @@ import Vista.AgregarCita;
 
 /**
  *
- * @author CST-UTJ
+ * @author CST-UTJ PENE
  */
 public class AgregarCitaDAO {
     private AgregarCita jf;
