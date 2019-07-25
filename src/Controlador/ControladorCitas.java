@@ -34,6 +34,7 @@ public class ControladorCitas implements ActionListener{
         if (jf.btnEditarCita==e.getSource()) {
             
         }
+        
     }
     
 }

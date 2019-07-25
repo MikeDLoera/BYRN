@@ -40,5 +40,4 @@ public class InicioSesionDAO {
             Logger.getLogger(InicioSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }

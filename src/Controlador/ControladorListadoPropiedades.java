@@ -57,4 +57,5 @@ public class ControladorListadoPropiedades implements ActionListener{
             
         }
     }
+    
 }

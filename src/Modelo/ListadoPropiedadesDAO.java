@@ -7,4 +7,7 @@ package Modelo;
  */
 public class ListadoPropiedadesDAO {
     
+    
+    
+    
 }

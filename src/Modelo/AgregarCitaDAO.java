@@ -12,5 +12,7 @@ public class AgregarCitaDAO {
     
     public AgregarCitaDAO(AgregarCita jf){
         this.jf=jf;
+        
+        
     }
 }

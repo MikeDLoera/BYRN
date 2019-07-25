@@ -47,5 +47,4 @@ public class ControladorDashBoard implements ActionListener{
         }
     }
     
-    
 }
