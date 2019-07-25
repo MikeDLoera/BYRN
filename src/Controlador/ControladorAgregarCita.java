@@ -27,5 +27,4 @@ public class ControladorAgregarCita implements ActionListener{
             
         }
     }
-    
 }
