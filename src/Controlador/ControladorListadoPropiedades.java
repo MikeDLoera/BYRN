@@ -18,8 +18,8 @@ import java.awt.event.ActionListener;
  * @author miker
  */
 public class ControladorListadoPropiedades implements ActionListener{
-    ListadoPropiedades jf;
-    ListadoPropiedadesDAO dao;
+    private ListadoPropiedades jf;
+    private ListadoPropiedadesDAO dao;
 
     public ControladorListadoPropiedades(ListadoPropiedades jf, ListadoPropiedadesDAO dao) {
         this.jf = jf;
