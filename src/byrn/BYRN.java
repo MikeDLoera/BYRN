@@ -226,27 +226,35 @@ public class BYRN {
         start.setVisible(false);
         //se añade dashboard al frame app
         addPanelFull(dashboard,true);
+        //se crea nuevo menu
         DashBoard dashMenu = new DashBoard();
         ControladorDashBoard cd = new ControladorDashBoard(dashMenu);
+        //se crea la vista principal
         ListadoPropiedades propiedades = new ListadoPropiedades();
         ListadoPropiedadesDAO propiedadesDAO = new ListadoPropiedadesDAO();
         ControladorListadoPropiedades clp = new ControladorListadoPropiedades(propiedades, propiedadesDAO);
         
+        //se añade menu y propiedades a la app
         addPanel(dashboard.menu, dashMenu);
         addPanel(dashboard.contenido, propiedades);
         
+        //se maximiza la ventana
         app.setExtendedState(MAXIMIZED_BOTH);
         app.setLocation(0,0);
-        app.setLocationRelativeTo(null);
+        //se visualiza la ventana
         app.setVisible(true);
+        //tamaño minimo igual al tamaño actual
         app.setMinimumSize(app.getSize());
         
+        //obtiene altura de la ventana app
         int h = app.getHeight();
+        System.out.println(dashboard.menu.getHeight()+"  "+app.getHeight());
         int wm = (app.getWidth()*15)/100;
         int wc = app.getWidth()-wm;
         
         dashboard.menu.setSize(wm, h);
-        dashboard.contenido.setBounds(wm, 0, wc, app.getHeight());
+        dashboard.contenido.setBounds(wm, 0, wc, h);
+        
     }
     
     public static String carpetaLocal(){
