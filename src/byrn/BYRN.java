@@ -222,9 +222,10 @@ public class BYRN {
     
     //abre panel de la app
     public static void dashboard(){
+        //no visualizar frame start
         start.setVisible(false);
+        //se añade dashboard al frame app
         addPanelFull(dashboard,true);
-        app.setLocationRelativeTo(null);
         DashBoard dashMenu = new DashBoard();
         ControladorDashBoard cd = new ControladorDashBoard(dashMenu);
         ListadoPropiedades propiedades = new ListadoPropiedades();
@@ -236,6 +237,7 @@ public class BYRN {
         
         app.setExtendedState(MAXIMIZED_BOTH);
         app.setLocation(0,0);
+        app.setLocationRelativeTo(null);
         app.setVisible(true);
         app.setMinimumSize(app.getSize());
         
