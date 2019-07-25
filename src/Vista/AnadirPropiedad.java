@@ -114,11 +114,6 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         btnGuardarNuevaPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
         btnGuardarNuevaPropiedad.setText("Guardar ");
         btnGuardarNuevaPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnGuardarNuevaPropiedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarNuevaPropiedadActionPerformed(evt);
-            }
-        });
         PanAñadirPropiedad.add(btnGuardarNuevaPropiedad);
         btnGuardarNuevaPropiedad.setBounds(220, 330, 120, 50);
 
@@ -193,10 +188,6 @@ public class AnadirPropiedad extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnGuardarNuevaPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNuevaPropiedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarNuevaPropiedadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

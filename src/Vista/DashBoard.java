@@ -45,11 +45,6 @@ public class DashBoard extends javax.swing.JPanel {
         dashPropiedades.setContentAreaFilled(false);
         dashPropiedades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         dashPropiedades.setFocusPainted(false);
-        dashPropiedades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashPropiedadesActionPerformed(evt);
-            }
-        });
 
         dashCitas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dashCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/cuaderno.png"))); // NOI18N
@@ -60,11 +55,6 @@ public class DashBoard extends javax.swing.JPanel {
         dashCitas.setMaximumSize(new java.awt.Dimension(99, 25));
         dashCitas.setMinimumSize(new java.awt.Dimension(99, 25));
         dashCitas.setPreferredSize(new java.awt.Dimension(99, 25));
-        dashCitas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashCitasActionPerformed(evt);
-            }
-        });
 
         dashUsuarios.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dashUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/usuario.png"))); // NOI18N
@@ -99,11 +89,6 @@ public class DashBoard extends javax.swing.JPanel {
         dashCerrarSesion.setMaximumSize(new java.awt.Dimension(99, 25));
         dashCerrarSesion.setMinimumSize(new java.awt.Dimension(99, 25));
         dashCerrarSesion.setPreferredSize(new java.awt.Dimension(99, 25));
-        dashCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashCerrarSesionActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -148,18 +133,6 @@ public class DashBoard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void dashCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashCitasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashCitasActionPerformed
-
-    private void dashPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashPropiedadesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashPropiedadesActionPerformed
-
-    private void dashCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashCerrarSesionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashCerrarSesionActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton dashCerrarSesion;

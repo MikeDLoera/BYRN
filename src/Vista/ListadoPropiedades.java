@@ -120,41 +120,21 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnEliminarPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/borrar (1).png"))); // NOI18N
         btnEliminarPropiedad.setText("Eliminar");
         btnEliminarPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEliminarPropiedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarPropiedadActionPerformed(evt);
-            }
-        });
 
         btnEditarPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnEditarPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/editar.png"))); // NOI18N
         btnEditarPropiedad.setText("Editar");
         btnEditarPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEditarPropiedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarPropiedadActionPerformed(evt);
-            }
-        });
 
         btnMasInformacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnMasInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/informacion.png"))); // NOI18N
         btnMasInformacion.setText("Más Información");
         btnMasInformacion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnMasInformacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMasInformacionActionPerformed(evt);
-            }
-        });
 
         btnAnadirPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAnadirPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
         btnAnadirPropiedad.setText("Añadir");
         btnAnadirPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAnadirPropiedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnadirPropiedadActionPerformed(evt);
-            }
-        });
 
         btnExcel.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Excel.png"))); // NOI18N
@@ -326,22 +306,6 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEliminarPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPropiedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarPropiedadActionPerformed
-
-    private void btnEditarPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPropiedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarPropiedadActionPerformed
-
-    private void btnMasInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasInformacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMasInformacionActionPerformed
-
-    private void btnAnadirPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirPropiedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAnadirPropiedadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -93,11 +93,6 @@ public class Citas extends javax.swing.JPanel {
         btnAgregarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
         btnAgregarCita.setText("Agregar Cita");
         btnAgregarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAgregarCita.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarCitaActionPerformed(evt);
-            }
-        });
 
         btnBorarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnBorarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/borrar (1).png"))); // NOI18N
@@ -196,10 +191,6 @@ public class Citas extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAgregarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCitaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarCitaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
