@@ -273,12 +273,12 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                         .addComponent(jScrollPane2)
                         .addGap(18, 18, 18)
                         .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                .addGap(22, 22, 22))
         );
         jListadoDePropiedadesLayout.setVerticalGroup(
             jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(22, 22, 22)
                 .addComponent(panlListadoDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
