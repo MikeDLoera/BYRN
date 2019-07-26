@@ -1,7 +1,9 @@
 
 package Controlador;
 
+import Modelo.CitasDAO;
 import Modelo.ListadoPropiedadesDAO;
+import Modelo.UsuariosDAO;
 import Vista.Citas;
 import Vista.DashBoard;
 import Vista.ListadoPropiedades;
@@ -36,10 +38,13 @@ public class ControladorDashBoard implements ActionListener{
         }
         if (jf.dashCitas==e.getSource()) {
             Citas c = new Citas();
+            CitasDAO cdao = new CitasDAO();
+            ControladorCitas cc = new ControladorCitas(c, cdao);
             BYRN.saltoVentana("Citas", c);
         }
         if (jf.dashUsuarios==e.getSource()) {
             Usuarios u = new Usuarios();
+            UsuariosDAO udao = new UsuariosDAO();
             BYRN.saltoVentana("Usuarios", u);
         }
         if (jf.dashCerrarSesion==e.getSource()) {

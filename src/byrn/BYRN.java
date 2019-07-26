@@ -248,7 +248,6 @@ public class BYRN {
         
         //obtiene altura de la ventana app
         int h = app.getHeight();
-        System.out.println(dashboard.menu.getHeight()+"  "+app.getHeight());
         int wm = (app.getWidth()*15)/100;
         int wc = app.getWidth()-wm;
         

@@ -1,7 +1,6 @@
 
 package Modelo;
 
-import Vista.AgregarCita;
 
 /**
  *

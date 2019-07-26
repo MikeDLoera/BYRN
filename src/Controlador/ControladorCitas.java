@@ -5,6 +5,7 @@ import Modelo.AgregarCitaDAO;
 import Modelo.CitasDAO;
 import Vista.AgregarCita;
 import Vista.Citas;
+import byrn.BYRN;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +32,7 @@ public class ControladorCitas implements ActionListener{
             AgregarCita ac = new AgregarCita();
             AgregarCitaDAO acdao = new AgregarCitaDAO();
             ControladorAgregarCita cac = new ControladorAgregarCita(ac, acdao);
+            BYRN.nuevaVentana("Agregar cita", ac);
         }
         if (jf.btnBorarCita==e.getSource()) {
             
