@@ -1,7 +1,9 @@
 
 package Controlador;
 
+import Modelo.AgregarCitaDAO;
 import Modelo.CitasDAO;
+import Vista.AgregarCita;
 import Vista.Citas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +28,9 @@ public class ControladorCitas implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (jf.btnAgregarCita==e.getSource()) {
-            
+            AgregarCita ac = new AgregarCita();
+            AgregarCitaDAO acdao = new AgregarCitaDAO();
+            ControladorAgregarCita cac = new ControladorAgregarCita(ac, acdao);
         }
         if (jf.btnBorarCita==e.getSource()) {
             
