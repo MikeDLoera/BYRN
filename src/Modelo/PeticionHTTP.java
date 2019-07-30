@@ -20,9 +20,9 @@ public class PeticionHTTP {
     
     public static HttpResponse post(String path, String json) throws UnirestException{
         HttpResponse response =  Unirest . post(url+path)
-        .header ("Content-type" , "application / json")
+        .header ("Content-type" , "application/json")
         .body(json)
-        .asJson ();
+        .asJson();
         return response;
     }
     
