@@ -6,32 +6,32 @@ package Modelo;
  * @author CST-UTJ
  */
 public class InicioSesionMOD {
-    private String user;
-    private String pass;
+    private String email;
+    private String password;
 
     public InicioSesionMOD(){
-        this.user=null;
-        this.pass=null;
+        this.email=null;
+        this.password=null;
     }
     
     public InicioSesionMOD(String user, String pass) {
-        this.user = user;
-        this.pass = pass;
+        this.email = user;
+        this.password = pass;
     }
 
-    public String getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setEmail(String user) {
+        this.email = user;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String pass) {
+        this.password = pass;
     }
 }

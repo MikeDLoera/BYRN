@@ -32,18 +32,21 @@ public class ControladorInicioSesion implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (jf.btnAcceder==e.getSource()) {
             InicioSesionMOD mod = new InicioSesionMOD();
-            mod.setUser(jf.txtUsuario.getText());
-            mod.setPass(String.valueOf(jf.txtPass.getPassword()));
+            mod.setEmail(jf.txtUsuario.getText());
+            mod.setPassword(String.valueOf(jf.txtPass.getPassword()));
             
             try {
                 HttpResponse request = PeticionHTTP.post("/login", gson.toJson(mod));
+                System.out.println(request.getStatus());
+                System.out.println(request.getBody());
                 if (request.getStatus()==200) {
-                    //System.out.println(request.getBody());
-                    BYRN.setAuth(request.getBody().toString());
+                    System.out.println(":v");
+                    
+                   //BYRN.setAuth(request.getBody().toString());
                     if (jf.cbxRecuerdame.isSelected()) {
                         InicioSesionDAO.crearJson(BYRN.getAuthJson(),BYRN.fileAuth());
                     }
-                    BYRN.dashboard();
+                    //BYRN.dashboard();
                 }
             } catch (UnirestException ex) {
                 System.out.println("No hay conexion");
