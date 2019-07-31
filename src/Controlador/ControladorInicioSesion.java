@@ -19,6 +19,7 @@ public class ControladorInicioSesion implements ActionListener{
     private InicioSesionDAO dao;
     private Login jf;
     private Gson gson = new Gson();
+   
     
     public ControladorInicioSesion(InicioSesionDAO dao,Login jf){
         this.dao = dao;
@@ -31,9 +32,14 @@ public class ControladorInicioSesion implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (jf.btnAcceder==e.getSource()) {
+           
             InicioSesionMOD mod = new InicioSesionMOD();
             mod.setEmail(jf.txtUsuario.getText());
             mod.setPassword(String.valueOf(jf.txtPass.getPassword()));
+            
+            
+          
+           
             try {
                 HttpResponse request = PeticionHTTP.post("/login", gson.toJson(mod));
                 System.out.println(request.getStatus());
@@ -43,8 +49,12 @@ public class ControladorInicioSesion implements ActionListener{
                     if (jf.cbxRecuerdame.isSelected()) {
                         InicioSesionDAO.crearJson(BYRN.getAuthJson(),BYRN.fileAuth());
                     }
-                    //BYRN.dashboard();
+                    BYRN.dashboard();
                 }
+                else {
+                      jf.labelExcepcion.setVisible(true);
+                }
+                
             } catch (UnirestException ex) {
                 System.out.println("No hay conexion");
             }

@@ -110,9 +110,9 @@ public class Citas extends javax.swing.JPanel {
                 .addComponent(btnBorarCita)
                 .addGap(149, 149, 149)
                 .addComponent(btnEditarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(60, 60, 60)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
