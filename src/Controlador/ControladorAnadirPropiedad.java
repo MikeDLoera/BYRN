@@ -2,7 +2,9 @@
 package Controlador;
 
 import Modelo.AnadirPropiedadDAO;
+import Modelo.EditarPropiedadDAO;
 import Vista.AnadirPropiedad;
+import Vista.EditarPropiedad;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,7 +21,11 @@ public class ControladorAnadirPropiedad implements ActionListener{
         this.dao = dao;
         
         jf.btnGuardarNuevaPropiedad.addActionListener((ActionListener)this);
-        jf.btnAnadirCita.addActionListener((ActionListener)this);
+        jf.btnInformacionExtra.addActionListener((ActionListener)this);
+    }
+
+    ControladorAnadirPropiedad(EditarPropiedad ed, EditarPropiedadDAO edDAO) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
@@ -27,7 +33,7 @@ public class ControladorAnadirPropiedad implements ActionListener{
         if (jf.btnGuardarNuevaPropiedad==e.getSource()) {
             
         }
-        if (jf.btnAnadirCita==e.getSource()) {
+        if (jf.btnInformacionExtra==e.getSource()) {
             
         }
     }

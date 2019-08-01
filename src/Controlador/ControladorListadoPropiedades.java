@@ -2,8 +2,10 @@
 package Controlador;
 
 import Modelo.AnadirPropiedadDAO;
+import Modelo.EditarPropiedadDAO;
 import Modelo.ListadoPropiedadesDAO;
 import Vista.AnadirPropiedad;
+import Vista.EditarPropiedad;
 import Vista.ListadoPropiedades;
 import byrn.BYRN;
 import java.awt.event.ActionEvent;
@@ -43,9 +45,15 @@ public class ControladorListadoPropiedades implements ActionListener{
         }
         if (jf.btnEditarPropiedad==e.getSource()) {
             
+            EditarPropiedad ed = new EditarPropiedad();
+            EditarPropiedadDAO edDAO = new EditarPropiedadDAO();
+            ControladorAnadirPropiedad con = new ControladorAnadirPropiedad(ed, edDAO);
+            
+              
+              
         }
         if (jf.btnMasInformacion==e.getSource()) {
-            
+           
         }
         if (jf.btnExcel==e.getSource()) {
             
