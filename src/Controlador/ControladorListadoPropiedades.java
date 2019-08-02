@@ -5,7 +5,6 @@ import Modelo.AnadirPropiedadDAO;
 import Modelo.EditarPropiedadDAO;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
-import Modelo.PeticionHTTP;
 import Vista.AnadirPropiedad;
 import Vista.EditarPropiedad;
 import Vista.InformacionDePropiedades;
@@ -34,8 +33,6 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnMasInformacion.addActionListener((ActionListener)this);
         jf.btnSiguente.addActionListener((ActionListener)this);
         
-        //String path = "/estates?email="
-        //Estates[] allEstates = BYRN.gson.fromJson(PeticionHTTP.get(path), classOfT)
     }
     
     @Override
@@ -62,7 +59,7 @@ public class ControladorListadoPropiedades implements ActionListener{
            InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO();
            ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
           BYRN.nuevaVentana("Más Información", inf);
-
+          
            
         }
         if (jf.btnExcel==e.getSource()) {
@@ -74,6 +71,10 @@ public class ControladorListadoPropiedades implements ActionListener{
         if (jf.btnSiguente==e.getSource()) {
             
         }
+    }
+    
+    private void tabla(){
+        
     }
     
 }

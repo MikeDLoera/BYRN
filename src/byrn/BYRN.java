@@ -18,12 +18,7 @@ import Vista.Start;
 import com.google.gson.Gson;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -53,7 +48,7 @@ public class BYRN {
     public static void runApp() throws InterruptedException, IOException{
         carga();
         //Se prepara archivo auth
-        File auth = new File(fileAuth());
+        //File auth = new File(fileAuth());
         //Si no existe se muestra login
         /*if (!auth.exists()) {
             //muestra login

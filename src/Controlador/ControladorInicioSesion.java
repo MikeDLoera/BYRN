@@ -1,13 +1,11 @@
 
 package Controlador;
 
+import Modelo.AuthUser;
 import Modelo.InicioSesionDAO;
-import Modelo.InicioSesionMOD;
-import Modelo.PeticionHTTP;
 import Vista.Login;
 import byrn.BYRN;
 import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
@@ -34,23 +32,17 @@ public class ControladorInicioSesion implements ActionListener{
             BYRN.getSesion().setEmail(jf.txtUsuario.getText());
             BYRN.getSesion().setPassword(String.valueOf(jf.txtPass.getPassword()));
             
-            try {
-                HttpResponse request = PeticionHTTP.post("/login", BYRN.gson.toJson(BYRN.getSesion()));
-                System.out.println(request.getStatus());
-                System.out.println(request.getBody());
-                if (request.getStatus()==200) {
-                   //BYRN.setAuth(request.getBody().toString());
-                    if (jf.cbxRecuerdame.isSelected()) {
-                        //InicioSesionDAO.crearJson(BYRN.getAuthJson(),BYRN.fileAuth());
-                    }
-                    BYRN.dashboard();
+            HttpResponse request = dao.request();
+            if (request.getStatus() == 200) {
+                String json = request.getBody().toString();
+                BYRN.setAuth(json);
+                if (jf.cbxRecuerdame.isSelected()) {
+                    dao.crearJson(json,BYRN.fileAuth());
                 }
-                else {
-                      jf.labelExcepcion.setVisible(true);
-                }
-                
-            } catch (UnirestException ex) {
-                System.out.println("No hay conexion");
+                BYRN.dashboard();
+            }
+            else {
+                jf.labelExcepcion.setVisible(true);
             }
         }
         if (jf.btnCerrar==e.getSource()) {
