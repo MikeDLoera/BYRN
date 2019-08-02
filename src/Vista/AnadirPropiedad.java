@@ -68,7 +68,7 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel1.setText("Calle");
         PanAñadirPropiedad.add(jLabel1);
-        jLabel1.setBounds(650, 110, 120, 21);
+        jLabel1.setBounds(650, 110, 120, 18);
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel6.setText("Número de casa");
@@ -78,12 +78,12 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel7.setText("Descripción");
         PanAñadirPropiedad.add(jLabel7);
-        jLabel7.setBounds(630, 280, 110, 21);
+        jLabel7.setBounds(630, 280, 110, 18);
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel8.setText("Codigo Postal");
         PanAñadirPropiedad.add(jLabel8);
-        jLabel8.setBounds(630, 220, 120, 21);
+        jLabel8.setBounds(630, 220, 120, 18);
 
         txtCalle.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtCalle);
@@ -108,12 +108,13 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel9.setText("Más info");
         PanAñadirPropiedad.add(jLabel9);
-        jLabel9.setBounds(730, 20, 170, 28);
+        jLabel9.setBounds(730, 20, 170, 24);
 
         btnGuardarNuevaPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarNuevaPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
         btnGuardarNuevaPropiedad.setText("Guardar ");
         btnGuardarNuevaPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardarNuevaPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanAñadirPropiedad.add(btnGuardarNuevaPropiedad);
         btnGuardarNuevaPropiedad.setBounds(220, 330, 120, 50);
 
@@ -121,6 +122,7 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         btnInformacionExtra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
         btnInformacionExtra.setText("Guardar Informacion Extra");
         btnInformacionExtra.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnInformacionExtra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanAñadirPropiedad.add(btnInformacionExtra);
         btnInformacionExtra.setBounds(660, 330, 250, 50);
 
@@ -157,17 +159,17 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel12.setText("Nombre");
         PanAñadirPropiedad.add(jLabel12);
-        jLabel12.setBounds(110, 170, 140, 21);
+        jLabel12.setBounds(110, 170, 140, 18);
 
         jLabel13.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel13.setText("Dueño");
         PanAñadirPropiedad.add(jLabel13);
-        jLabel13.setBounds(110, 220, 100, 21);
+        jLabel13.setBounds(110, 220, 100, 18);
 
         jLabel14.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel14.setText("Tipo");
         PanAñadirPropiedad.add(jLabel14);
-        jLabel14.setBounds(110, 260, 90, 21);
+        jLabel14.setBounds(110, 260, 90, 18);
 
         txtNombre.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtNombre);

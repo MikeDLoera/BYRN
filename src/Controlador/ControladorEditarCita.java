@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.EditarCitaDAO;
+import Vista.App;
 import Vista.EditarCita;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,16 +18,20 @@ import java.awt.event.ActionListener;
 public class ControladorEditarCita implements ActionListener {
     private EditarCita jf;
     private EditarCitaDAO DAO;
+        private App app;
     
-    ControladorEditarCita(EditarCita jf, EditarCitaDAO DAO) {
+    ControladorEditarCita(EditarCita jf, EditarCitaDAO DAO, App app) {
       this.jf=jf;
       this.DAO=DAO;
+      this.app=app;
       jf.btnGuardarCambiosDeCitaEdicion.addActionListener(this);
     }
      
     public void actionPerformed(ActionEvent e) {
         if (jf.btnGuardarCambiosDeCitaEdicion==e.getSource()) {
             
+            
+             app.setVisible(false);
         }
     
     

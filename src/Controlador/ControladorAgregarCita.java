@@ -3,6 +3,7 @@ package Controlador;
 
 import Modelo.AgregarCitaDAO;
 import Vista.AgregarCita;
+import Vista.App;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,11 +14,12 @@ import java.awt.event.ActionListener;
 public class ControladorAgregarCita implements ActionListener{
     private AgregarCita jf;
     private AgregarCitaDAO dao;
+    private App app;
 
-    public ControladorAgregarCita(AgregarCita jf, AgregarCitaDAO dao) {
+    public ControladorAgregarCita(AgregarCita jf, AgregarCitaDAO dao,App app) {
         this.jf = jf;
         this.dao = dao;
-        
+        this.app=app;
         jf.btnGuardarCita.addActionListener((ActionListener)this);
     }
 
@@ -25,6 +27,8 @@ public class ControladorAgregarCita implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (jf.btnGuardarCita==e.getSource()) {
             
+            app.setVisible(false);
+     
         }
     }
 }

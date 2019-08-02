@@ -97,6 +97,7 @@ public class Login extends javax.swing.JPanel {
         btnAcceder.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         btnAcceder.setText("Acceder");
         btnAcceder.setBorderPainted(false);
+        btnAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcceder.setFocusPainted(false);
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +132,6 @@ public class Login extends javax.swing.JPanel {
                 .addGap(160, 160, 160)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAcceder)
                         .addGap(27, 27, 27))
                     .addComponent(labelExcepcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))

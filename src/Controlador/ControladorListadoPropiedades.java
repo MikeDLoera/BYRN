@@ -6,6 +6,7 @@ import Modelo.EditarPropiedadDAO;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
 import Vista.AnadirPropiedad;
+import Vista.App;
 import Vista.EditarPropiedad;
 import Vista.InformacionDePropiedades;
 import Vista.ListadoPropiedades;
@@ -55,16 +56,18 @@ public class ControladorListadoPropiedades implements ActionListener{
         if (jf.btnEditarPropiedad==e.getSource()) {
             
             EditarPropiedad ed = new EditarPropiedad();
+                  App app = BYRN.nuevaVentana("Editar Propiedad", ed);
             EditarPropiedadDAO edDAO = new EditarPropiedadDAO();
-            ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO);
-            BYRN.nuevaVentana("Editar Propiedad", ed);
+            ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
+      
  
         }
         if (jf.btnMasInformacion==e.getSource()) {
            InformacionDePropiedades inf = new InformacionDePropiedades();
+             App app = BYRN.nuevaVentana("Más Información", inf);
            InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO();
            ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
-          BYRN.nuevaVentana("Más Información", inf);
+        
           
            
         }

@@ -56,6 +56,7 @@ public class AgregarCita extends javax.swing.JPanel {
         );
 
         setBackground(new java.awt.Color(143, 198, 94));
+        setName(""); // NOI18N
 
         PanAñadirCita.setBackground(new java.awt.Color(233, 248, 223));
         PanAñadirCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -82,6 +83,7 @@ public class AgregarCita extends javax.swing.JPanel {
         btnGuardarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
         btnGuardarCita.setText("Guardar Cita");
         btnGuardarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -146,11 +148,10 @@ public class AgregarCita extends javax.swing.JPanel {
                 .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNumeroDePropiedadAgregarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                     .addComponent(txtCodigoDelSolicitanteAgregarCita)
-                    .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtTipoDeCitaAgregarCita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                        .addComponent(txtUbicacionAgregarCita, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtHoraDeInicioAgregarCita, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtFechaAgregarCita, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(txtTipoDeCitaAgregarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .addComponent(txtUbicacionAgregarCita)
+                    .addComponent(txtHoraDeInicioAgregarCita)
+                    .addComponent(txtFechaAgregarCita))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
         PanAñadirCitaLayout.setVerticalGroup(

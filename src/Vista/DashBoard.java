@@ -43,7 +43,7 @@ public class DashBoard extends javax.swing.JPanel {
         dashPropiedades.setBorder(null);
         dashPropiedades.setBorderPainted(false);
         dashPropiedades.setContentAreaFilled(false);
-        dashPropiedades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        dashPropiedades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dashPropiedades.setFocusPainted(false);
 
         dashCitas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -51,6 +51,7 @@ public class DashBoard extends javax.swing.JPanel {
         dashCitas.setText("Citas");
         dashCitas.setBorderPainted(false);
         dashCitas.setContentAreaFilled(false);
+        dashCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dashCitas.setFocusPainted(false);
         dashCitas.setMaximumSize(new java.awt.Dimension(99, 25));
         dashCitas.setMinimumSize(new java.awt.Dimension(99, 25));
@@ -61,10 +62,17 @@ public class DashBoard extends javax.swing.JPanel {
         dashUsuarios.setText("Usuarios");
         dashUsuarios.setBorderPainted(false);
         dashUsuarios.setContentAreaFilled(false);
+        dashUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dashUsuarios.setFocusPainted(false);
         dashUsuarios.setMaximumSize(new java.awt.Dimension(99, 25));
         dashUsuarios.setMinimumSize(new java.awt.Dimension(99, 25));
         dashUsuarios.setPreferredSize(new java.awt.Dimension(99, 25));
+
+        jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jSeparator3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jSeparator4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/LogoDefinitiva.jpg"))); // NOI18N
 
@@ -85,6 +93,7 @@ public class DashBoard extends javax.swing.JPanel {
         dashCerrarSesion.setText(" Cerrar sesión");
         dashCerrarSesion.setBorderPainted(false);
         dashCerrarSesion.setContentAreaFilled(false);
+        dashCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dashCerrarSesion.setFocusPainted(false);
         dashCerrarSesion.setMaximumSize(new java.awt.Dimension(99, 25));
         dashCerrarSesion.setMinimumSize(new java.awt.Dimension(99, 25));
