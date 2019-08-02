@@ -54,6 +54,7 @@ public class EditarPropiedad extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(143, 198, 94));
 
+        jPanel2.setBackground(new java.awt.Color(233, 248, 223));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));

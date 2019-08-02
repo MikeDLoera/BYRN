@@ -27,14 +27,15 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
         PanDetalles = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblDetalles = new rojerusan.RSTableMetro();
+        lbNombreDeLaCalleDelPanelInformacionDePropiedades = new javax.swing.JLabel();
+        lbNumeroDeCasaDetalles = new javax.swing.JLabel();
+        lbCodigoPostalDetalles = new javax.swing.JLabel();
+        lbDescripcionDetalles = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(143, 198, 94));
 
-        PanDetalles.setBackground(new java.awt.Color(223, 248, 223));
+        PanDetalles.setBackground(new java.awt.Color(233, 248, 223));
         PanDetalles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -42,48 +43,44 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel1.setText("Detalles");
 
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        lbNombreDeLaCalleDelPanelInformacionDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbNombreDeLaCalleDelPanelInformacionDePropiedades.setText("Aqui va la calle de la propiedad");
 
-        tblDetalles.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"", "", "", ""},
-                {"", "", "", ""},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Calle", "Número de Casa", "Codigo Postal", "Descripción"
-            }
-        ));
-        tblDetalles.setColorBackgoundHead(new java.awt.Color(40, 153, 118));
-        tblDetalles.setColorFilasBackgound2(new java.awt.Color(233, 248, 223));
-        tblDetalles.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tblDetalles.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
-        tblDetalles.setColorSelBackgound(new java.awt.Color(0, 0, 0));
-        tblDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        tblDetalles.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        tblDetalles.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        tblDetalles.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jScrollPane2.setViewportView(tblDetalles);
+        lbNumeroDeCasaDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbNumeroDeCasaDetalles.setText("Numero de Casa");
+
+        lbCodigoPostalDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbCodigoPostalDetalles.setText("CodigoPostal");
+
+        lbDescripcionDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbDescripcionDetalles.setText("Descripcion");
 
         javax.swing.GroupLayout PanDetallesLayout = new javax.swing.GroupLayout(PanDetalles);
         PanDetalles.setLayout(PanDetallesLayout);
         PanDetallesLayout.setHorizontalGroup(
             PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addComponent(jSeparator2)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(249, Short.MAX_VALUE)
                 .addGroup(PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(PanDetallesLayout.createSequentialGroup()
-                .addGap(463, 463, 463)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
+                        .addGroup(PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNombreDeLaCalleDelPanelInformacionDePropiedades)
+                            .addGroup(PanDetallesLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(lbNumeroDeCasaDetalles))
+                            .addGroup(PanDetallesLayout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbDescripcionDetalles)
+                                    .addComponent(lbCodigoPostalDetalles))))
+                        .addGap(235, 235, 235))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(297, 297, 297))))
         );
         PanDetallesLayout.setVerticalGroup(
             PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,11 +89,15 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(lbNombreDeLaCalleDelPanelInformacionDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbNumeroDeCasaDetalles)
+                .addGap(33, 33, 33)
+                .addComponent(lbCodigoPostalDetalles)
+                .addGap(35, 35, 35)
+                .addComponent(lbDescripcionDetalles)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -105,7 +106,7 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(PanDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -125,9 +126,10 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    public rojerusan.RSTableMetro tblDetalles;
+    private javax.swing.JLabel lbCodigoPostalDetalles;
+    private javax.swing.JLabel lbDescripcionDetalles;
+    private javax.swing.JLabel lbNombreDeLaCalleDelPanelInformacionDePropiedades;
+    private javax.swing.JLabel lbNumeroDeCasaDetalles;
     // End of variables declaration//GEN-END:variables
 }

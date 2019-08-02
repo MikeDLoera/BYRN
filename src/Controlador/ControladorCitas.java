@@ -3,8 +3,10 @@ package Controlador;
 
 import Modelo.AgregarCitaDAO;
 import Modelo.CitasDAO;
+import Modelo.EditarCitaDAO;
 import Vista.AgregarCita;
 import Vista.Citas;
+import Vista.EditarCita;
 import byrn.BYRN;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +40,10 @@ public class ControladorCitas implements ActionListener{
             
         }
         if (jf.btnEditarCita==e.getSource()) {
+            EditarCita c = new EditarCita();
+            EditarCitaDAO cDAO = new EditarCitaDAO();
+            ControladorEditarCita cc = new ControladorEditarCita(c, cDAO);
+                      BYRN.nuevaVentana("Edición de Citas", c);
             
         }
         

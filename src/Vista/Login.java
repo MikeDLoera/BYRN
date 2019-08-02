@@ -83,9 +83,9 @@ public class Login extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(88, 167, 64));
         jLabel3.setText("Contraseña:");
 
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         cbxRecuerdame.setBackground(new java.awt.Color(255, 255, 255));
         cbxRecuerdame.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N

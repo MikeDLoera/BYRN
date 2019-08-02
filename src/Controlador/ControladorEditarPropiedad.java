@@ -20,9 +20,18 @@ public class ControladorEditarPropiedad implements ActionListener{
       private EditarPropiedad jf;
     private EditarPropiedadDAO dao;
     
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-       
+       public ControladorEditarPropiedad ( EditarPropiedad jf,  EditarPropiedadDAO dao){
+           this.jf=jf;
+           this.dao=dao;
+           jf.btnGuardarCambiosDeEdicionDePropiedades.addActionListener(this);
+       }
+    
+    
+    
+    public void actionPerformed(ActionEvent e) {
+        if (jf.btnGuardarCambiosDeEdicionDePropiedades==e.getSource()) {
+            
+        }
     }
     
 }

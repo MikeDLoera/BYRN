@@ -48,7 +48,7 @@ public class BYRN {
     private static Dash dashboard = new Dash();
     
     public static void runApp() throws InterruptedException, IOException{
-        //carga();
+        carga();
         //Se prepara archivo auth
         File auth = new File(fileAuth());
         //Si no existe se muestra login
