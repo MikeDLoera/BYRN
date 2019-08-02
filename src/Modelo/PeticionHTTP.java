@@ -14,6 +14,9 @@ public class PeticionHTTP {
     
     public static HttpResponse get(String path) throws UnirestException {
         HttpResponse response = Unirest . get(url+path)
+        .header("Content-type", "application/json")
+        .header("Accept", "application/json")
+        .header("Authorization", "Bearer")
         .asJson();
         return response;
     }
@@ -21,6 +24,8 @@ public class PeticionHTTP {
     public static HttpResponse post(String path, String json) throws UnirestException{
         HttpResponse response =  Unirest . post(url+path)
         .header ("Content-type" , "application/json")
+        .header("Accept", "application/json")
+        .header("Authorization", "Bearer")
         .body(json)
         .asJson();
         return response;
@@ -28,6 +33,9 @@ public class PeticionHTTP {
     
     public static HttpResponse delete(String path) throws Exception{
         HttpResponse response = Unirest . delete(url+path)
+        .header ("Content-type" , "application/json")
+        .header("Accept", "application/json")
+        .header("Authorization", "Bearer")
         .asJson();
         return response;
     }
@@ -35,6 +43,8 @@ public class PeticionHTTP {
     public static HttpResponse put(String path, String json) throws UnirestException{
         HttpResponse response =  Unirest . put(url+path)
         .header ("Content-type" , "application/json")
+        .header("Accept", "application/json")
+        .header("Authorization", "Bearer")
         .body(json)
         .asJson ();
         return response;
