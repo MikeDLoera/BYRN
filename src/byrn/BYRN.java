@@ -6,6 +6,7 @@ import Controlador.ControladorInicioSesion;
 import Controlador.ControladorListadoPropiedades;
 import Modelo.AuthUser;
 import Modelo.InicioSesionDAO;
+import Modelo.InicioSesionMOD;
 import Modelo.ListadoPropiedadesDAO;
 import Vista.App;
 import Vista.Dash;
@@ -44,15 +45,17 @@ public class BYRN {
     
     private static Start start = new Start();
     private static App app = new App();
-    private static AuthUser authUser = new AuthUser();
     private static Dash dashboard = new Dash();
+    private static AuthUser authUser = new AuthUser();
+    private static InicioSesionMOD sesion = new InicioSesionMOD();
+    public static Gson gson = new Gson();
     
     public static void runApp() throws InterruptedException, IOException{
         carga();
         //Se prepara archivo auth
         File auth = new File(fileAuth());
         //Si no existe se muestra login
-        if (!auth.exists()) {
+        /*if (!auth.exists()) {
             //muestra login
             login();
         } else {
@@ -70,7 +73,8 @@ public class BYRN {
                 cerrarSesion();
                 app.setVisible(false);
             }
-        }
+        }*/
+        login();//este es de prueba
     }
     
     //agrega contenido de un panel dentro del frame
@@ -199,6 +203,14 @@ public class BYRN {
         //se visualiza login
         fadeIn();
     }
+
+    public static InicioSesionMOD getSesion() {
+        return sesion;
+    }
+
+    public static void setSesion(InicioSesionMOD sesion) {
+        BYRN.sesion = sesion;
+    }
     
     //carga app
     public static void carga(){
@@ -265,22 +277,19 @@ public class BYRN {
     }
     
     public static void setAuth(String json){
-        Gson gson = new Gson();
         authUser = gson.fromJson(json, AuthUser.class);
     }
     
-    public static String getAuthJson(){
-        Gson gson = new Gson();
-        return gson.toJson(authUser);
+    public static AuthUser getAuth(){
+        return authUser;
     }
     
     public static void cerrarSesion(){
         authUser = new AuthUser();
-        File auth = new File(fileAuth());
+        /*File auth = new File(fileAuth());
         if (auth.exists()) {
             authUser.setToken("");
             authUser.setExpiration(0);
-            Gson gson = new Gson();
             FileWriter fichero = null;
             PrintWriter pw = null;
             try{
@@ -301,7 +310,7 @@ public class BYRN {
             } catch (IOException ex) {
                 Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }*/
         app.setVisible(false);
         login();
     }

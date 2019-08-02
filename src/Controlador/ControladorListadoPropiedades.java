@@ -5,6 +5,7 @@ import Modelo.AnadirPropiedadDAO;
 import Modelo.EditarPropiedadDAO;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
+import Modelo.PeticionHTTP;
 import Vista.AnadirPropiedad;
 import Vista.EditarPropiedad;
 import Vista.InformacionDePropiedades;
@@ -32,6 +33,9 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnExcel.addActionListener((ActionListener)this);
         jf.btnMasInformacion.addActionListener((ActionListener)this);
         jf.btnSiguente.addActionListener((ActionListener)this);
+        
+        //String path = "/estates?email="
+        //Estates[] allEstates = BYRN.gson.fromJson(PeticionHTTP.get(path), classOfT)
     }
     
     @Override

@@ -7,14 +7,14 @@ package Modelo;
  */
 public class AuthUser {
     private String token;
-    private long expiration;
+    private User user;
 
     public AuthUser() {
     }
 
-    public AuthUser(String token, long expiration) {
+    public AuthUser(String token, User user) {
         this.token = token;
-        this.expiration = expiration;
+        this.user = user;
     }
 
     public String getToken() {
@@ -25,11 +25,12 @@ public class AuthUser {
         this.token = token;
     }
 
-    public long getExpiration() {
-        return expiration;
+    public User getUser() {
+        return user;
     }
 
-    public void setExpiration(long expiration) {
-        this.expiration = expiration;
+    public void setUser(User user) {
+        this.user = user;
     }
+    
 }

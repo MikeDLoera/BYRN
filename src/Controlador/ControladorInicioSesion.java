@@ -6,7 +6,6 @@ import Modelo.InicioSesionMOD;
 import Modelo.PeticionHTTP;
 import Vista.Login;
 import byrn.BYRN;
-import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
@@ -18,7 +17,6 @@ import java.awt.event.ActionListener;
 public class ControladorInicioSesion implements ActionListener{
     private InicioSesionDAO dao;
     private Login jf;
-    private Gson gson = new Gson();
    
     
     public ControladorInicioSesion(InicioSesionDAO dao,Login jf){
@@ -33,21 +31,17 @@ public class ControladorInicioSesion implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (jf.btnAcceder==e.getSource()) {
            
-            InicioSesionMOD mod = new InicioSesionMOD();
-            mod.setEmail(jf.txtUsuario.getText());
-            mod.setPassword(String.valueOf(jf.txtPass.getPassword()));
+            BYRN.getSesion().setEmail(jf.txtUsuario.getText());
+            BYRN.getSesion().setPassword(String.valueOf(jf.txtPass.getPassword()));
             
-            
-          
-           
             try {
-                HttpResponse request = PeticionHTTP.post("/login", gson.toJson(mod));
+                HttpResponse request = PeticionHTTP.post("/login", BYRN.gson.toJson(BYRN.getSesion()));
                 System.out.println(request.getStatus());
                 System.out.println(request.getBody());
                 if (request.getStatus()==200) {
                    //BYRN.setAuth(request.getBody().toString());
                     if (jf.cbxRecuerdame.isSelected()) {
-                        InicioSesionDAO.crearJson(BYRN.getAuthJson(),BYRN.fileAuth());
+                        //InicioSesionDAO.crearJson(BYRN.getAuthJson(),BYRN.fileAuth());
                     }
                     BYRN.dashboard();
                 }
