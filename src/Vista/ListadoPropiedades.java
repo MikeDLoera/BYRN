@@ -126,26 +126,31 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnEliminarPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/borrar (1).png"))); // NOI18N
         btnEliminarPropiedad.setText("Eliminar");
         btnEliminarPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEliminarPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEditarPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnEditarPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/editar.png"))); // NOI18N
         btnEditarPropiedad.setText("Editar");
         btnEditarPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEditarPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnMasInformacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnMasInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/informacion.png"))); // NOI18N
         btnMasInformacion.setText("Más Información");
         btnMasInformacion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMasInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnAnadirPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAnadirPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
         btnAnadirPropiedad.setText("Añadir");
         btnAnadirPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAnadirPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnExcel.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Excel.png"))); // NOI18N
         btnExcel.setText("Exportar listado en Excel");
         btnExcel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
@@ -153,11 +158,13 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnFiltrarCasas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/casa.png"))); // NOI18N
         btnFiltrarCasas.setText("Solo Casas");
         btnFiltrarCasas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFiltrarCasas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnFiltrarTerrenos.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnFiltrarTerrenos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/terreno.png"))); // NOI18N
         btnFiltrarTerrenos.setText("Solo Terrenos");
         btnFiltrarTerrenos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFiltrarTerrenos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -244,10 +251,12 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnSiguente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnSiguente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/flecha-derecha.png"))); // NOI18N
         btnSiguente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSiguente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnAnterior.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/espalda.png"))); // NOI18N
         btnAnterior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panImagenDePropiedadesLayout = new javax.swing.GroupLayout(panImagenDePropiedades);
         panImagenDePropiedades.setLayout(panImagenDePropiedadesLayout);
@@ -293,6 +302,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
 
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/busqueda.png"))); // NOI18N
         btnBusqueda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jListadoDePropiedadesLayout = new javax.swing.GroupLayout(jListadoDePropiedades);
         jListadoDePropiedades.setLayout(jListadoDePropiedadesLayout);

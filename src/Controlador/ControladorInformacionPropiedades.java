@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.InformacionPropiedadesDAO;
+import Vista.App;
 import Vista.InformacionDePropiedades;
 
 /**
@@ -16,6 +17,7 @@ public class ControladorInformacionPropiedades {
     
     private InformacionDePropiedades inf;
     private InformacionPropiedadesDAO infDAO;
+   
 
     ControladorInformacionPropiedades(InformacionDePropiedades inf, InformacionPropiedadesDAO infDAO) {
         this.inf=inf;

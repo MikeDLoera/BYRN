@@ -114,7 +114,7 @@ public class BYRN {
         viejo.repaint();
     }
     
-    public static void nuevaVentana(String titulo, JPanel contenido){
+    public static App nuevaVentana(String titulo, JPanel contenido){
         App ventana = new App();
         //obtiene dimención de nuevo panel
         Dimension tam = new Dimension(contenido.getPreferredSize());
@@ -143,6 +143,8 @@ public class BYRN {
         ventana.setLocationRelativeTo(null);
         //ventana visible
         ventana.setVisible(true);
+        
+        return ventana;
     }
     
     public static void saltoVentana(String titulo,JPanel panel){

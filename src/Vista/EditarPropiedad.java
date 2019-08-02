@@ -96,6 +96,7 @@ public class EditarPropiedad extends javax.swing.JPanel {
         btnGuardarCambiosDeEdicionDePropiedades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
         btnGuardarCambiosDeEdicionDePropiedades.setText("Guardar Cambios");
         btnGuardarCambiosDeEdicionDePropiedades.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardarCambiosDeEdicionDePropiedades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
