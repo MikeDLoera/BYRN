@@ -149,6 +149,8 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel11.setText("Número de Propiedad");
         PanAñadirPropiedad.add(jLabel11);
         jLabel11.setBounds(100, 100, 200, 30);
+
+        txtNumeroDePropiedad.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtNumeroDePropiedad);
         txtNumeroDePropiedad.setBounds(320, 100, 130, 30);
 
@@ -166,10 +168,16 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel14.setText("Tipo");
         PanAñadirPropiedad.add(jLabel14);
         jLabel14.setBounds(110, 260, 90, 21);
+
+        txtNombre.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtNombre);
         txtNombre.setBounds(320, 150, 130, 30);
+
+        txtDueño.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtDueño);
         txtDueño.setBounds(320, 210, 130, 30);
+
+        txtTipo.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtTipo);
         txtTipo.setBounds(320, 260, 130, 30);
 
