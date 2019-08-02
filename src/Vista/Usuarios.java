@@ -102,6 +102,8 @@ public class Usuarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout panUsuariosWebLayout = new javax.swing.GroupLayout(panUsuariosWeb);
         panUsuariosWeb.setLayout(panUsuariosWebLayout);
         panUsuariosWebLayout.setHorizontalGroup(

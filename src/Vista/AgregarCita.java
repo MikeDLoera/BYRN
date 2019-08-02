@@ -78,6 +78,8 @@ public class AgregarCita extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
+        clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout PanAñadirCitaLayout = new javax.swing.GroupLayout(PanAñadirCita);
         PanAñadirCita.setLayout(PanAñadirCitaLayout);
         PanAñadirCitaLayout.setHorizontalGroup(

@@ -43,6 +43,8 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel1.setText("Detalles");
 
+        clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+
         lbNombreDeLaCalleDelPanelInformacionDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lbNombreDeLaCalleDelPanelInformacionDePropiedades.setText("Aqui va la calle de la propiedad");
 

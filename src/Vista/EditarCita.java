@@ -76,6 +76,8 @@ public class EditarCita extends javax.swing.JPanel {
         btnGuardarCambiosDeCitaEdicion.setText("Guardar Cambios");
         btnGuardarCambiosDeCitaEdicion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout panEditarCitaLayout = new javax.swing.GroupLayout(panEditarCita);
         panEditarCita.setLayout(panEditarCitaLayout);
         panEditarCitaLayout.setHorizontalGroup(

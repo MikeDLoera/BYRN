@@ -140,6 +140,8 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
         PanAñadirPropiedad.add(jSeparator5);
         jSeparator5.setBounds(520, 400, 550, 30);
+
+        clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         PanAñadirPropiedad.add(clockDigital1);
         clockDigital1.setBounds(850, 410, 219, 49);
 
