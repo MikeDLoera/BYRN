@@ -12,7 +12,6 @@ public class Login extends javax.swing.JPanel {
      */
     public Login() {
         initComponents();
-          labelExcepcion.setVisible(false);
     }
 
     /**
@@ -50,6 +49,7 @@ public class Login extends javax.swing.JPanel {
         btnCerrar.setBorder(null);
         btnCerrar.setBorderPainted(false);
         btnCerrar.setContentAreaFilled(false);
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCerrar.setFocusPainted(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -77,13 +77,14 @@ public class Login extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(88, 167, 64));
-        jLabel2.setText("Correo electronico:");
+        jLabel2.setText("Correo electrónico:");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(88, 167, 64));
         jLabel3.setText("Contraseña:");
 
         txtUsuario.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txtPass.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
@@ -91,12 +92,14 @@ public class Login extends javax.swing.JPanel {
         cbxRecuerdame.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         cbxRecuerdame.setForeground(new java.awt.Color(88, 167, 64));
         cbxRecuerdame.setText("Recuérdame");
+        cbxRecuerdame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbxRecuerdame.setFocusPainted(false);
         cbxRecuerdame.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btnAcceder.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         btnAcceder.setText("Acceder");
         btnAcceder.setBorderPainted(false);
+        btnAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcceder.setFocusPainted(false);
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +110,6 @@ public class Login extends javax.swing.JPanel {
         labelExcepcion.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         labelExcepcion.setForeground(new java.awt.Color(255, 0, 0));
         labelExcepcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelExcepcion.setText("¡Datos Incorrectos! ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,18 +125,15 @@ public class Login extends javax.swing.JPanel {
                     .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                     .addComponent(txtUsuario))
                 .addGap(84, 84, 84))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cbxRecuerdame, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-                .addGap(24, 24, 24))
+            .addComponent(labelExcepcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAcceder)
-                        .addGap(27, 27, 27))
-                    .addComponent(labelExcepcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(btnAcceder))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(cbxRecuerdame)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -142,19 +141,22 @@ public class Login extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPass))
-                .addGap(33, 33, 33)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
                 .addComponent(cbxRecuerdame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelExcepcion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAcceder)
-                .addGap(23, 23, 23))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -173,7 +175,7 @@ public class Login extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
