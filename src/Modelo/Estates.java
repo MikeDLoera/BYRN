@@ -47,13 +47,13 @@ public class Estates {
         private int construction_area;
 	private int bedrooms;
 	private char status;
-        private long created_at;
-	private long updated_at;
+        private String created_at;
+	private String updated_at;
         private String address;
         private String city;
         private String state;
 
-    public Estates(int id, String name, String image_url, String description, int owner_id, int estate_type, int business_type, int commision_or_advertasing, char sell_or_rent, char ejidal_or_private, int surface_area, double seller_price, double seller_minimum_price, int meter_price, int front_meters, int long_meters, char has_underground_water, String agent_comments, String latitude, String longitude, String street, String outside_number, String interior_number, String neighborhood, int postal_code, int city_id, int state_id, char has_drinkable_water, char sewer_system, char public_light, char is_heritage, char is_needy, int bathrooms, int parking_lots, int floors, int construction_area, int bedrooms, char status, long created_at, long updated_at, String address, String city, String state) {
+    public Estates(int id, String name, String image_url, String description, int owner_id, int estate_type, int business_type, int commision_or_advertasing, char sell_or_rent, char ejidal_or_private, int surface_area, double seller_price, double seller_minimum_price, int meter_price, int front_meters, int long_meters, char has_underground_water, String agent_comments, String latitude, String longitude, String street, String outside_number, String interior_number, String neighborhood, int postal_code, int city_id, int state_id, char has_drinkable_water, char sewer_system, char public_light, char is_heritage, char is_needy, int bathrooms, int parking_lots, int floors, int construction_area, int bedrooms, char status, String created_at, String updated_at, String address, String city, String state) {
         this.id = id;
         this.name = name;
         this.image_url = image_url;
@@ -403,19 +403,19 @@ public class Estates {
         this.status = status;
     }
 
-    public long getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(long created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
 
-    public long getUpdated_at() {
+    public String getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(long updated_at) {
+    public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
 
@@ -442,9 +442,5 @@ public class Estates {
     public void setState(String state) {
         this.state = state;
     }
-        
-    
-
-    
     
 }
