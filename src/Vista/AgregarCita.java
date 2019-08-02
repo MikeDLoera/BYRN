@@ -29,11 +29,9 @@ public class AgregarCita extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtPropiedad = new javax.swing.JTextField();
         txtNombreSolicitante = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
-        txtEstatus = new javax.swing.JTextField();
         btnGuardarCita = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
@@ -60,16 +58,13 @@ public class AgregarCita extends javax.swing.JPanel {
         jLabel1.setText("Ingrese datos de la cita");
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel2.setText("Propiedad");
+        jLabel2.setText("Número de Propiedad");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel3.setText("Nombre del solicitante");
+        jLabel3.setText("Codigo del solicitante");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel4.setText("Fecha");
-
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel5.setText("Estatus");
 
         btnGuardarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
@@ -85,37 +80,33 @@ public class AgregarCita extends javax.swing.JPanel {
         PanAñadirCitaLayout.setHorizontalGroup(
             PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addGroup(PanAñadirCitaLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanAñadirCitaLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(86, 86, 86))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanAñadirCitaLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(51, 51, 51))
-                    .addGroup(PanAñadirCitaLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addGap(108, 108, 108)))
-                .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanAñadirCitaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnGuardarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addGap(91, 91, 91)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanAñadirCitaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(203, 203, 203))
+            .addGroup(PanAñadirCitaLayout.createSequentialGroup()
+                .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanAñadirCitaLayout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel4)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanAñadirCitaLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(86, 86, 86)))
+                .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         PanAñadirCitaLayout.setVerticalGroup(
             PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,17 +127,10 @@ public class AgregarCita extends javax.swing.JPanel {
                 .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(177, 177, 177)
                 .addGroup(PanAñadirCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanAñadirCitaLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanAñadirCitaLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnGuardarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -155,9 +139,9 @@ public class AgregarCita extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PanAñadirCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,9 +162,7 @@ public class AgregarCita extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel5;
     public javax.swing.JSeparator jSeparator1;
-    public javax.swing.JTextField txtEstatus;
     public javax.swing.JTextField txtFecha;
     public javax.swing.JTextField txtNombreSolicitante;
     public javax.swing.JTextField txtPropiedad;
