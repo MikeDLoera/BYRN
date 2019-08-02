@@ -12,6 +12,7 @@ import Vista.ListadoPropiedades;
 import byrn.BYRN;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,6 +34,11 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnMasInformacion.addActionListener((ActionListener)this);
         jf.btnSiguente.addActionListener((ActionListener)this);
         
+        jf.btnFiltrarCasas.addActionListener((ActionListener)this);
+        jf.btnFiltrarTerrenos.addActionListener((ActionListener)this);
+        jf.btnBusqueda.addActionListener((ActionListener)this);
+        
+        tabla();
     }
     
     @Override
@@ -74,7 +80,21 @@ public class ControladorListadoPropiedades implements ActionListener{
     }
     
     private void tabla(){
-        
+        DefaultTableModel modelotabla = new DefaultTableModel();
+        modelotabla.addColumn("Número de Propiedad");
+        modelotabla.addColumn("Nombre");
+        modelotabla.addColumn("Dueño");
+        modelotabla.addColumn("Tipo");
+        jf.tblListadoDePropiedades.setModel(modelotabla);
+        Object[] fila = new Object[4];
+        int length = dao.getAllEstates().getData().length;
+        for (int i = 0; i < length; i++) {
+            fila[0] = dao.getAllEstates().getData()[i].getId();
+            fila[1] = dao.getAllEstates().getData()[i].getName();
+            fila[2] = dao.getOwnerName(dao.getAllEstates().getData()[i].getOwner_id());
+            fila[3] = dao.getEstateTypeName(dao.getAllEstates().getData()[i].getEstate_type());
+            modelotabla.addRow(fila);
+        }
     }
     
 }

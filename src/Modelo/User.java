@@ -24,10 +24,10 @@ public class User {
     private String phonenumber;
     private String birthdate;
     private char status;
-    private long created_at;
-    private long updated_at;
+    private String created_at;
+    private String updated_at;
 
-    public User(int id, String name, String last_name, String email, String street, String outside_number, String interior_numbre, String neighborhood, String postal_code, int city_id, int state_id, String phonenumber, String birthdate, char status, long created_at, long updated_at) {
+    public User(int id, String name, String last_name, String email, String street, String outside_number, String interior_numbre, String neighborhood, String postal_code, int city_id, int state_id, String phonenumber, String birthdate, char status, String created_at, String updated_at) {
         this.id = id;
         this.name = name;
         this.last_name = last_name;
@@ -158,20 +158,21 @@ public class User {
         this.status = status;
     }
 
-    public long getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(long created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
 
-    public long getUpdated_at() {
+    public String getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(long updated_at) {
+    public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
+
     
 }

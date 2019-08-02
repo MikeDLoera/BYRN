@@ -203,10 +203,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
 
         tblListadoDePropiedades.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Onyx", "Alan Sebastian Castañeda", null},
-                {"2", "Ambar", "Aaron Gomez Rodriguez", null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Número de Propiedad", "Nombre", "Dueño", "Tipo"
@@ -369,7 +366,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAnadirPropiedad;
     public javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnBusqueda;
+    public javax.swing.JButton btnBusqueda;
     public javax.swing.JButton btnEditarPropiedad;
     public javax.swing.JButton btnEliminarPropiedad;
     public javax.swing.JButton btnExcel;
