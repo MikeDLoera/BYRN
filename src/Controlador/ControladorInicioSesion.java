@@ -75,7 +75,4 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    public void h(){
-        System.out.println("hola :v");
-    }
 }
