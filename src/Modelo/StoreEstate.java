@@ -7,7 +7,7 @@ package Modelo;
 
 /**
  *
- * @author Samlml
+ * @author CST-UTJ
  */
 public class StoreEstate {
     private String name;
