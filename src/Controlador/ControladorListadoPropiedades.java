@@ -34,10 +34,9 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnExcel.addActionListener((ActionListener)this);
         jf.btnMasInformacion.addActionListener((ActionListener)this);
         jf.btnSiguente.addActionListener((ActionListener)this);
-        
-        jf.btnFiltrarCasas.addActionListener((ActionListener)this);
-        jf.btnFiltrarTerrenos.addActionListener((ActionListener)this);
+
         jf.btnBusqueda.addActionListener((ActionListener)this);
+      
         
         tabla();
     }

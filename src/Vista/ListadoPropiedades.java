@@ -38,19 +38,18 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnAnadirPropiedad = new javax.swing.JButton();
         btnExcel = new javax.swing.JButton();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
-        btnFiltrarCasas = new javax.swing.JButton();
-        btnFiltrarTerrenos = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblListadoDePropiedades = new rojerusan.RSTableMetro();
         panImagenDePropiedades = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        panImagenDePropiedaes = new org.edisoncor.gui.panel.PanelImage();
         btnSiguente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
+        panMostradoDeImagenes = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtBuscador = new javax.swing.JTextField();
         btnBusqueda = new javax.swing.JButton();
+        ComboBox = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(143, 198, 94));
 
@@ -91,14 +90,14 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                 .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panlListadoDePropiedadesLayout.createSequentialGroup()
-                .addContainerGap(443, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panlListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panlListadoDePropiedadesLayout.createSequentialGroup()
                         .addComponent(lbListadoDePropiedades)
                         .addGap(464, 464, 464))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panlListadoDePropiedadesLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(199, 199, 199)
+                        .addGap(272, 272, 272)
                         .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50))))
         );
@@ -110,7 +109,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panlListadoDePropiedadesLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(27, 27, 27)
                         .addComponent(jLabel2)))
                 .addGap(202, 202, 202)
                 .addComponent(lbListadoDePropiedades)
@@ -154,47 +153,31 @@ public class ListadoPropiedades extends javax.swing.JPanel {
 
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
-        btnFiltrarCasas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnFiltrarCasas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/casa.png"))); // NOI18N
-        btnFiltrarCasas.setText("Solo Casas");
-        btnFiltrarCasas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnFiltrarCasas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btnFiltrarTerrenos.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnFiltrarTerrenos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/terreno.png"))); // NOI18N
-        btnFiltrarTerrenos.setText("Solo Terrenos");
-        btnFiltrarTerrenos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnFiltrarTerrenos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
                 .addComponent(btnAnadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(btnEliminarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(60, 60, 60)
                 .addComponent(btnEditarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
                 .addComponent(btnMasInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnFiltrarCasas, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnFiltrarTerrenos)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(btnExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(33, 33, 33)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -202,9 +185,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                         .addComponent(btnEliminarPropiedad)
                         .addComponent(btnEditarPropiedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnMasInformacion)
-                        .addComponent(btnExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFiltrarTerrenos)
-                        .addComponent(btnFiltrarCasas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -227,26 +208,8 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         tblListadoDePropiedades.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jScrollPane2.setViewportView(tblListadoDePropiedades);
 
-        panImagenDePropiedades.setBackground(new java.awt.Color(255, 255, 255));
+        panImagenDePropiedades.setBackground(new java.awt.Color(143, 198, 94));
         panImagenDePropiedades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel1.setText("Foto de la propiedad");
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-
-        panImagenDePropiedaes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout panImagenDePropiedaesLayout = new javax.swing.GroupLayout(panImagenDePropiedaes);
-        panImagenDePropiedaes.setLayout(panImagenDePropiedaesLayout);
-        panImagenDePropiedaesLayout.setHorizontalGroup(
-            panImagenDePropiedaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-        );
-        panImagenDePropiedaesLayout.setVerticalGroup(
-            panImagenDePropiedaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
-        );
 
         btnSiguente.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnSiguente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/flecha-derecha.png"))); // NOI18N
@@ -258,77 +221,116 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnAnterior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        panMostradoDeImagenes.setBackground(new java.awt.Color(255, 255, 255));
+        panMostradoDeImagenes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout panMostradoDeImagenesLayout = new javax.swing.GroupLayout(panMostradoDeImagenes);
+        panMostradoDeImagenes.setLayout(panMostradoDeImagenesLayout);
+        panMostradoDeImagenesLayout.setHorizontalGroup(
+            panMostradoDeImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 201, Short.MAX_VALUE)
+        );
+        panMostradoDeImagenesLayout.setVerticalGroup(
+            panMostradoDeImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 272, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panImagenDePropiedadesLayout = new javax.swing.GroupLayout(panImagenDePropiedades);
         panImagenDePropiedades.setLayout(panImagenDePropiedadesLayout);
         panImagenDePropiedadesLayout.setHorizontalGroup(
             panImagenDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panImagenDePropiedadesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSiguente, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panImagenDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panMostradoDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panImagenDePropiedadesLayout.createSequentialGroup()
+                        .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSiguente, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(panImagenDePropiedadesLayout.createSequentialGroup()
-                .addGroup(panImagenDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panImagenDePropiedadesLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel1))
-                    .addGroup(panImagenDePropiedadesLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(panImagenDePropiedaes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panImagenDePropiedadesLayout.setVerticalGroup(
             panImagenDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panImagenDePropiedadesLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panImagenDePropiedaes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(panImagenDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAnterior, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSiguente, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap()
+                .addComponent(panMostradoDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panImagenDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAnterior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSiguente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel3.setText("Buscador:");
 
-        txtBuscador.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        txtBuscador.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/busqueda.png"))); // NOI18N
         btnBusqueda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ComboBox.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casas", "Terrenos", "Todos" }));
+        ComboBox.setColorDeBorde(new java.awt.Color(143, 198, 94));
+        ComboBox.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        ComboBox.setOpaque(true);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        jLabel1.setText("Fotos de la propiedad");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(42, 42, 42))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jListadoDePropiedadesLayout = new javax.swing.GroupLayout(jListadoDePropiedades);
         jListadoDePropiedades.setLayout(jListadoDePropiedadesLayout);
         jListadoDePropiedadesLayout.setHorizontalGroup(
             jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
-                .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panlListadoDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
-                            .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
-                                    .addGap(276, 276, 276)
-                                    .addComponent(jLabel3)
-                                    .addGap(52, 52, 52)
-                                    .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(36, 36, 36)
-                                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 1, Short.MAX_VALUE))
+                            .addComponent(panlListadoDePropiedades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
+                        .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel3)
+                                .addGap(52, 52, 52)
+                                .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(209, 209, 209)
+                                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jListadoDePropiedadesLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jListadoDePropiedadesLayout.setVerticalGroup(
@@ -336,22 +338,25 @@ public class ListadoPropiedades extends javax.swing.JPanel {
             .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(panlListadoDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jListadoDePropiedadesLayout.createSequentialGroup()
                         .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBusqueda)
+                            .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtBuscador)
-                                .addComponent(jLabel3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jListadoDePropiedadesLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnBusqueda)))
-                        .addGap(11, 11, 11)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)))
+                        .addGap(19, 19, 19))
+                    .addGroup(jListadoDePropiedadesLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(438, 438, 438))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -359,29 +364,28 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jListadoDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jListadoDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jListadoDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public org.edisoncor.gui.comboBox.ComboBoxRound ComboBox;
     public javax.swing.JButton btnAnadirPropiedad;
     public javax.swing.JButton btnAnterior;
     public javax.swing.JButton btnBusqueda;
     public javax.swing.JButton btnEditarPropiedad;
     public javax.swing.JButton btnEliminarPropiedad;
     public javax.swing.JButton btnExcel;
-    public javax.swing.JButton btnFiltrarCasas;
-    public javax.swing.JButton btnFiltrarTerrenos;
     public javax.swing.JButton btnMasInformacion;
     public javax.swing.JButton btnSiguente;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
@@ -389,13 +393,13 @@ public class ListadoPropiedades extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JPanel jListadoDePropiedades;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbListadoDePropiedades;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JPanel panImagenDePropiedades;
-    public org.edisoncor.gui.panel.PanelImage panImagenDePropiedaes;
+    private javax.swing.JPanel panMostradoDeImagenes;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     public javax.swing.JPanel panlListadoDePropiedades;
     public rojerusan.RSTableMetro tblListadoDePropiedades;

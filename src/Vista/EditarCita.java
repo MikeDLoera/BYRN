@@ -51,25 +51,25 @@ public class EditarCita extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel2.setText("Propiedad");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel3.setText("Nombre del Solicitante");
 
-        jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel4.setText("Fecha");
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel5.setText("Estatus");
 
-        txtPropiedadEditarCitas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        txtPropiedadEditarCitas.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtNombreDelSolicitanteEditarCitas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        txtNombreDelSolicitanteEditarCitas.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtEstatusEditarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        txtEstatusEditarCita.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtFechaEditarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        txtFechaEditarCita.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         btnGuardarCambiosDeCitaEdicion.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarCambiosDeCitaEdicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
@@ -118,7 +118,7 @@ public class EditarCita extends javax.swing.JPanel {
                             .addGroup(panEditarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtEstatusEditarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                                 .addComponent(txtNombreDelSolicitanteEditarCitas)))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         panEditarCitaLayout.setVerticalGroup(
             panEditarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +156,9 @@ public class EditarCita extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(panEditarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

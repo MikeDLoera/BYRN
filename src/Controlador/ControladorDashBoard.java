@@ -45,6 +45,7 @@ public class ControladorDashBoard implements ActionListener{
         if (jf.dashUsuarios==e.getSource()) {
             Usuarios u = new Usuarios();
             UsuariosDAO udao = new UsuariosDAO();
+            ControladorUsuarios cusu = new ControladorUsuarios(u,udao);
             BYRN.saltoVentana("Usuarios", u);
         }
         if (jf.dashCerrarSesion==e.getSource()) {

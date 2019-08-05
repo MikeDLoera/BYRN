@@ -62,35 +62,50 @@ public class EditarPropiedad extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel1.setText("Edición de Propiedades");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel3.setText("Número de Propiedad");
 
-        jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel4.setText("Nombre");
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel5.setText("Dueño");
 
-        jLabel6.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel6.setText("Tipo");
 
-        jLabel7.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel7.setText("Calle");
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel8.setText("Número de Casa");
 
-        jLabel9.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel9.setText("Codigo Postal");
 
-        jLabel10.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel10.setText("Descripción");
 
+        txtNumeroDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+
+        txtNombreDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+
+        txtDueñoDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+
+        txtTipoDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+
+        txtCalleDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+
+        txtNumeroDeCasaEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+
+        txtCodigoPostalDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         txtCodigoPostalDePropiedadEdicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoPostalDePropiedadEdicionActionPerformed(evt);
             }
         });
+
+        txtDescripcionDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         btnGuardarCambiosDeEdicionDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarCambiosDeEdicionDePropiedades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
@@ -151,9 +166,9 @@ public class EditarPropiedad extends javax.swing.JPanel {
                                     .addComponent(txtCodigoPostalDePropiedadEdicion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                                 .addComponent(txtNumeroDeCasaEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 33, Short.MAX_VALUE))
+                        .addGap(0, 30, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
@@ -225,8 +240,8 @@ public class EditarPropiedad extends javax.swing.JPanel {
                                     .addComponent(txtDescripcionDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(33, 33, 33)))))
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnGuardarCambiosDeEdicionDePropiedades)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardarCambiosDeEdicionDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,9 +254,9 @@ public class EditarPropiedad extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
