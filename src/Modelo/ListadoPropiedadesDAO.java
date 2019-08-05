@@ -63,7 +63,7 @@ public class ListadoPropiedadesDAO {
         int length = allUsers.length;
         for (int i = 0; i < length; i++) {
             if (allUsers[i].getId()==owner_id) {
-                ownerName = allUsers[i].getName();
+                ownerName = allUsers[i].getName()+" "+allUsers[i].getLast_name();
                 break;
             }
         }

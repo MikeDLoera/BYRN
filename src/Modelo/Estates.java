@@ -6,57 +6,50 @@ package Modelo;
  * @author CST-UTJ
  */
 public class Estates {
-    	private int id;
-	private String name;
-	private String image_url;
-	private String description;
-	private int owner_id;
-	private int estate_type;
-	private int business_type;
-	private int commision_or_advertasing;
-	private char sell_or_rent;
-	private char ejidal_or_private;
-	private int surface_area;
+    private int id;
+    private String name;
+    private String description;
+    private int owner_id;
+    private int estate_type;
+    private int business_type;
+    private int commision_or_advertasing;
+    private char sell_or_rent;
+    private char ejidal_or_private;
+    private int surface_area;
         
-	private double seller_price;
-	private double seller_minimum_price;
-	private int meter_price;
-	private int front_meters;
-	private int long_meters;
+    private double seller_price;
+    private double seller_minimum_price;
+    private int meter_price;
+    private int front_meters;
+    private int long_meters;
         
-	private char has_underground_water;
-	private String agent_comments;
-	private String latitude;
-	private String longitude;
+    private char has_underground_water;
+    private String agent_comments;
+    private String latitude;
+    private String longitude;
         
-        private String street;
-        private String outside_number;
-        private String interior_number;
-        private String neighborhood;
-        private int postal_code;
-        private int city_id;
-       private int state_id;
-       private char has_drinkable_water;
-       private char sewer_system;
-	private char public_light;
-        private char is_heritage;
-	private char is_needy;
-        private int bathrooms;
-	private int parking_lots;
-	private int floors;
-        private int construction_area;
-	private int bedrooms;
-	private char status;
-        private String created_at;
-	private String updated_at;
-        private String address;
-        private String city;
-        private String state;
+    private int city_id;
+    private int state_id;
+    private char has_drinkable_water;
+    private char sewer_system;
+    private char public_light;
+    private char is_heritage;
+    private char is_needy;
+    private int bathrooms;
+    private int parking_lots;
+    private int floors;
+    private int construction_area;
+    private int bedrooms;
+    private char status;
+    private String created_at;
+    private String updated_at;
+    private String address;
+    private String state;
+    private City city;
 
-    public Estates(int id, String name, String image_url, String description, int owner_id, int estate_type, int business_type, int commision_or_advertasing, char sell_or_rent, char ejidal_or_private, int surface_area, double seller_price, double seller_minimum_price, int meter_price, int front_meters, int long_meters, char has_underground_water, String agent_comments, String latitude, String longitude, String street, String outside_number, String interior_number, String neighborhood, int postal_code, int city_id, int state_id, char has_drinkable_water, char sewer_system, char public_light, char is_heritage, char is_needy, int bathrooms, int parking_lots, int floors, int construction_area, int bedrooms, char status, String created_at, String updated_at, String address, String city, String state) {
+    public Estates(int id, String name, String description, int owner_id, int estate_type, int business_type, int commision_or_advertasing, char sell_or_rent, char ejidal_or_private, int surface_area, double seller_price, double seller_minimum_price, int meter_price, int front_meters, int long_meters, char has_underground_water, String agent_comments, String latitude, String longitude, int city_id, int state_id, char has_drinkable_water, char sewer_system, char public_light, char is_heritage, char is_needy, int bathrooms, int parking_lots, int floors, int construction_area, int bedrooms, char status, String created_at, String updated_at, String address, String state, City city) {
         this.id = id;
         this.name = name;
-        this.image_url = image_url;
         this.description = description;
         this.owner_id = owner_id;
         this.estate_type = estate_type;
@@ -74,11 +67,6 @@ public class Estates {
         this.agent_comments = agent_comments;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.street = street;
-        this.outside_number = outside_number;
-        this.interior_number = interior_number;
-        this.neighborhood = neighborhood;
-        this.postal_code = postal_code;
         this.city_id = city_id;
         this.state_id = state_id;
         this.has_drinkable_water = has_drinkable_water;
@@ -95,8 +83,8 @@ public class Estates {
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.address = address;
-        this.city = city;
         this.state = state;
+        this.city = city;
     }
 
     public int getId() {
@@ -113,14 +101,6 @@ public class Estates {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImage_url() {
-        return image_url;
-    }
-
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
     }
 
     public String getDescription() {
@@ -259,46 +239,6 @@ public class Estates {
         this.longitude = longitude;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getOutside_number() {
-        return outside_number;
-    }
-
-    public void setOutside_number(String outside_number) {
-        this.outside_number = outside_number;
-    }
-
-    public String getInterior_number() {
-        return interior_number;
-    }
-
-    public void setInterior_number(String interior_number) {
-        this.interior_number = interior_number;
-    }
-
-    public String getNeighborhood() {
-        return neighborhood;
-    }
-
-    public void setNeighborhood(String neighborhood) {
-        this.neighborhood = neighborhood;
-    }
-
-    public int getPostal_code() {
-        return postal_code;
-    }
-
-    public void setPostal_code(int postal_code) {
-        this.postal_code = postal_code;
-    }
-
     public int getCity_id() {
         return city_id;
     }
@@ -427,14 +367,6 @@ public class Estates {
         this.address = address;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getState() {
         return state;
     }
@@ -442,5 +374,14 @@ public class Estates {
     public void setState(String state) {
         this.state = state;
     }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
     
 }
