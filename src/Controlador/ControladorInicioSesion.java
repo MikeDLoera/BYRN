@@ -2,7 +2,6 @@
 package Controlador;
 
 import Modelo.InicioSesionDAO;
-import Modelo.TempAuth;
 import Vista.Login;
 import byrn.BYRN;
 import com.mashape.unirest.http.HttpResponse;
@@ -40,15 +39,15 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
         
     }
     
-    public void crearJson(String json, String authdir){
-        File auth = new File(authdir);
+    public void guardarToken(String token){
+        File auth = new File(BYRN.fileAuth());
         
         FileWriter fichero = null;
         PrintWriter pw = null;
         try{
             fichero = new FileWriter(auth);
             pw = new PrintWriter(fichero);
-            pw.println(json);
+            pw.println(token);
 
         } catch (IOException e) {
             
@@ -87,12 +86,7 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
                 String json = request.getBody().toString();
                 BYRN.setAuth(json);
                 if (jf.cbxRecuerdame.isSelected()) {
-                    //esto es temporal
-                    TempAuth tempAuth = new TempAuth();
-                    tempAuth.setToken(BYRN.getAuth().getToken());
-                    tempAuth.setUser(BYRN.getSesion());
-                    
-                    crearJson(BYRN.gson.toJson(tempAuth),BYRN.fileAuth());
+                    guardarToken(BYRN.getAuth().getToken());
                 }
                 BYRN.dashboard();
             }else {

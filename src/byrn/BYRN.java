@@ -9,7 +9,6 @@ import Modelo.DecodedToken;
 import Modelo.InicioSesionDAO;
 import Modelo.InicioSesionMOD;
 import Modelo.ListadoPropiedadesDAO;
-import Modelo.TempAuth;
 import Vista.App;
 import Vista.Dash;
 import Vista.DashBoard;
@@ -55,23 +54,20 @@ public class BYRN {
         carga();
         //Se prepara archivo auth
         File auth = new File(fileAuth());
-        
         //Si no existe se muestra login
         if (!auth.exists()) {
             //muestra login
             login();
         } else {
-            FileReader fr = null;
             try {
-                //lee el archivo auth
-                fr = new FileReader(auth);
+                FileReader fr = new FileReader(auth);
                 BufferedReader br = new BufferedReader(fr);
-                if (!br.readLine().equals("")) {
-                    TempAuth tempAuth = gson.fromJson(br.readLine(), TempAuth.class);
-                    authUser.setToken(tempAuth.getToken());
-                    setSesion(new InicioSesionMOD(tempAuth.getUser().getEmail(), tempAuth.getUser().getPassword()));
-                    decodeToken();
+                String token = br.readLine();
+                fr.close();
+                if (!token.equals("")) {
+                    authUser = new AuthUser(token, null);
                     
+                    decodeToken();
                     //obtener unix timestamp actual
                     long unixTime = System.currentTimeMillis()/1000L;
                     //Validar la expiration del token
@@ -87,13 +83,7 @@ public class BYRN {
             } catch (FileNotFoundException ex) {
                 
             } catch (IOException ex) {
-                
-            } finally {
-                try {
-                    fr.close();
-                } catch (IOException ex) {
-                    
-                }
+               
             }
             
         }
@@ -238,7 +228,7 @@ public class BYRN {
     }
     
     public static void decodeToken(){
-        String json = "";
+        String token = "";
         int punto = 0;
         for (int i = 0; i < authUser.getToken().length(); i++) {
             if (authUser.getToken().charAt(i)=='.') {
@@ -248,13 +238,13 @@ public class BYRN {
                 break;
             }
             if(punto == 1&&authUser.getToken().charAt(i)!='.'){
-                json+=authUser.getToken().charAt(i);
+                token+=authUser.getToken().charAt(i);
             }
             
         }
-        byte[] decodedJson = Base64.getUrlDecoder().decode(json);
-        json = new String(decodedJson);
-        decodedToken = gson.fromJson(json, DecodedToken.class);
+        byte[] decodedJson = Base64.getUrlDecoder().decode(token);
+        token = new String(decodedJson);
+        decodedToken = gson.fromJson(token, DecodedToken.class);
     }
     
     public static DecodedToken getDecodedToken(){
@@ -323,7 +313,7 @@ public class BYRN {
     }
     
     public static String fileAuth(){
-        return carpetaLocal()+"authBYRN.json";
+        return carpetaLocal()+"authbyrn.txt";
     }
     
     public static void setAuth(String json){

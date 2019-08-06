@@ -14,16 +14,12 @@ public class ListadoPropiedadesDAO {
     private User[] allUsers = null;
     
     public ListadoPropiedadesDAO() {
-        try {
-            runDao();
-        } catch (UnirestException ex) {
-            
-        }
+        
     }
     
     public void allEstates() throws UnirestException{
             HttpResponse request = null;
-            String path = "/estates?email="+BYRN.getSesion().getEmail()+"&password="+BYRN.getSesion().getPassword();
+            String path = "/estates";
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
             
@@ -33,15 +29,10 @@ public class ListadoPropiedadesDAO {
     
     public void allUsers() throws UnirestException{
             HttpResponse request = null;
-            String path = "/users?email="+BYRN.getSesion().getEmail()+"&password="+BYRN.getSesion().getPassword();
+            String path = "/users";
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
             this.allUsers = BYRN.gson.fromJson(request.getBody().toString(), User[].class);
-    }
-    
-    private void runDao() throws UnirestException{
-        allEstates();
-        allUsers();
     }
     
     public String getOwnerName(int owner_id){

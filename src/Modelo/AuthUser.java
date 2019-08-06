@@ -10,6 +10,8 @@ public class AuthUser {
     private User user;
 
     public AuthUser() {
+        this.token = "";
+        this.user = null;
     }
 
     public AuthUser(String token, User user) {
