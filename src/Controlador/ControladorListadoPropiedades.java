@@ -94,7 +94,7 @@ public class ControladorListadoPropiedades implements ActionListener{
             fila[0] = dao.getAllEstates().getData()[i].getId();
             fila[1] = dao.getAllEstates().getData()[i].getName();
             fila[2] = dao.getOwnerName(dao.getAllEstates().getData()[i].getOwner_id());
-            fila[3] = dao.getEstateTypeName(dao.getAllEstates().getData()[i].getEstate_type());
+            fila[3] = dao.getAllEstates().getData()[i].getEstate_type().getName();
             modelotabla.addRow(fila);
         }
     }

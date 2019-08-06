@@ -46,8 +46,8 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         panMostradoDeImagenes = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtBuscador = new javax.swing.JTextField();
-        btnBusqueda = new javax.swing.JButton();
         ComboBox = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        btnBusqueda = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -202,11 +202,19 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         tblListadoDePropiedades.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tblListadoDePropiedades.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tblListadoDePropiedades.setColorSelBackgound(new java.awt.Color(0, 0, 0));
+        tblListadoDePropiedades.setColumnSelectionAllowed(true);
         tblListadoDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jScrollPane2.setViewportView(tblListadoDePropiedades);
+        tblListadoDePropiedades.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tblListadoDePropiedades.getColumnModel().getColumnCount() > 0) {
+            tblListadoDePropiedades.getColumnModel().getColumn(0).setHeaderValue("Número de Propiedad");
+            tblListadoDePropiedades.getColumnModel().getColumn(1).setHeaderValue("Nombre");
+            tblListadoDePropiedades.getColumnModel().getColumn(2).setHeaderValue("Dueño");
+            tblListadoDePropiedades.getColumnModel().getColumn(3).setHeaderValue("Tipo");
+        }
 
         panImagenDePropiedades.setBackground(new java.awt.Color(143, 198, 94));
         panImagenDePropiedades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -266,15 +274,15 @@ public class ListadoPropiedades extends javax.swing.JPanel {
 
         txtBuscador.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/busqueda.png"))); // NOI18N
-        btnBusqueda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         ComboBox.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casas", "Terrenos", "Todos" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Casas", "Terrenos" }));
         ComboBox.setColorDeBorde(new java.awt.Color(143, 198, 94));
         ComboBox.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         ComboBox.setOpaque(true);
+
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/busqueda.png"))); // NOI18N
+        btnBusqueda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

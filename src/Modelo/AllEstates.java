@@ -129,7 +129,6 @@ public class AllEstates {
     public void setTotal(int total) {
         this.total = total;
     }
-    
-    
+
     
 }

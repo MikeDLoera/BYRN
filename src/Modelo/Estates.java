@@ -10,7 +10,6 @@ public class Estates {
     private String name;
     private String description;
     private int owner_id;
-    private int estate_type;
     private int business_type;
     private int commision_or_advertasing;
     private char sell_or_rent;
@@ -46,13 +45,13 @@ public class Estates {
     private String address;
     private String state;
     private City city;
+    private EstateType estate_type;
 
-    public Estates(int id, String name, String description, int owner_id, int estate_type, int business_type, int commision_or_advertasing, char sell_or_rent, char ejidal_or_private, int surface_area, double seller_price, double seller_minimum_price, int meter_price, int front_meters, int long_meters, char has_underground_water, String agent_comments, String latitude, String longitude, int city_id, int state_id, char has_drinkable_water, char sewer_system, char public_light, char is_heritage, char is_needy, int bathrooms, int parking_lots, int floors, int construction_area, int bedrooms, char status, String created_at, String updated_at, String address, String state, City city) {
+    public Estates(int id, String name, String description, int owner_id, int business_type, int commision_or_advertasing, char sell_or_rent, char ejidal_or_private, int surface_area, double seller_price, double seller_minimum_price, int meter_price, int front_meters, int long_meters, char has_underground_water, String agent_comments, String latitude, String longitude, int city_id, int state_id, char has_drinkable_water, char sewer_system, char public_light, char is_heritage, char is_needy, int bathrooms, int parking_lots, int floors, int construction_area, int bedrooms, char status, String created_at, String updated_at, String address, String state, City city, EstateType estate_typ) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.owner_id = owner_id;
-        this.estate_type = estate_type;
         this.business_type = business_type;
         this.commision_or_advertasing = commision_or_advertasing;
         this.sell_or_rent = sell_or_rent;
@@ -85,6 +84,7 @@ public class Estates {
         this.address = address;
         this.state = state;
         this.city = city;
+        this.estate_type = estate_typ;
     }
 
     public int getId() {
@@ -117,14 +117,6 @@ public class Estates {
 
     public void setOwner_id(int owner_id) {
         this.owner_id = owner_id;
-    }
-
-    public int getEstate_type() {
-        return estate_type;
-    }
-
-    public void setEstate_type(int estate_type) {
-        this.estate_type = estate_type;
     }
 
     public int getBusiness_type() {
@@ -383,5 +375,14 @@ public class Estates {
         this.city = city;
     }
 
+    public EstateType getEstate_type() {
+        return estate_type;
+    }
+
+    public void setEstate_typ(EstateType estate_typ) {
+        this.estate_type = estate_typ;
+    }
+
+    
     
 }

@@ -281,6 +281,19 @@ public class BYRN {
         return authUser;
     }
     
+    //usar en caso de error en el json
+    public static String jsonOrdenado(String json){
+        String a="";
+        for (int i = 0; i < json.length(); i++) {
+            a+=json.charAt(i);
+            if (json.charAt(i)==',') {
+                a+="\n";
+            }
+        }
+        System.out.println(a);
+        return a;
+    }
+    
     public static void cerrarSesion(){
         authUser = new AuthUser();
         /*File auth = new File(fileAuth());

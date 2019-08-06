@@ -18,7 +18,7 @@ public class ListadoPropiedadesDAO {
     
     public ListadoPropiedadesDAO() {
         allEstates();
-        allEstatesType();
+        //allEstatesType();
         allUsers();
     }
     
@@ -28,6 +28,7 @@ public class ListadoPropiedadesDAO {
             String path = "/estates?email="+BYRN.getSesion().getEmail()+"&password="+BYRN.getSesion().getPassword();
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
+            
             this.allEstates = BYRN.gson.fromJson(request.getBody().toString(), AllEstates.class);
         } catch (UnirestException ex) {
             Logger.getLogger(ListadoPropiedadesDAO.class.getName()).log(Level.SEVERE, null, ex);
