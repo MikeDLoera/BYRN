@@ -6,9 +6,11 @@
 package Controlador;
 
 import Modelo.AgregarUsuarioDAO;
+import Modelo.EditarUsuariosDAO;
 import Modelo.UsuariosDAO;
 import Vista.AgregarUsuario;
 import Vista.App;
+import Vista.EditarUsuarios;
 import Vista.Usuarios;
 import byrn.BYRN;
 import java.awt.event.ActionEvent;
@@ -43,6 +45,11 @@ public class ControladorUsuarios implements ActionListener {
         
         
         if (jf.btnEditarUsuario==e.getSource()) {
+            EditarUsuarios jf = new EditarUsuarios();
+            App app = BYRN.nuevaVentana("Editar Usuario", jf);
+            EditarUsuariosDAO edidao = new EditarUsuariosDAO();
+            ControladorEditarUsuarios edi = new ControladorEditarUsuarios (jf,edidao,app);
+            
             
         }
     }

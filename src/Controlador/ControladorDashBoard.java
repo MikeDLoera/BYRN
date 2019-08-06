@@ -31,6 +31,7 @@ public class ControladorDashBoard implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (jf.dashPropiedades==e.getSource()) {
+          
             ListadoPropiedades lp = new ListadoPropiedades();
             ListadoPropiedadesDAO propiedadesDAO = new ListadoPropiedadesDAO();
             ControladorListadoPropiedades clp = new ControladorListadoPropiedades(lp, propiedadesDAO);

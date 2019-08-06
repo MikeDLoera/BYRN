@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.EditarUsuariosDAO;
+import Vista.App;
 import Vista.EditarUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,13 +17,18 @@ import java.awt.event.ActionListener;
  */
 public class ControladorEditarUsuarios  implements ActionListener{
     private EditarUsuarios jf;
-    private EditarUsuariosDAO ed;
+    private EditarUsuariosDAO jfDAO;
+    private App app;
 
-    public ControladorEditarUsuarios(EditarUsuarios jf, EditarUsuariosDAO ed) {
+    public ControladorEditarUsuarios(EditarUsuarios jf, EditarUsuariosDAO jfDAO, App app) {
         this.jf = jf;
-        this.ed = ed;
-        jf.btnGuardarCambiosEdicion.addActionListener(this);
+        this.jfDAO = jfDAO;
+        this.app = app;
     }
+
+   
+
+  
 
     @Override
     public void actionPerformed(ActionEvent ae) {

@@ -1,5 +1,7 @@
 package Vista;
 
+import java.awt.Color;
+
 /**
  *
  * @author CST-UTJ
@@ -45,6 +47,14 @@ public class DashBoard extends javax.swing.JPanel {
         dashPropiedades.setContentAreaFilled(false);
         dashPropiedades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dashPropiedades.setFocusPainted(false);
+        dashPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashPropiedadesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashPropiedadesMouseExited(evt);
+            }
+        });
 
         dashCitas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dashCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/cuaderno.png"))); // NOI18N
@@ -140,6 +150,19 @@ public class DashBoard extends javax.swing.JPanel {
                 .addContainerGap(79, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void dashPropiedadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashPropiedadesMouseEntered
+        // TODO add your handling code here:
+        
+        
+        
+     
+    }//GEN-LAST:event_dashPropiedadesMouseEntered
+
+    private void dashPropiedadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashPropiedadesMouseExited
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_dashPropiedadesMouseExited
 
     
 
