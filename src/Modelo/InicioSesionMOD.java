@@ -23,15 +23,16 @@ public class InicioSesionMOD {
         return email;
     }
 
-    public void setEmail(String user) {
-        this.email = user;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String pass) {
-        this.password = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
 }

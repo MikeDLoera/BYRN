@@ -2,11 +2,11 @@
 package Controlador;
 
 import Modelo.InicioSesionDAO;
-import Modelo.InicioSesionMOD;
 import Modelo.TempAuth;
 import Vista.Login;
 import byrn.BYRN;
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -70,7 +70,7 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (jf.btnAcceder==e.getSource()) {
-           login();
+           this.login();
         }
         if (jf.btnCerrar==e.getSource()) {
             BYRN.cerrar();
@@ -78,24 +78,28 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
     }
     
     public void login(){
-        BYRN.getSesion().setEmail(jf.txtUsuario.getText());
-        BYRN.getSesion().setPassword(String.valueOf(jf.txtPass.getPassword()));
+        try {
+            BYRN.getSesion().setEmail(jf.txtUsuario.getText());
+            BYRN.getSesion().setPassword(String.valueOf(jf.txtPass.getPassword()));
             
-        HttpResponse request = dao.request();
-        if (request.getStatus() == 200) {
-            String json = request.getBody().toString();
-            BYRN.setAuth(json);
-            if (jf.cbxRecuerdame.isSelected()) {
-                //esto es temporal
-                TempAuth tempAuth = new TempAuth();
-                tempAuth.setToken(BYRN.getAuth().getToken());
-                tempAuth.setUser(BYRN.getSesion());
-                
-                crearJson(BYRN.gson.toJson(tempAuth),BYRN.fileAuth());
+            HttpResponse request = dao.request();
+            if (request.getStatus() == 200) {
+                String json = request.getBody().toString();
+                BYRN.setAuth(json);
+                if (jf.cbxRecuerdame.isSelected()) {
+                    //esto es temporal
+                    TempAuth tempAuth = new TempAuth();
+                    tempAuth.setToken(BYRN.getAuth().getToken());
+                    tempAuth.setUser(BYRN.getSesion());
+                    
+                    crearJson(BYRN.gson.toJson(tempAuth),BYRN.fileAuth());
+                }
+                BYRN.dashboard();
+            }else {
+                jf.labelExcepcion.setText("¡Datos Incorrectos!");
             }
-            BYRN.dashboard();
-        }else {
-            jf.labelExcepcion.setText("¡Datos Incorrectos!");
+        } catch (UnirestException ex) {
+            System.out.println("No hay conexion :v");
         }
     }
 

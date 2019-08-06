@@ -31,7 +31,7 @@ public class PeticionHTTP {
         return response;
     }
     
-    public static HttpResponse delete(String path, String token) throws Exception{
+    public static HttpResponse delete(String path, String token) throws UnirestException {
         HttpResponse response = Unirest . delete(url+path)
         .header("Content-type" , "application/json")
         .header("Accept", "application/json")

@@ -4,59 +4,44 @@ package Modelo;
 import byrn.BYRN;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author CST-UTJ
  */
 public class ListadoPropiedadesDAO {
-    private AllEstates allEstates;
-    private EstateType[] allEstatesType;
-    private User[] allUsers;
+    private AllEstates allEstates = null;
+    private User[] allUsers = null;
     
     public ListadoPropiedadesDAO() {
-        allEstates();
-        //allEstatesType();
-        allUsers();
+        try {
+            runDao();
+        } catch (UnirestException ex) {
+            
+        }
     }
     
-    private void allEstates(){
-        try {
+    public void allEstates() throws UnirestException{
             HttpResponse request = null;
             String path = "/estates?email="+BYRN.getSesion().getEmail()+"&password="+BYRN.getSesion().getPassword();
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
             
             this.allEstates = BYRN.gson.fromJson(request.getBody().toString(), AllEstates.class);
-        } catch (UnirestException ex) {
-            Logger.getLogger(ListadoPropiedadesDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
     
-    private void allEstatesType(){
-        try {
-            HttpResponse request = null;
-            String path = "/estate-types";
-            String token = BYRN.getAuth().getToken();
-            request = PeticionHTTP.get(path, token);
-            this.allEstatesType = BYRN.gson.fromJson(request.getBody().toString(), EstateType[].class);
-        } catch (UnirestException ex) {
-            Logger.getLogger(ListadoPropiedadesDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private void allUsers(){
-        try {
+    public void allUsers() throws UnirestException{
             HttpResponse request = null;
             String path = "/users?email="+BYRN.getSesion().getEmail()+"&password="+BYRN.getSesion().getPassword();
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
             this.allUsers = BYRN.gson.fromJson(request.getBody().toString(), User[].class);
-        } catch (UnirestException ex) {
-            Logger.getLogger(ListadoPropiedadesDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
+    
+    private void runDao() throws UnirestException{
+        allEstates();
+        allUsers();
     }
     
     public String getOwnerName(int owner_id){
@@ -70,18 +55,6 @@ public class ListadoPropiedadesDAO {
         }
         return ownerName;
     }
-    
-    public String getEstateTypeName(int estate_type_id){
-        String estateTypeName = null;
-        int length = allEstatesType.length;
-        for (int i = 0; i < length; i++) {
-            if (allEstatesType[i].getId()==estate_type_id) {
-                estateTypeName = allEstatesType[i].getName();
-                break;
-            }
-        }
-        return estateTypeName;
-    }
 
     public AllEstates getAllEstates() {
         return allEstates;
@@ -89,14 +62,6 @@ public class ListadoPropiedadesDAO {
 
     public void setAllEstates(AllEstates allEstates) {
         this.allEstates = allEstates;
-    }
-
-    public EstateType[] getAllEstatesType() {
-        return allEstatesType;
-    }
-
-    public void setAllEstatesType(EstateType[] allEstatesType) {
-        this.allEstatesType = allEstatesType;
     }
 
     public User[] getAllUsers() {

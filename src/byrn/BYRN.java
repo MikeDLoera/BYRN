@@ -22,13 +22,12 @@ import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -39,10 +38,8 @@ public class BYRN {
 
     /**
      * @param args the command line arguments
-     * @throws java.lang.InterruptedException
-     * @throws java.io.IOException
      */
-    public static void main(String[] args) throws InterruptedException, IOException{
+    public static void main(String[] args){
         runApp();
     }
     
@@ -54,34 +51,53 @@ public class BYRN {
     private static InicioSesionMOD sesion = new InicioSesionMOD();
     public static Gson gson = new Gson();
     
-    public static void runApp() throws InterruptedException, IOException{
+    public static void runApp(){
         carga();
         //Se prepara archivo auth
         File auth = new File(fileAuth());
-        //lee el archivo auth
-        FileReader fr = new FileReader(auth);
-        BufferedReader br = new BufferedReader(fr);
+        
         //Si no existe se muestra login
         if (!auth.exists()) {
             //muestra login
             login();
         } else {
-            TempAuth tempAuth = gson.fromJson(br.readLine(), TempAuth.class);
-            authUser.setToken(tempAuth.getToken());
-            setSesion(new InicioSesionMOD(tempAuth.getUser().getEmail(), tempAuth.getUser().getPassword()));
-            decodeToken();
-            
-            //obtener unix timestamp actual
-            long unixTime = System.currentTimeMillis()/1000L;
-            //Validar la expiration del token
-            if (unixTime < decodedToken.getExp()) {
-                dashboard();
-            } else {
-                cerrarSesion();
-                app.setVisible(false);
+            FileReader fr = null;
+            try {
+                //lee el archivo auth
+                fr = new FileReader(auth);
+                BufferedReader br = new BufferedReader(fr);
+                if (!br.readLine().equals("")) {
+                    TempAuth tempAuth = gson.fromJson(br.readLine(), TempAuth.class);
+                    authUser.setToken(tempAuth.getToken());
+                    setSesion(new InicioSesionMOD(tempAuth.getUser().getEmail(), tempAuth.getUser().getPassword()));
+                    decodeToken();
+                    
+                    //obtener unix timestamp actual
+                    long unixTime = System.currentTimeMillis()/1000L;
+                    //Validar la expiration del token
+                    if (unixTime < decodedToken.getExp()) {
+                        dashboard();
+                    } else {
+                        cerrarSesion();
+                        app.setVisible(false);
+                    }
+                }else{
+                    login();
+                }
+            } catch (FileNotFoundException ex) {
+                
+            } catch (IOException ex) {
+                
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ex) {
+                    
+                }
             }
+            
         }
-        login();//este es de prueba
+        //login();//este es de prueba
     }
     
     //agrega contenido de un panel dentro del frame
@@ -181,7 +197,7 @@ public class BYRN {
                 //tiempo de pausa
                 java.util.concurrent.TimeUnit.MILLISECONDS.sleep(tiempoAnimacion/10);
             } catch (InterruptedException ex) {
-                Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         }
     }
@@ -195,7 +211,7 @@ public class BYRN {
                 //tiempo de pausa
                 java.util.concurrent.TimeUnit.MILLISECONDS.sleep(tiempoAnimacion/10);
             } catch (InterruptedException ex) {
-                Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         }
     }
@@ -261,7 +277,7 @@ public class BYRN {
             try {
                 java.util.concurrent.TimeUnit.MILLISECONDS.sleep(8);
             } catch (InterruptedException ex) {
-                Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         }
     }
@@ -347,13 +363,13 @@ public class BYRN {
                 try {
                     fichero.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
+                    
                 }
             }
             try {
                 auth.createNewFile();
             } catch (IOException ex) {
-                Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         }
         app.setVisible(false);
