@@ -160,7 +160,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(btnAnadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(btnEliminarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(btnEditarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,19 +202,11 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         tblListadoDePropiedades.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tblListadoDePropiedades.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tblListadoDePropiedades.setColorSelBackgound(new java.awt.Color(0, 0, 0));
-        tblListadoDePropiedades.setColumnSelectionAllowed(true);
         tblListadoDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jScrollPane2.setViewportView(tblListadoDePropiedades);
-        tblListadoDePropiedades.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (tblListadoDePropiedades.getColumnModel().getColumnCount() > 0) {
-            tblListadoDePropiedades.getColumnModel().getColumn(0).setHeaderValue("Número de Propiedad");
-            tblListadoDePropiedades.getColumnModel().getColumn(1).setHeaderValue("Nombre");
-            tblListadoDePropiedades.getColumnModel().getColumn(2).setHeaderValue("Dueño");
-            tblListadoDePropiedades.getColumnModel().getColumn(3).setHeaderValue("Tipo");
-        }
 
         panImagenDePropiedades.setBackground(new java.awt.Color(40, 153, 118));
         panImagenDePropiedades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -280,6 +272,11 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         ComboBox.setColorDeBorde(new java.awt.Color(143, 198, 94));
         ComboBox.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         ComboBox.setOpaque(true);
+        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxActionPerformed(evt);
+            }
+        });
 
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/busqueda.png"))); // NOI18N
         btnBusqueda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -335,7 +332,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 206, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jListadoDePropiedadesLayout.setVerticalGroup(
@@ -381,6 +378,10 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

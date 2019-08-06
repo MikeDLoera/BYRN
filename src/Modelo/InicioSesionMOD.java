@@ -13,10 +13,10 @@ public class InicioSesionMOD {
         this.email=null;
         this.password=null;
     }
-    
-    public InicioSesionMOD(String user, String pass) {
-        this.email = user;
-        this.password = pass;
+
+    public InicioSesionMOD(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public String getEmail() {

@@ -5,9 +5,11 @@ import Controlador.ControladorDashBoard;
 import Controlador.ControladorInicioSesion;
 import Controlador.ControladorListadoPropiedades;
 import Modelo.AuthUser;
+import Modelo.DecodedToken;
 import Modelo.InicioSesionDAO;
 import Modelo.InicioSesionMOD;
 import Modelo.ListadoPropiedadesDAO;
+import Modelo.TempAuth;
 import Vista.App;
 import Vista.Dash;
 import Vista.DashBoard;
@@ -18,7 +20,13 @@ import Vista.Start;
 import com.google.gson.Gson;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -42,33 +50,37 @@ public class BYRN {
     private static App app = new App();
     private static Dash dashboard = new Dash();
     private static AuthUser authUser = new AuthUser();
+    private static DecodedToken decodedToken;
     private static InicioSesionMOD sesion = new InicioSesionMOD();
     public static Gson gson = new Gson();
     
     public static void runApp() throws InterruptedException, IOException{
         carga();
         //Se prepara archivo auth
-        //File auth = new File(fileAuth());
+        File auth = new File(fileAuth());
+        //lee el archivo auth
+        FileReader fr = new FileReader(auth);
+        BufferedReader br = new BufferedReader(fr);
         //Si no existe se muestra login
-        /*if (!auth.exists()) {
+        if (!auth.exists()) {
             //muestra login
             login();
         } else {
-            //lee el archivo auth
-            FileReader fr = new FileReader(auth);
-            BufferedReader br = new BufferedReader(fr);
-            //auth.json a un objeto auth_user
-            setAuth(br.readLine());
+            TempAuth tempAuth = gson.fromJson(br.readLine(), TempAuth.class);
+            authUser.setToken(tempAuth.getToken());
+            setSesion(new InicioSesionMOD(tempAuth.getUser().getEmail(), tempAuth.getUser().getPassword()));
+            decodeToken();
+            
             //obtener unix timestamp actual
             long unixTime = System.currentTimeMillis()/1000L;
             //Validar la expiration del token
-            if (unixTime < authUser.getExpiration()) {
+            if (unixTime < decodedToken.getExp()) {
                 dashboard();
             } else {
                 cerrarSesion();
                 app.setVisible(false);
             }
-        }*/
+        }
         login();//este es de prueba
     }
     
@@ -209,6 +221,31 @@ public class BYRN {
         BYRN.sesion = sesion;
     }
     
+    public static void decodeToken(){
+        String json = "";
+        int punto = 0;
+        for (int i = 0; i < authUser.getToken().length(); i++) {
+            if (authUser.getToken().charAt(i)=='.') {
+                punto++;
+            }
+            if (punto > 1) {
+                break;
+            }
+            if(punto == 1&&authUser.getToken().charAt(i)!='.'){
+                json+=authUser.getToken().charAt(i);
+            }
+            
+        }
+        byte[] decodedJson = Base64.getUrlDecoder().decode(json);
+        json = new String(decodedJson);
+        decodedToken = gson.fromJson(json, DecodedToken.class);
+    }
+    
+    public static DecodedToken getDecodedToken(){
+        return decodedToken;
+    }
+    
+    
     //carga app
     public static void carga(){
         //se crea nuevo panel de carga
@@ -296,16 +333,14 @@ public class BYRN {
     
     public static void cerrarSesion(){
         authUser = new AuthUser();
-        /*File auth = new File(fileAuth());
+        File auth = new File(fileAuth());
         if (auth.exists()) {
-            authUser.setToken("");
-            authUser.setExpiration(0);
             FileWriter fichero = null;
             PrintWriter pw = null;
             try{
                 fichero = new FileWriter(auth);
                 pw = new PrintWriter(fichero);
-                pw.println(gson.toJson(authUser));
+                pw.println("");
             } catch (IOException e) {
             }
             if (null != fichero){
@@ -320,7 +355,7 @@ public class BYRN {
             } catch (IOException ex) {
                 Logger.getLogger(BYRN.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }*/
+        }
         app.setVisible(false);
         login();
     }
