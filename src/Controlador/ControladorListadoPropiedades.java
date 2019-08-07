@@ -3,6 +3,7 @@ package Controlador;
 
 import Modelo.AnadirPropiedadDAO;
 import Modelo.EditarPropiedadDAO;
+import Modelo.Estates;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
 import Vista.AnadirPropiedad;
@@ -14,8 +15,6 @@ import byrn.BYRN;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -39,7 +38,9 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnSiguente.addActionListener((ActionListener)this);
 
         jf.btnBusqueda.addActionListener((ActionListener)this);
+        jf.ComboBox.addActionListener((ActionListener)this);
         
+        this.tabla();
         
     }
     
@@ -57,19 +58,21 @@ public class ControladorListadoPropiedades implements ActionListener{
         if (jf.btnEditarPropiedad==e.getSource()) {
             
             EditarPropiedad ed = new EditarPropiedad();
-                  App app = BYRN.nuevaVentana("Editar Propiedad", ed);
+            App app = BYRN.nuevaVentana("Editar Propiedad", ed);
             EditarPropiedadDAO edDAO = new EditarPropiedadDAO();
             ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
       
- 
         }
         if (jf.btnMasInformacion==e.getSource()) {
-           InformacionDePropiedades inf = new InformacionDePropiedades();
-             App app = BYRN.nuevaVentana("Más Información", inf);
-           InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO();
-           ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
-        
-          
+            int id = getIdSelect();
+            if (id>=0) {
+                InformacionDePropiedades inf = new InformacionDePropiedades();
+                InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO(getState(id));
+                App app = BYRN.nuevaVentana("Más Información", inf);
+                ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
+            }else{
+                BYRN.notificacion("Seleccione una fila de la tabla");
+            }
            
         }
         if (jf.btnExcel==e.getSource()) {
@@ -79,6 +82,12 @@ public class ControladorListadoPropiedades implements ActionListener{
             
         }
         if (jf.btnSiguente==e.getSource()) {
+            
+        }
+        if (jf.ComboBox==e.getSource()) {
+            
+        }
+        if (jf.btnBusqueda==e.getSource()) {
             
         }
     }
@@ -103,8 +112,35 @@ public class ControladorListadoPropiedades implements ActionListener{
                 modelotabla.addRow(fila);
             }
         } catch (UnirestException ex) {
-            Logger.getLogger(ControladorListadoPropiedades.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+    }
+    
+    private int getIdSelect(){
+        int numReturn;
+        if (jf.tblListadoDePropiedades.getSelectedRowCount()==1) {
+            int rowSelect = jf.tblListadoDePropiedades.getSelectedRow();
+            if (rowSelect>=0) {
+                numReturn = rowSelect;
+            }else{
+                numReturn = (int) jf.tblListadoDePropiedades.getValueAt(rowSelect, 0);
+            }
+        }else{
+            numReturn = -1;
+        }
+        return numReturn;
+    }
+    
+    private Estates getState(int id){
+        Estates estates = null;
+        int length = dao.getAllEstates().getData().length;
+        for (int i = 0; i < length; i++) {
+            if (dao.getAllEstates().getData()[i].getId()==id) {
+                estates = dao.getAllEstates().getData()[i];
+                break;
+            }
+        }
+        return estates;
     }
     
 }

@@ -272,11 +272,6 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         ComboBox.setColorDeBorde(new java.awt.Color(143, 198, 94));
         ComboBox.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         ComboBox.setOpaque(true);
-        ComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxActionPerformed(evt);
-            }
-        });
 
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/busqueda.png"))); // NOI18N
         btnBusqueda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -378,10 +373,6 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

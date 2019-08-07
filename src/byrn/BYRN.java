@@ -4,6 +4,7 @@ package byrn;
 import Controlador.ControladorDashBoard;
 import Controlador.ControladorInicioSesion;
 import Controlador.ControladorListadoPropiedades;
+import Controlador.ControladorNotificacion;
 import Modelo.AuthUser;
 import Modelo.DecodedToken;
 import Modelo.InicioSesionDAO;
@@ -15,6 +16,7 @@ import Vista.DashBoard;
 import Vista.ListadoPropiedades;
 import Vista.Load;
 import Vista.Login;
+import Vista.Notificacion;
 import Vista.Start;
 import com.google.gson.Gson;
 import java.awt.Dimension;
@@ -119,6 +121,10 @@ public class BYRN {
         }
     }
     
+    public static void removeStart(){
+        start.contenedor.removeAll();
+    }
+    
     //agrega contenido de un panel a otro 
     public static void addPanel(JPanel viejo, JPanel nuevo){
         //agrega tamaño al nuevo frame
@@ -204,6 +210,7 @@ public class BYRN {
                 
             }
         }
+        start.setVisible(false);
     }
     
     //abrir login 
@@ -274,8 +281,6 @@ public class BYRN {
     
     //abre panel de la app
     public static void dashboard(){
-        //no visualizar frame start
-        start.setVisible(false);
         //se añade dashboard al frame app
         addPanelFull(dashboard,true);
         //se crea nuevo menu
@@ -305,7 +310,6 @@ public class BYRN {
         
         dashboard.menu.setSize(wm, h);
         dashboard.contenido.setBounds(wm, 0, wc, h);
-        
     }
     
     public static String carpetaLocal(){
@@ -313,7 +317,7 @@ public class BYRN {
     }
     
     public static String fileAuth(){
-        return carpetaLocal()+"authbyrn.txt";
+        return carpetaLocal()+"auth.byrn";
     }
     
     public static void setAuth(String json){
@@ -335,6 +339,16 @@ public class BYRN {
         }
         System.out.println(a);
         return a;
+    }
+    
+    public static void notificacion(String mensaje){
+        Notificacion n = new Notificacion();
+        ControladorNotificacion cn = new ControladorNotificacion(mensaje, n);
+        int x = (int) app.getWidth() - n.getPreferredSize().width - 20;
+        int y = (int) app.getHeight() - n.getPreferredSize().height - 20;
+        start.setLocation(x, y);
+        addPanelFull(n, false);
+        fadeIn();
     }
     
     public static void cerrarSesion(){
