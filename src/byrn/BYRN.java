@@ -121,10 +121,6 @@ public class BYRN {
         }
     }
     
-    public static void removeStart(){
-        start.contenedor.removeAll();
-    }
-    
     //agrega contenido de un panel a otro 
     public static void addPanel(JPanel viejo, JPanel nuevo){
         //agrega tamaño al nuevo frame
@@ -211,6 +207,7 @@ public class BYRN {
             }
         }
         start.setVisible(false);
+        start.contenedor.removeAll();
     }
     
     //abrir login 
