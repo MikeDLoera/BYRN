@@ -176,6 +176,7 @@ public class BYRN {
     
     //tiempo de duracion(en milisegundos) de las animaciones
     private static int tiempoAnimacion = 200;
+    
     //animacion de entrada
     public static void fadeIn(){
         //frame invisible
@@ -207,7 +208,6 @@ public class BYRN {
             }
         }
         start.setVisible(false);
-        start.contenedor.removeAll();
     }
     
     //abrir login 
@@ -274,6 +274,7 @@ public class BYRN {
                 
             }
         }
+        fadeOut();
     }
     
     //abre panel de la app
@@ -339,6 +340,7 @@ public class BYRN {
     }
     
     public static void notificacion(String mensaje){
+        if (start.isVisible()){start.setVisible(false);}
         Notificacion n = new Notificacion();
         ControladorNotificacion cn = new ControladorNotificacion(mensaje, n);
         int x = (int) app.getWidth() - n.getPreferredSize().width - 20;

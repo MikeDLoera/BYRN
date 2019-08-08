@@ -1,9 +1,13 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Modelo;
 
 /**
  *
- * @author CST-UTJ
+ * @author miker
  */
 public class User {
     private int id;
@@ -18,12 +22,13 @@ public class User {
     private int city_id;
     private int state_id;
     private String phonenumber;
+    private String cellphone;
     private String birthdate;
     private char status;
     private String created_at;
     private String updated_at;
 
-    public User(int id, String name, String last_name, String email, String street, String outside_number, String interior_numbre, String neighborhood, String postal_code, int city_id, int state_id, String phonenumber, String birthdate, char status, String created_at, String updated_at) {
+    public User(int id, String name, String last_name, String email, String street, String outside_number, String interior_numbre, String neighborhood, String postal_code, int city_id, int state_id, String phonenumber, String cellphone, String birthdate, char status, String created_at, String updated_at) {
         this.id = id;
         this.name = name;
         this.last_name = last_name;
@@ -36,6 +41,7 @@ public class User {
         this.city_id = city_id;
         this.state_id = state_id;
         this.phonenumber = phonenumber;
+        this.cellphone = cellphone;
         this.birthdate = birthdate;
         this.status = status;
         this.created_at = created_at;
@@ -138,6 +144,14 @@ public class User {
         this.phonenumber = phonenumber;
     }
 
+    public String getCellphone() {
+        return cellphone;
+    }
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
     public String getBirthdate() {
         return birthdate;
     }
@@ -170,5 +184,5 @@ public class User {
         this.updated_at = updated_at;
     }
 
-    
+  
 }

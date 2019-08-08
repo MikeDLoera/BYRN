@@ -17,22 +17,24 @@ public class ListadoPropiedadesDAO {
         
     }
     
-    public void allEstates() throws UnirestException{
+    public HttpResponse allEstates() throws UnirestException{
             HttpResponse request = null;
             String path = "/estates";
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
             
             this.allEstates = BYRN.gson.fromJson(request.getBody().toString(), AllEstates.class);
+            return request;
         
     }
     
-    public void allUsers() throws UnirestException{
+    public HttpResponse allUsers() throws UnirestException{
             HttpResponse request = null;
             String path = "/users";
             String token = BYRN.getAuth().getToken();
             request = PeticionHTTP.get(path, token);
             this.allUsers = BYRN.gson.fromJson(request.getBody().toString(), User[].class);
+            return request;
     }
     
     public String getOwnerName(int owner_id){

@@ -40,7 +40,7 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnBusqueda.addActionListener((ActionListener)this);
         jf.ComboBox.addActionListener((ActionListener)this);
         
-        this.tabla();
+        //this.tabla();
         
     }
     
@@ -112,7 +112,7 @@ public class ControladorListadoPropiedades implements ActionListener{
                 modelotabla.addRow(fila);
             }
         } catch (UnirestException ex) {
-            
+            System.out.println("Hola");
         }
     }
     

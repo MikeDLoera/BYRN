@@ -13,8 +13,12 @@ import Vista.App;
 import Vista.EditarUsuarios;
 import Vista.Usuarios;
 import byrn.BYRN;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -32,6 +36,11 @@ public class ControladorUsuarios implements ActionListener {
         
         jf.btnAgregarUsuario.addActionListener((ActionListener)this);
         jf.btnEditarUsuario.addActionListener((ActionListener)this);
+           try {
+               tabla();
+           } catch (UnirestException ex) {
+               Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }
 
     @Override
@@ -53,6 +62,42 @@ public class ControladorUsuarios implements ActionListener {
             
         }
     }
+    
+    
+    
+    public void tabla() throws UnirestException{
+        dao.obtener();
+        
+        DefaultTableModel modelotabla = new DefaultTableModel();
+        modelotabla.addColumn("Nombre");
+         modelotabla.addColumn("Apellidos");
+          modelotabla.addColumn("Correo");
+           modelotabla.addColumn("Callé y Número");
+           modelotabla.addColumn("Celular");
+           modelotabla.addColumn("Rol");
+           jf.tlbUsuarios.setModel(modelotabla);
+           
+           
+           
+           Object[] fila = new Object[6];
+           
+        int length = dao.getUse().length; //cuantos usuarios existen
+         for (int i = 0; i < length; i++) {
+            fila[0] = dao.getUse()[i].getName();
+            fila[1] = dao.getUse()[i].getLast_name();
+            fila[2] = dao.getUse()[i].getEmail();
+            fila[3] = dao.getUse()[i].getStreet() + " " + dao.getUse()[i].getOutside_number();
+            fila[4] = dao.getUse()[i].getCellphone();
+            fila[5] = dao.getUse()[i].getStatus();
+            
+            modelotabla.addRow(fila);
+        }
+        
+        
+    
+                   
+    }
+    
     
     
 }
