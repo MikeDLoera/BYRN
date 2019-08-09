@@ -15,6 +15,7 @@ import byrn.BYRN;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -40,7 +41,7 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnBusqueda.addActionListener((ActionListener)this);
         jf.ComboBox.addActionListener((ActionListener)this);
         
-        //this.tabla();
+        this.tabla();
         
     }
     
@@ -85,7 +86,18 @@ public class ControladorListadoPropiedades implements ActionListener{
             
         }
         if (jf.ComboBox==e.getSource()) {
-            
+            if (jf.ComboBox.getSelectedIndex()==0) {//todo
+                int[] id = {1,2,3,4,5,6,7,8};
+                filtrado(id);
+            }
+            if (jf.ComboBox.getSelectedIndex()==1) {//casa
+                int[] id = {3,6,7};
+                filtrado(id);
+            }
+            if (jf.ComboBox.getSelectedIndex()==2) {//terreno
+                int[] id = {1,2};
+                filtrado(id);
+            }
         }
         if (jf.btnBusqueda==e.getSource()) {
             
@@ -113,6 +125,33 @@ public class ControladorListadoPropiedades implements ActionListener{
             }
         } catch (UnirestException ex) {
             System.out.println("Hola");
+        }
+    }
+    
+    private void filtrado(int[] id){
+        DefaultTableModel modelotabla = new DefaultTableModel();
+        modelotabla.addColumn("Número de Propiedad");
+        modelotabla.addColumn("Nombre");
+        modelotabla.addColumn("Dueño");
+        modelotabla.addColumn("Tipo");
+        jf.tblListadoDePropiedades.setModel(modelotabla);
+        Object[] fila = new Object[4];
+        ArrayList<Estates> filtro = new ArrayList();
+        for (Estates data : dao.getAllEstates().getData()) {
+            for (int i = 0; i < id.length; i++) {
+                if (data.getEstate_type().getId()==id[i]) {
+                    filtro.add(data);
+                }
+            }
+        }
+        
+        int length = filtro.size();
+        for (int i = 0; i < length; i++) {
+            fila[0] = filtro.get(i).getId();
+            fila[1] = filtro.get(i).getName();
+            fila[2] = dao.getOwnerName(filtro.get(i).getOwner_id());
+            fila[3] = filtro.get(i).getEstate_type().getName();
+            modelotabla.addRow(fila);
         }
     }
     

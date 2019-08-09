@@ -89,7 +89,6 @@ public class BYRN {
             }
             
         }
-        //login();//este es de prueba
     }
     
     //agrega contenido de un panel dentro del frame

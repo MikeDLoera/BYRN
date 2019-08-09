@@ -19,6 +19,9 @@ public class AllEstates {
     private int to;
     private int total;
 
+    public AllEstates() {
+    }
+
     public AllEstates(int current_page, Estates[] data, String first_page_url, int from, int last_page, String last_page_url, String next_page_url, String path, int per_page, String prev_page_url, int to, int total) {
         this.current_page = current_page;
         this.data = data;

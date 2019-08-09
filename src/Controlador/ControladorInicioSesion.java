@@ -88,6 +88,7 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
                 if (jf.cbxRecuerdame.isSelected()) {
                     guardarToken(BYRN.getAuth().getToken());
                 }
+                BYRN.fadeOut();
                 BYRN.dashboard();
             }else {
                 jf.labelExcepcion.setText("¡Datos Incorrectos!");

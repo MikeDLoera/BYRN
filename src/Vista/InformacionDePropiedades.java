@@ -28,10 +28,9 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
-        lbNombreDeLaCalleDelPanelInformacionDePropiedades = new javax.swing.JLabel();
-        lbNumeroDeCasaDetalles = new javax.swing.JLabel();
-        lbCodigoPostalDetalles = new javax.swing.JLabel();
-        lbDescripcionDetalles = new javax.swing.JLabel();
+        lbDireccion = new javax.swing.JLabel();
+        lbCiudad = new javax.swing.JLabel();
+        lbDescripcion = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(143, 198, 94));
 
@@ -45,44 +44,35 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
 
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
-        lbNombreDeLaCalleDelPanelInformacionDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        lbNombreDeLaCalleDelPanelInformacionDePropiedades.setText("Aqui va la calle de la propiedad");
+        lbDireccion.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDireccion.setText("Aqui va la calle de la propiedad");
 
-        lbNumeroDeCasaDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        lbNumeroDeCasaDetalles.setText("Numero de Casa");
+        lbCiudad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbCiudad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbCiudad.setText("Colonia");
 
-        lbCodigoPostalDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        lbCodigoPostalDetalles.setText("CodigoPostal");
-
-        lbDescripcionDetalles.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        lbDescripcionDetalles.setText("Descripcion");
+        lbDescripcion.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        lbDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDescripcion.setText("Descripcion");
 
         javax.swing.GroupLayout PanDetallesLayout = new javax.swing.GroupLayout(PanDetalles);
         PanDetalles.setLayout(PanDetallesLayout);
         PanDetallesLayout.setHorizontalGroup(
             PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
+            .addComponent(lbCiudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
-                .addContainerGap(249, Short.MAX_VALUE)
+                .addContainerGap(292, Short.MAX_VALUE)
                 .addGroup(PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
                         .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
-                        .addGroup(PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbNombreDeLaCalleDelPanelInformacionDePropiedades)
-                            .addGroup(PanDetallesLayout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(lbNumeroDeCasaDetalles))
-                            .addGroup(PanDetallesLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addGroup(PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbDescripcionDetalles)
-                                    .addComponent(lbCodigoPostalDetalles))))
-                        .addGap(235, 235, 235))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanDetallesLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(297, 297, 297))))
+            .addComponent(lbDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanDetallesLayout.setVerticalGroup(
             PanDetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,14 +82,12 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(lbNombreDeLaCalleDelPanelInformacionDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(lbNumeroDeCasaDetalles)
-                .addGap(33, 33, 33)
-                .addComponent(lbCodigoPostalDetalles)
-                .addGap(35, 35, 35)
-                .addComponent(lbDescripcionDetalles)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(lbCiudad)
+                .addGap(28, 28, 28)
+                .addComponent(lbDescripcion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -129,9 +117,8 @@ public class InformacionDePropiedades extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lbCodigoPostalDetalles;
-    private javax.swing.JLabel lbDescripcionDetalles;
-    private javax.swing.JLabel lbNombreDeLaCalleDelPanelInformacionDePropiedades;
-    private javax.swing.JLabel lbNumeroDeCasaDetalles;
+    public javax.swing.JLabel lbCiudad;
+    public javax.swing.JLabel lbDescripcion;
+    public javax.swing.JLabel lbDireccion;
     // End of variables declaration//GEN-END:variables
 }
