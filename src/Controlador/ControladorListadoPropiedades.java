@@ -57,18 +57,20 @@ public class ControladorListadoPropiedades implements ActionListener{
             
         }
         if (jf.btnEditarPropiedad==e.getSource()) {
-            
-            EditarPropiedad ed = new EditarPropiedad();
-            App app = BYRN.nuevaVentana("Editar Propiedad", ed);
-            EditarPropiedadDAO edDAO = new EditarPropiedadDAO();
-            ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
-      
+            int id = getIdSelect();
+            if (id>=0) {
+                EditarPropiedad ed = new EditarPropiedad();
+                App app = BYRN.nuevaVentana("Editar Propiedad", ed);
+                EditarPropiedadDAO edDAO = new EditarPropiedadDAO(getState(id));
+                ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
+            }
         }
         if (jf.btnMasInformacion==e.getSource()) {
             int id = getIdSelect();
             if (id>=0) {
                 InformacionDePropiedades inf = new InformacionDePropiedades();
                 InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO(getState(id));
+                System.out.println(id);
                 App app = BYRN.nuevaVentana("Más Información", inf);
                 ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
             }else{
@@ -124,7 +126,7 @@ public class ControladorListadoPropiedades implements ActionListener{
                 modelotabla.addRow(fila);
             }
         } catch (UnirestException ex) {
-            System.out.println("Hola");
+            
         }
     }
     
@@ -159,11 +161,8 @@ public class ControladorListadoPropiedades implements ActionListener{
         int numReturn;
         if (jf.tblListadoDePropiedades.getSelectedRowCount()==1) {
             int rowSelect = jf.tblListadoDePropiedades.getSelectedRow();
-            if (rowSelect>=0) {
-                numReturn = rowSelect;
-            }else{
-                numReturn = (int) jf.tblListadoDePropiedades.getValueAt(rowSelect, 0);
-            }
+            numReturn = (int) jf.tblListadoDePropiedades.getValueAt(rowSelect, 0);
+            
         }else{
             numReturn = -1;
         }
@@ -171,9 +170,9 @@ public class ControladorListadoPropiedades implements ActionListener{
     }
     
     private Estates getState(int id){
-        Estates estates = null;
+        Estates estates = new Estates();
         int length = dao.getAllEstates().getData().length;
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++)     {
             if (dao.getAllEstates().getData()[i].getId()==id) {
                 estates = dao.getAllEstates().getData()[i];
                 break;

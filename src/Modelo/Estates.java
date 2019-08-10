@@ -87,6 +87,9 @@ public class Estates {
         this.estate_type = estate_typ;
     }
 
+    public Estates() {
+    }
+
     public int getId() {
         return id;
     }
