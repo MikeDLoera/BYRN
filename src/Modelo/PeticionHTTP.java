@@ -10,7 +10,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
  * @author CST-UTJ
  */
 public class PeticionHTTP {
-    private static String url = "http://192.168.0.111:8001/api";
+    private static String url = "http://18.224.153.86:8000/api";
     
     public static HttpResponse get(String path, String token) throws UnirestException {
         HttpResponse response = Unirest . get(url+path)

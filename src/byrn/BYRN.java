@@ -21,6 +21,7 @@ import Vista.Start;
 import com.google.gson.Gson;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -307,6 +308,19 @@ public class BYRN {
         
         dashboard.menu.setSize(wm, h);
         dashboard.contenido.setBounds(wm, 0, wc, h);
+        dashMenu.setSize(dashboard.menu.getSize());
+        propiedades.setSize(dashboard.contenido.getSize());
+        
+        
+        
+        /*Toolkit t = Toolkit.getDefaultToolkit();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        app.setSize(screenSize.width-20, screenSize.height-20);
+        app.setMinimumSize(app.getSize());
+        
+        app.setVisible(true);*/
+        
+        
     }
     
     public static String carpetaLocal(){
