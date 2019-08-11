@@ -27,30 +27,31 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         PanAñadirPropiedad = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtCalle = new javax.swing.JTextField();
-        txtNumeroDeCasa = new javax.swing.JTextField();
-        txtCodigoPostal = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtMetroPorPrecio = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
         btnGuardarNuevaPropiedad = new javax.swing.JButton();
-        btnInformacionExtra = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
-        jLabel11 = new javax.swing.JLabel();
-        txtNumeroDePropiedad = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtDueño = new javax.swing.JTextField();
         txtTipo = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtMetrosCuadrados = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        txtTipoDeNegocio = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
 
         buttonColoredAction1.setText("buttonColoredAction1");
 
@@ -63,52 +64,34 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         PanAñadirPropiedad.add(jSeparator1);
-        jSeparator1.setBounds(520, 0, 20, 400);
+        jSeparator1.setBounds(520, 60, 20, 420);
 
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel1.setText("Calle");
+        jLabel1.setText("Direccion");
         PanAñadirPropiedad.add(jLabel1);
-        jLabel1.setBounds(650, 110, 120, 18);
-
-        jLabel6.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel6.setText("Número de casa");
-        PanAñadirPropiedad.add(jLabel6);
-        jLabel6.setBounds(620, 170, 170, 20);
+        jLabel1.setBounds(80, 170, 120, 21);
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel7.setText("Descripción");
         PanAñadirPropiedad.add(jLabel7);
-        jLabel7.setBounds(630, 280, 110, 18);
+        jLabel7.setBounds(670, 310, 110, 21);
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel8.setText("Codigo Postal");
+        jLabel8.setText("Precio por metro");
         PanAñadirPropiedad.add(jLabel8);
-        jLabel8.setBounds(630, 220, 120, 18);
+        jLabel8.setBounds(70, 420, 120, 21);
 
-        txtCalle.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtCalle);
-        txtCalle.setBounds(810, 100, 140, 30);
+        txtDireccion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtDireccion);
+        txtDireccion.setBounds(320, 160, 150, 30);
 
-        txtNumeroDeCasa.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtNumeroDeCasa);
-        txtNumeroDeCasa.setBounds(810, 160, 140, 30);
-
-        txtCodigoPostal.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtCodigoPostal);
-        txtCodigoPostal.setBounds(810, 220, 140, 30);
+        txtMetroPorPrecio.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtMetroPorPrecio);
+        txtMetroPorPrecio.setBounds(320, 420, 140, 30);
 
         txtDescripcion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         PanAñadirPropiedad.add(txtDescripcion);
-        txtDescripcion.setBounds(810, 270, 140, 30);
-
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        PanAñadirPropiedad.add(jSeparator2);
-        jSeparator2.setBounds(0, 400, 520, 20);
-
-        jLabel9.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        jLabel9.setText("Más info");
-        PanAñadirPropiedad.add(jLabel9);
-        jLabel9.setBounds(730, 20, 170, 24);
+        txtDescripcion.setBounds(810, 300, 150, 30);
 
         btnGuardarNuevaPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarNuevaPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
@@ -116,120 +99,147 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         btnGuardarNuevaPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardarNuevaPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PanAñadirPropiedad.add(btnGuardarNuevaPropiedad);
-        btnGuardarNuevaPropiedad.setBounds(220, 330, 120, 50);
-
-        btnInformacionExtra.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnInformacionExtra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
-        btnInformacionExtra.setText("Guardar Informacion Extra");
-        btnInformacionExtra.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnInformacionExtra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanAñadirPropiedad.add(btnInformacionExtra);
-        btnInformacionExtra.setBounds(660, 330, 250, 50);
+        btnGuardarNuevaPropiedad.setBounds(470, 490, 120, 50);
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel10.setText("Añadir Propiedad");
         PanAñadirPropiedad.add(jLabel10);
-        jLabel10.setBounds(190, 20, 180, 30);
+        jLabel10.setBounds(430, 20, 180, 30);
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         PanAñadirPropiedad.add(jSeparator3);
         jSeparator3.setBounds(0, 60, 520, 10);
 
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        PanAñadirPropiedad.add(jSeparator4);
-        jSeparator4.setBounds(520, 60, 550, 20);
-
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        PanAñadirPropiedad.add(jSeparator5);
-        jSeparator5.setBounds(520, 400, 550, 30);
-
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         PanAñadirPropiedad.add(clockDigital1);
-        clockDigital1.setBounds(850, 410, 219, 49);
-
-        jLabel11.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel11.setText("Número de Propiedad");
-        PanAñadirPropiedad.add(jLabel11);
-        jLabel11.setBounds(100, 100, 200, 30);
-
-        txtNumeroDePropiedad.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtNumeroDePropiedad);
-        txtNumeroDePropiedad.setBounds(320, 100, 130, 30);
+        clockDigital1.setBounds(920, 500, 100, 49);
 
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel12.setText("Nombre");
         PanAñadirPropiedad.add(jLabel12);
-        jLabel12.setBounds(110, 170, 140, 18);
+        jLabel12.setBounds(90, 100, 140, 21);
 
         jLabel13.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel13.setText("Dueño");
         PanAñadirPropiedad.add(jLabel13);
-        jLabel13.setBounds(110, 220, 100, 18);
+        jLabel13.setBounds(90, 240, 100, 21);
+
+        txtNombre.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtNombre);
+        txtNombre.setBounds(320, 100, 150, 30);
+
+        txtDueño.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDueñoActionPerformed(evt);
+            }
+        });
+        PanAñadirPropiedad.add(txtDueño);
+        txtDueño.setBounds(320, 230, 150, 30);
+
+        txtTipo.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtTipo);
+        txtTipo.setBounds(320, 290, 150, 30);
 
         jLabel14.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel14.setText("Tipo");
         PanAñadirPropiedad.add(jLabel14);
-        jLabel14.setBounds(110, 260, 90, 18);
+        jLabel14.setBounds(100, 300, 90, 21);
 
-        txtNombre.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtNombre);
-        txtNombre.setBounds(320, 150, 130, 30);
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        jLabel2.setText("Metros Cuadrados");
+        PanAñadirPropiedad.add(jLabel2);
+        jLabel2.setBounds(70, 360, 160, 30);
 
-        txtDueño.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtDueño);
-        txtDueño.setBounds(320, 210, 130, 30);
+        txtMetrosCuadrados.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtMetrosCuadrados);
+        txtMetrosCuadrados.setBounds(320, 360, 150, 30);
 
-        txtTipo.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtTipo);
-        txtTipo.setBounds(320, 260, 130, 30);
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        jLabel3.setText("Precio");
+        PanAñadirPropiedad.add(jLabel3);
+        jLabel3.setBounds(680, 240, 90, 21);
+
+        txtPrecio.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtPrecio);
+        txtPrecio.setBounds(810, 230, 150, 30);
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        PanAñadirPropiedad.add(jSeparator2);
+        jSeparator2.setBounds(520, 60, 530, 30);
+
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        jLabel4.setText("Tipo de negocio");
+        PanAñadirPropiedad.add(jLabel4);
+        jLabel4.setBounds(660, 160, 110, 30);
+
+        txtTipoDeNegocio.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        PanAñadirPropiedad.add(txtTipoDeNegocio);
+        txtTipoDeNegocio.setBounds(810, 160, 150, 30);
+
+        jLabel9.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        jLabel9.setText("Número de Ciudad");
+        PanAñadirPropiedad.add(jLabel9);
+        jLabel9.setBounds(650, 380, 130, 20);
+
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        PanAñadirPropiedad.add(jSeparator4);
+        jSeparator4.setBounds(0, 480, 1030, 20);
+        PanAñadirPropiedad.add(comboBoxRound1);
+        comboBoxRound1.setBounds(840, 380, 110, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(PanAñadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 1038, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanAñadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 1034, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(PanAñadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanAñadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDueñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDueñoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanAñadirPropiedad;
     public javax.swing.JButton btnGuardarNuevaPropiedad;
-    public javax.swing.JButton btnInformacionExtra;
     private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
+    private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    public javax.swing.JTextField txtCalle;
-    public javax.swing.JTextField txtCodigoPostal;
     public javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtDueño;
-    private javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtNumeroDeCasa;
-    public javax.swing.JTextField txtNumeroDePropiedad;
-    private javax.swing.JTextField txtTipo;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtDueño;
+    public javax.swing.JTextField txtMetroPorPrecio;
+    public javax.swing.JTextField txtMetrosCuadrados;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtTipo;
+    public javax.swing.JTextField txtTipoDeNegocio;
     // End of variables declaration//GEN-END:variables
 }

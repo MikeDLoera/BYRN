@@ -7,26 +7,28 @@ package Modelo;
  */
 public class StoreEstate {
     private String name;
-    private int image_url;
     private String description;
     private int owner_id;
     private int estate_type;
     private int business_type;
     private int commision_or_advertising;
-    private String surface_area;
+    private String surface_area=null;
     private int meter_price;
     private int seller_price;
-    private double latitude;
-    private double longitude;
-    private String street;
-    private String outside_number;
-    private String neighborhood;
-    private int postal_code;
+    
+    private String latitude=null;
+    private String longitude=null;
+    
+    private String address;
     private int city_id;
+      private long created_at;
 
-    public StoreEstate(String name, int image_url, String description, int owner_id, int estate_type, int business_type, int commision_or_advertising, String surface_area, int meter_price, int seller_price, double latitude, double longitude, String street, String outside_number, String neighborhood, int postal_code, int city_id) {
+    public StoreEstate() {
+        
+    }
+
+    public StoreEstate(String name, String description, int owner_id, int estate_type, int business_type, int commision_or_advertising, String surface_area, int meter_price, int seller_price, String latitude, String longitude, String address, int city_id, long created_at) {
         this.name = name;
-        this.image_url = image_url;
         this.description = description;
         this.owner_id = owner_id;
         this.estate_type = estate_type;
@@ -37,11 +39,9 @@ public class StoreEstate {
         this.seller_price = seller_price;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.street = street;
-        this.outside_number = outside_number;
-        this.neighborhood = neighborhood;
-        this.postal_code = postal_code;
+        this.address = address;
         this.city_id = city_id;
+        this.created_at = created_at;
     }
 
     public String getName() {
@@ -50,14 +50,6 @@ public class StoreEstate {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getImage_url() {
-        return image_url;
-    }
-
-    public void setImage_url(int image_url) {
-        this.image_url = image_url;
     }
 
     public String getDescription() {
@@ -124,52 +116,28 @@ public class StoreEstate {
         this.seller_price = seller_price;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
-    public String getStreet() {
-        return street;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getOutside_number() {
-        return outside_number;
-    }
-
-    public void setOutside_number(String outside_number) {
-        this.outside_number = outside_number;
-    }
-
-    public String getNeighborhood() {
-        return neighborhood;
-    }
-
-    public void setNeighborhood(String neighborhood) {
-        this.neighborhood = neighborhood;
-    }
-
-    public int getPostal_code() {
-        return postal_code;
-    }
-
-    public void setPostal_code(int postal_code) {
-        this.postal_code = postal_code;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getCity_id() {
@@ -179,7 +147,20 @@ public class StoreEstate {
     public void setCity_id(int city_id) {
         this.city_id = city_id;
     }
+
+    public long getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(long created_at) {
+        this.created_at = created_at;
+    }
     
+    
+    
+    
+
+   
     
     
     

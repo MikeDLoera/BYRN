@@ -12,6 +12,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
     public ListadoPropiedades() {
         initComponents();
         
+        
     }
     
 
@@ -266,9 +267,19 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         jLabel3.setText("Buscador:");
 
         txtBuscador.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtBuscador.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscadorCaretUpdate(evt);
+            }
+        });
+        txtBuscador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscadorActionPerformed(evt);
+            }
+        });
 
         ComboBox.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Casas", "Terrenos" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terreno rústico.", "Terreno urbano.", " " }));
         ComboBox.setColorDeBorde(new java.awt.Color(143, 198, 94));
         ComboBox.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         ComboBox.setOpaque(true);
@@ -327,7 +338,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jListadoDePropiedadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 206, Short.MAX_VALUE))))
+                            .addComponent(panImagenDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 223, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jListadoDePropiedadesLayout.setVerticalGroup(
@@ -374,6 +385,22 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtBuscadorCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscadorCaretUpdate
+        // TODO add your handling code here:
+         String valor = txtBuscador.getText();
+            
+                for (int i = 0; i < tblListadoDePropiedades.getRowCount(); i++) {
+                    if (tblListadoDePropiedades.getValueAt(i, 0).equals(valor)) {
+                       
+                        tblListadoDePropiedades.changeSelection(i, 0, false, false);
+                    }
+                }
+    }//GEN-LAST:event_txtBuscadorCaretUpdate
+
+    private void txtBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscadorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public org.edisoncor.gui.comboBox.ComboBoxRound ComboBox;
@@ -400,6 +427,6 @@ public class ListadoPropiedades extends javax.swing.JPanel {
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     public javax.swing.JPanel panlListadoDePropiedades;
     public rojerusan.RSTableMetro tblListadoDePropiedades;
-    private javax.swing.JTextField txtBuscador;
+    public javax.swing.JTextField txtBuscador;
     // End of variables declaration//GEN-END:variables
 }

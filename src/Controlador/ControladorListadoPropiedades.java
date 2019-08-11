@@ -110,7 +110,10 @@ public class ControladorListadoPropiedades implements ActionListener{
         try {
             dao.allEstates();
             dao.allUsers();
-            DefaultTableModel modelotabla = new DefaultTableModel();
+            DefaultTableModel modelotabla = new DefaultTableModel(){
+    public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+};
+            
             modelotabla.addColumn("Número de Propiedad");
             modelotabla.addColumn("Nombre");
             modelotabla.addColumn("Dueño");
@@ -122,7 +125,7 @@ public class ControladorListadoPropiedades implements ActionListener{
                 fila[0] = dao.getAllEstates().getData()[i].getId();
                 fila[1] = dao.getAllEstates().getData()[i].getName();
                 fila[2] = dao.getOwnerName(dao.getAllEstates().getData()[i].getOwner_id());
-                fila[3] = dao.getAllEstates().getData()[i].getEstate_type().getName();
+                //fila[3] = dao.getAllEstates().getData()[i].getEstate_type().getName();
                 modelotabla.addRow(fila);
             }
         } catch (UnirestException ex) {

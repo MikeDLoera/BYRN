@@ -83,7 +83,7 @@
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jPanel1" max="32767" attributes="0"/>
-                              <Component id="panImagenDePropiedades" pref="206" max="32767" attributes="0"/>
+                              <Component id="panImagenDePropiedades" pref="223" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -618,6 +618,13 @@
               <Font name="Poppins" size="13" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtBuscadorCaretUpdate"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscadorActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="org.edisoncor.gui.comboBox.ComboBoxRound" name="ComboBox">
           <Properties>
@@ -628,9 +635,9 @@
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="Todos"/>
-                <StringItem index="1" value="Casas"/>
-                <StringItem index="2" value="Terrenos"/>
+                <StringItem index="0" value="Terreno r&#xfa;stico."/>
+                <StringItem index="1" value="Terreno urbano."/>
+                <StringItem index="2" value=" "/>
               </StringArray>
             </Property>
             <Property name="colorDeBorde" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
