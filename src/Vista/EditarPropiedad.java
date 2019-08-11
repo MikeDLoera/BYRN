@@ -43,9 +43,9 @@ public class EditarPropiedad extends javax.swing.JPanel {
         txtNombreDePropiedadEdicion = new javax.swing.JTextField();
         txtDueñoDePropiedadEdicion = new javax.swing.JTextField();
         txtTipoDePropiedadEdicion = new javax.swing.JTextField();
-        txtCalleDePropiedadEdicion = new javax.swing.JTextField();
-        txtNumeroDeCasaEdicion = new javax.swing.JTextField();
-        txtCodigoPostalDePropiedadEdicion = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtCiudad = new javax.swing.JTextField();
+        txtArea = new javax.swing.JTextField();
         txtDescripcionDePropiedadEdicion = new javax.swing.JTextField();
         btnGuardarCambiosDeEdicionDePropiedades = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -75,13 +75,13 @@ public class EditarPropiedad extends javax.swing.JPanel {
         jLabel6.setText("Tipo");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel7.setText("Calle");
+        jLabel7.setText("Dirección");
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel8.setText("Número de Casa");
+        jLabel8.setText("Ciudad");
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel9.setText("Código Postal");
+        jLabel9.setText("Área");
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel10.setText("Descripción");
@@ -95,14 +95,14 @@ public class EditarPropiedad extends javax.swing.JPanel {
 
         txtTipoDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtCalleDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtNumeroDeCasaEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtCiudad.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtCodigoPostalDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        txtCodigoPostalDePropiedadEdicion.addActionListener(new java.awt.event.ActionListener() {
+        txtArea.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoPostalDePropiedadEdicionActionPerformed(evt);
+                txtAreaActionPerformed(evt);
             }
         });
 
@@ -151,29 +151,19 @@ public class EditarPropiedad extends javax.swing.JPanel {
                         .addComponent(txtNumeroDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(63, 63, 63)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtDescripcionDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCalleDePropiedadEdicion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCodigoPostalDePropiedadEdicion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNumeroDeCasaEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 30, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDescripcionDePropiedadEdicion, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(txtCiudad)
+                    .addComponent(txtDireccion)
+                    .addComponent(txtArea, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(0, 23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,16 +192,16 @@ public class EditarPropiedad extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCalleDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7))
                                 .addGap(36, 36, 36)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel8)
-                                    .addComponent(txtNumeroDeCasaEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(txtCodigoPostalDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2))
@@ -255,22 +245,22 @@ public class EditarPropiedad extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCodigoPostalDePropiedadEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPostalDePropiedadEdicionActionPerformed
+    private void txtAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoPostalDePropiedadEdicionActionPerformed
+    }//GEN-LAST:event_txtAreaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,12 +280,12 @@ public class EditarPropiedad extends javax.swing.JPanel {
     public javax.swing.JSeparator jSeparator1;
     public javax.swing.JSeparator jSeparator2;
     public javax.swing.JSeparator jSeparator3;
-    public javax.swing.JTextField txtCalleDePropiedadEdicion;
-    public javax.swing.JTextField txtCodigoPostalDePropiedadEdicion;
+    public javax.swing.JTextField txtArea;
+    public javax.swing.JTextField txtCiudad;
     public javax.swing.JTextField txtDescripcionDePropiedadEdicion;
+    public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtDueñoDePropiedadEdicion;
     public javax.swing.JTextField txtNombreDePropiedadEdicion;
-    public javax.swing.JTextField txtNumeroDeCasaEdicion;
     public javax.swing.JTextField txtNumeroDePropiedadEdicion;
     public javax.swing.JTextField txtTipoDePropiedadEdicion;
     // End of variables declaration//GEN-END:variables

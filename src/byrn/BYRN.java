@@ -42,7 +42,8 @@ public class BYRN {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        runApp();
+        //runApp();
+        login();
     }
     
     private static Start start = new Start();
@@ -280,6 +281,7 @@ public class BYRN {
     //abre panel de la app
     public static void dashboard(){
         //se añade dashboard al frame app
+        //app.setExtendedState(MAXIMIZED_BOTH);
         addPanelFull(dashboard,true);
         //se crea nuevo menu
         DashBoard dashMenu = new DashBoard();
@@ -290,11 +292,10 @@ public class BYRN {
         ControladorListadoPropiedades clp = new ControladorListadoPropiedades(propiedades, propiedadesDAO);
         
         //se añade menu y propiedades a la app
-        addPanel(dashboard.menu, dashMenu);
-        addPanel(dashboard.contenido, propiedades);
+        //addPanel(dashboard.menu, dashMenu);
+        //addPanel(dashboard.contenido, propiedades);
         
-        //se maximiza la ventana
-        app.setExtendedState(MAXIMIZED_BOTH);
+        /*
         app.setLocation(0,0);
         //se visualiza la ventana
         app.setVisible(true);
@@ -310,15 +311,29 @@ public class BYRN {
         dashboard.contenido.setBounds(wm, 0, wc, h);
         dashMenu.setSize(dashboard.menu.getSize());
         propiedades.setSize(dashboard.contenido.getSize());
+        */
         
         
-        
-        /*Toolkit t = Toolkit.getDefaultToolkit();
+        Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        app.setSize(screenSize.width-20, screenSize.height-20);
+        app.setSize(screenSize.width-20, screenSize.height-40);
         app.setMinimumSize(app.getSize());
+        app.setLocationRelativeTo(null);
         
-        app.setVisible(true);*/
+        //obtiene altura de la ventana app
+        int h = app.getHeight();
+        int wm = (app.getWidth()*15)/100;
+        int wc = app.getWidth()-wm;
+        
+        dashboard.menu.setSize(wm, h);
+        dashboard.contenido.setBounds(wm, 0, wc, h);
+        dashMenu.setSize(wm,h);
+        propiedades.setSize(dashboard.contenido.getSize());
+        
+        addPanel(dashboard.menu, dashMenu);
+        addPanel(dashboard.contenido, propiedades);
+        
+        app.setVisible(true);
         
         
     }

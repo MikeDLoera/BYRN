@@ -21,4 +21,5 @@ public class EditarPropiedadDAO {
         this.estate = estate;
     }
     
+    
 }

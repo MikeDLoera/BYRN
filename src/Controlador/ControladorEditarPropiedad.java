@@ -29,6 +29,8 @@ public class ControladorEditarPropiedad implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (jf.btnGuardarCambiosDeEdicionDePropiedades==e.getSource()) {
+            //HttpRequest request = PeticionHTTP.
+            
             app.setVisible(false);
         }
     }
@@ -38,8 +40,10 @@ public class ControladorEditarPropiedad implements ActionListener{
         jf.txtNombreDePropiedadEdicion.setText(dao.getEstate().getName());
         jf.txtDueñoDePropiedadEdicion.setText(dao.getEstate().getOwner_id()+"");
         jf.txtTipoDePropiedadEdicion.setText(dao.getEstate().getEstate_type().getName());
-        jf.txtCalleDePropiedadEdicion.setText(dao.getEstate().getAddress());
+        jf.txtDireccion.setText(dao.getEstate().getAddress());
         jf.txtDescripcionDePropiedadEdicion.setText(dao.getEstate().getDescription());
+        jf.txtArea.setText(dao.getEstate().getSurface_area()+"");
+        jf.txtCiudad.setText(dao.getEstate().getCity().getName());
         
     }
     

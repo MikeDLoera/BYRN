@@ -3,9 +3,11 @@ package Controlador;
 
 import Modelo.AnadirPropiedadDAO;
 import Modelo.EditarPropiedadDAO;
+import Modelo.EstateType;
 import Modelo.Estates;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
+import Modelo.PeticionHTTP;
 import Vista.AnadirPropiedad;
 import Vista.App;
 import Vista.EditarPropiedad;
@@ -41,7 +43,15 @@ public class ControladorListadoPropiedades implements ActionListener{
         jf.btnBusqueda.addActionListener((ActionListener)this);
         jf.ComboBox.addActionListener((ActionListener)this);
         
-        this.tabla();
+
+
+        try {
+            tabla(false);
+            getTypes();
+        } catch (UnirestException ex) {
+            
+        }
+        
         
     }
     
@@ -54,23 +64,34 @@ public class ControladorListadoPropiedades implements ActionListener{
             BYRN.nuevaVentana("Añadir propiedad", ap);
         }
         if (jf.btnEliminarPropiedad==e.getSource()) {
-            
+            int id = getIdSelect();
+            if (id>0) {
+                try {
+                    String path = "/estates/"+id;
+                    PeticionHTTP.delete(path,BYRN.getAuth().getToken());
+                    BYRN.notificacion("La propiedad se elimino correctamente");
+                    tabla(false);
+                } catch (UnirestException ex) {
+                    
+                }
+            }
         }
         if (jf.btnEditarPropiedad==e.getSource()) {
             int id = getIdSelect();
-            if (id>=0) {
+            if (id>0) {
                 EditarPropiedad ed = new EditarPropiedad();
                 App app = BYRN.nuevaVentana("Editar Propiedad", ed);
                 EditarPropiedadDAO edDAO = new EditarPropiedadDAO(getState(id));
                 ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
+            }else{
+                BYRN.notificacion("Seleccione una fila de la tabla");
             }
         }
         if (jf.btnMasInformacion==e.getSource()) {
             int id = getIdSelect();
-            if (id>=0) {
+            if (id>0) {
                 InformacionDePropiedades inf = new InformacionDePropiedades();
                 InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO(getState(id));
-                System.out.println(id);
                 App app = BYRN.nuevaVentana("Más Información", inf);
                 ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
             }else{
@@ -88,17 +109,23 @@ public class ControladorListadoPropiedades implements ActionListener{
             
         }
         if (jf.ComboBox==e.getSource()) {
-            if (jf.ComboBox.getSelectedIndex()==0) {//todo
-                int[] id = {1,2,3,4,5,6,7,8};
-                filtrado(id);
-            }
-            if (jf.ComboBox.getSelectedIndex()==1) {//casa
-                int[] id = {3,6,7};
-                filtrado(id);
-            }
-            if (jf.ComboBox.getSelectedIndex()==2) {//terreno
-                int[] id = {1,2};
-                filtrado(id);
+            if (jf.ComboBox.getSelectedIndex()>0) {
+                for (EstateType allEstatesType : dao.getAllEstatesTypes()) {
+                    if (allEstatesType.getName().equals(jf.ComboBox.getSelectedItem())) {
+                        filtrado(allEstatesType.getId());
+                        break;
+                    }
+                }
+            }else{
+                if (jf.ComboBox.getSelectedIndex()==0) {
+                    try {
+                        tabla(true);
+                    } catch (UnirestException ex) {
+                        
+                    }
+                }else{
+                    
+                }
             }
         }
         if (jf.btnBusqueda==e.getSource()) {
@@ -106,35 +133,33 @@ public class ControladorListadoPropiedades implements ActionListener{
         }
     }
     
-    private void tabla(){
-        try {
+    private void tabla(boolean filtrado) throws UnirestException{
+        if (!filtrado) {
             dao.allEstates();
             dao.allUsers();
-            DefaultTableModel modelotabla = new DefaultTableModel(){
-    public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
-};
-            
-            modelotabla.addColumn("Número de Propiedad");
-            modelotabla.addColumn("Nombre");
-            modelotabla.addColumn("Dueño");
-            modelotabla.addColumn("Tipo");
-            jf.tblListadoDePropiedades.setModel(modelotabla);
-            Object[] fila = new Object[4];
-            int length = dao.getAllEstates().getData().length;
-            for (int i = 0; i < length; i++) {
-                fila[0] = dao.getAllEstates().getData()[i].getId();
-                fila[1] = dao.getAllEstates().getData()[i].getName();
-                fila[2] = dao.getOwnerName(dao.getAllEstates().getData()[i].getOwner_id());
-                //fila[3] = dao.getAllEstates().getData()[i].getEstate_type().getName();
-                modelotabla.addRow(fila);
-            }
-        } catch (UnirestException ex) {
-            
         }
+        DefaultTableModel modelotabla = new DefaultTableModel(){@Override
+        public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
+        modelotabla.addColumn("Número de Propiedad");
+        modelotabla.addColumn("Nombre");
+        modelotabla.addColumn("Dueño");
+        modelotabla.addColumn("Tipo");
+        jf.tblListadoDePropiedades.setModel(modelotabla);
+        Object[] fila = new Object[4];
+        int length = dao.getAllEstates().getData().length;
+        for (int i = 0; i < length; i++) {
+            fila[0] = dao.getAllEstates().getData()[i].getId();
+            fila[1] = dao.getAllEstates().getData()[i].getName();
+            fila[2] = dao.getOwnerName(dao.getAllEstates().getData()[i].getOwner_id());
+            //fila[3] = dao.getAllEstates().getData()[i].getEstate_type().getName();
+            modelotabla.addRow(fila);
+        }
+
     }
     
-    private void filtrado(int[] id){
-        DefaultTableModel modelotabla = new DefaultTableModel();
+    private void filtrado(int id){
+        DefaultTableModel modelotabla = new DefaultTableModel(){@Override
+        public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
         modelotabla.addColumn("Número de Propiedad");
         modelotabla.addColumn("Nombre");
         modelotabla.addColumn("Dueño");
@@ -143,10 +168,8 @@ public class ControladorListadoPropiedades implements ActionListener{
         Object[] fila = new Object[4];
         ArrayList<Estates> filtro = new ArrayList();
         for (Estates data : dao.getAllEstates().getData()) {
-            for (int i = 0; i < id.length; i++) {
-                if (data.getEstate_type().getId()==id[i]) {
-                    filtro.add(data);
-                }
+            if (data.getEstate_type().getId()==id) {
+                filtro.add(data);
             }
         }
         
@@ -182,6 +205,17 @@ public class ControladorListadoPropiedades implements ActionListener{
             }
         }
         return estates;
+    }
+    
+    private void getTypes() throws UnirestException{
+        dao.allTypes();
+        int length = dao.getAllEstatesTypes().length;
+        String[] types = new String[length+1];
+        types[0] = "Todos";
+        for (int i = 1; i < length+1; i++) {
+            types[i] = dao.getAllEstatesTypes()[i-1].getName();
+        }
+        jf.ComboBox.setModel(new javax.swing.DefaultComboBoxModel(types));
     }
     
 }

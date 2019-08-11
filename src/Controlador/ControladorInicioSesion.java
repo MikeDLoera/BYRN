@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -88,6 +89,8 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
                 if (jf.cbxRecuerdame.isSelected()) {
                     guardarToken(BYRN.getAuth().getToken());
                 }
+                HashMap<String, Object> n = BYRN.gson.fromJson(json, HashMap.class);
+                System.out.println(n.get("user"));
                 BYRN.fadeOut();
                 BYRN.dashboard();
             }else {
