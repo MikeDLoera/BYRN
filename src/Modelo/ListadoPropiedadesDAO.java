@@ -15,6 +15,7 @@ public class ListadoPropiedadesDAO {
     private AllEstates allEstates = null;
     private User[] allUsers = null;
     private EstateType[] allEstatesTypes;
+    private HashMap<String,ArrayList> allEstate;
     
     public ListadoPropiedadesDAO() {
         
@@ -24,13 +25,10 @@ public class ListadoPropiedadesDAO {
         HttpResponse request = null;
         String path = "/estates";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
-            
-        this.allEstates = BYRN.gson.fromJson(request.getBody().toString(), AllEstates.class);
+        allEstate = BYRN.gson.fromJson(request.getBody().toString(), HashMap.class);
+        System.out.println(BYRN.gson.toJson(allEstate.get("data").get(0)));
+        //this.allEstates = BYRN.gson.fromJson(request.getBody().toString(), AllEstates.class);
         
-        HashMap<String, ArrayList> n = BYRN.gson.fromJson(request.getBody().toString(), HashMap.class);
-        //System.out.println(n.get("data").toString());
-        ArrayList l = n.get("data");
-        System.out.println(l.get(0));
         return request;
         
     }
@@ -48,6 +46,7 @@ public class ListadoPropiedadesDAO {
         String path = "/estate-types";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
         this.allEstatesTypes = BYRN.gson.fromJson(request.getBody().toString(), EstateType[].class);
+        
         return request;
     }
     
@@ -85,6 +84,14 @@ public class ListadoPropiedadesDAO {
 
     public void setAllEstatesTypes(EstateType[] allEstatesTypes) {
         this.allEstatesTypes = allEstatesTypes;
+    }
+
+    public HashMap<String, ArrayList> getAllEstate() {
+        return allEstate;
+    }
+
+    public void setAllEstate(HashMap<String, ArrayList> allEstate) {
+        this.allEstate = allEstate;
     }
     
 }
