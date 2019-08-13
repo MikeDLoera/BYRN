@@ -3,6 +3,8 @@ package Controlador;
 
 import Modelo.InformacionPropiedadesDAO;
 import Vista.InformacionDePropiedades;
+import byrn.BYRN;
+import java.util.HashMap;
 
 /**
  *
@@ -21,9 +23,9 @@ public class ControladorInformacionPropiedades{
     }
     
     private void mostrar(){
-        jf.lbDireccion.setText("Dirección: "+dao.getEstate().getAddress());
-        jf.lbCiudad.setText("Ciudad: "+dao.getEstate().getCity().getName());
-        jf.lbDescripcion.setText("Descipción: "+dao.getEstate().getDescription());
+        jf.lbDireccion.setText("Dirección: "+dao.getEstate().get("address").toString());
+        jf.lbCiudad.setText("Ciudad: "+BYRN.gson.fromJson(BYRN.gson.toJson(dao.getEstate().get("city")), HashMap.class).get("name"));
+        jf.lbDescripcion.setText("Descipción: "+dao.getEstate().get("description"));
     }
     
 }

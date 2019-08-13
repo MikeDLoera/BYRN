@@ -4,6 +4,7 @@ package Modelo;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import java.util.HashMap;
 
 /**
  *
@@ -50,4 +51,21 @@ public class PeticionHTTP {
         return response;
     }
     
+    public static HttpResponse postFormData(String path,HashMap mapa,String token) throws UnirestException{
+        HttpResponse response =  Unirest . post(url+path)
+        .header("Content-type" , "application/json")
+        .header("Authorization", "Bearer"+token)
+        .queryString(mapa)
+        .asJson();
+        return response;
+    }
+    
+    public static HttpResponse putFormData(String path,HashMap mapa,String token) throws UnirestException{
+        HttpResponse response =  Unirest . post(url+path)
+        .header("Content-type" , "application/json")
+        .header("Authorization", "Bearer"+token)
+        .queryString(mapa)
+        .asJson();
+        return response;
+    }
 }

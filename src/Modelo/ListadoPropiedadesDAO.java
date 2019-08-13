@@ -12,86 +12,86 @@ import java.util.HashMap;
  * @author CST-UTJ
  */
 public class ListadoPropiedadesDAO {
-    private AllEstates allEstates = null;
-    private User[] allUsers = null;
-    private EstateType[] allEstatesTypes;
-    private HashMap<String,ArrayList> allEstate;
+    
+    private HashMap<String,ArrayList> estates;
+    private HashMap[] users;
+    private HashMap[] types;
+    private ArrayList<HashMap> allEstates = new ArrayList<>();
     
     public ListadoPropiedadesDAO() {
         
     }
     
-    public HttpResponse allEstates() throws UnirestException{
-        HttpResponse request = null;
+    public void allEstates() throws UnirestException{
+        HttpResponse request;
         String path = "/estates";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
-        allEstate = BYRN.gson.fromJson(request.getBody().toString(), HashMap.class);
-        System.out.println(BYRN.gson.toJson(allEstate.get("data").get(0)));
-        //this.allEstates = BYRN.gson.fromJson(request.getBody().toString(), AllEstates.class);
-        
-        return request;
+        estates = BYRN.gson.fromJson(request.getBody().toString(), HashMap.class);
+        //allEstates.add(estate);
+        //System.out.println(estates);
+    }
+    
+    public void getAllEstates() throws UnirestException{
+        HttpResponse request;
+        String path = "/estates";
+        request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
+        boolean b = true;
+        do{
+            request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
+            estates = BYRN.gson.fromJson(request.getBody().toString(), HashMap.class);
+            int l = estates.get("data").size();
+            for (int i = 0; i < l; i++) {
+                String json = BYRN.gson.toJson(estates.get("data").get(i));
+                System.out.println(json);
+                HashMap aux = BYRN.gson.fromJson(json, HashMap.class);
+                allEstates.add(aux);
+            }
+            System.out.println(estates.get("next_page_url"));
+            String next = estates.get("next_page_url")+"";
+            if (next.equals("null")) {
+                b = false;
+            }else{
+                path = next.substring(next.indexOf("/estates"));
+            }
+            
+        }while(b);
         
     }
     
-    public HttpResponse allUsers() throws UnirestException{
-        HttpResponse request = null;
+    public void allUsers() throws UnirestException{
+        HttpResponse request;
         String path = "/users";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
-        this.allUsers = BYRN.gson.fromJson(request.getBody().toString(), User[].class);
-        return request;
+        users = BYRN.gson.fromJson(request.getBody().toString(), HashMap[].class);
+       
     }
     
-    public HttpResponse allTypes() throws UnirestException{
-        HttpResponse request = null;
+    public void allTypes() throws UnirestException{
+        HttpResponse request;
         String path = "/estate-types";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
-        this.allEstatesTypes = BYRN.gson.fromJson(request.getBody().toString(), EstateType[].class);
+        types = BYRN.gson.fromJson(request.getBody().toString(), HashMap[].class);
         
-        return request;
     }
     
-    public String getOwnerName(int owner_id){
-        String ownerName = null;
-        int length = allUsers.length;
+    public String getOwnerName(String id){
+        int owner_id = Integer.parseInt(id.substring(0,id.indexOf(".0")));
+        String ownerName = "";
+        int length = users.length;
         for (int i = 0; i < length; i++) {
-            if (allUsers[i].getId()==owner_id) {
-                ownerName = allUsers[i].getName()+" "+allUsers[i].getLast_name();
+            String json = BYRN.gson.toJson(users[i]);
+            HashMap <String,Object> user = BYRN.gson.fromJson(json, HashMap.class);
+            int userId = Integer.parseInt(user.get("id").toString().substring(0,user.get("id").toString().indexOf(".0")));
+            if (userId==owner_id) {
+                ownerName = user.get("name")+" "+user.get("last_name");
                 break;
             }
         }
         return ownerName;
     }
-
-    public AllEstates getAllEstates() {
-        return allEstates;
-    }
-
-    public void setAllEstates(AllEstates allEstates) {
-        this.allEstates = allEstates;
-    }
-
-    public User[] getAllUsers() {
-        return allUsers;
-    }
-
-    public void setAllUsers(User[] allUsers) {
-        this.allUsers = allUsers;
-    }
-
-    public EstateType[] getAllEstatesTypes() {
-        return allEstatesTypes;
-    }
-
-    public void setAllEstatesTypes(EstateType[] allEstatesTypes) {
-        this.allEstatesTypes = allEstatesTypes;
-    }
-
-    public HashMap<String, ArrayList> getAllEstate() {
-        return allEstate;
-    }
-
-    public void setAllEstate(HashMap<String, ArrayList> allEstate) {
-        this.allEstate = allEstate;
-    }
+    
+    
+    
+    
     
 }

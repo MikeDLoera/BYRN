@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import Modelo.AgregarUsuarioDAO;
@@ -20,11 +16,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-
-
 /**
  *
- * @author User
+ * @author CST-UTJ
  */
 public class ControladorUsuarios implements ActionListener {
        private Usuarios jf;
@@ -58,44 +52,37 @@ public class ControladorUsuarios implements ActionListener {
             App app = BYRN.nuevaVentana("Editar Usuario", jf);
             EditarUsuariosDAO edidao = new EditarUsuariosDAO();
             ControladorEditarUsuarios edi = new ControladorEditarUsuarios (jf,edidao,app);
-            
-            
         }
     }
     
     
     
-    public void tabla() throws UnirestException{
+    private void tabla() throws UnirestException{
         dao.obtener();
         
         DefaultTableModel modelotabla = new DefaultTableModel();
         modelotabla.addColumn("Nombre");
-         modelotabla.addColumn("Apellidos");
-          modelotabla.addColumn("Correo");
-           modelotabla.addColumn("Callé y Número");
-           modelotabla.addColumn("Celular");
-           modelotabla.addColumn("Rol");
-           jf.tlbUsuarios.setModel(modelotabla);
-           
-           
-           
-           Object[] fila = new Object[6];
+        modelotabla.addColumn("Apellidos");
+        modelotabla.addColumn("Correo");
+        modelotabla.addColumn("Callé y Número");
+        modelotabla.addColumn("Celular");
+        modelotabla.addColumn("Rol");
+        jf.tlbUsuarios.setModel(modelotabla);
+         
+        Object[] fila = new Object[6];
            
         int length = dao.getUse().length; //cuantos usuarios existen
          for (int i = 0; i < length; i++) {
-            fila[0] = dao.getUse()[i].getName();
-            fila[1] = dao.getUse()[i].getLast_name();
-            fila[2] = dao.getUse()[i].getEmail();
-            fila[3] = dao.getUse()[i].getStreet() + " " + dao.getUse()[i].getOutside_number();
-            fila[4] = dao.getUse()[i].getCellphone();
-            fila[5] = dao.getUse()[i].getStatus();
+            fila[0] = dao.getUse()[i].get("name");
+            fila[1] = dao.getUse()[i].get("last_name");
+            fila[2] = dao.getUse()[i].get("email");
+            fila[3] = dao.getUse()[i].get("address");
+            fila[4] = dao.getUse()[i].get("cellphone");
+            fila[5] = dao.getUse()[i].get("status");
             
             modelotabla.addRow(fila);
         }
-        
-        
-    
-                   
+         
     }
     
     

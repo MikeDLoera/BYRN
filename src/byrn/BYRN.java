@@ -20,7 +20,6 @@ import Vista.Notificacion;
 import Vista.Start;
 import com.google.gson.Gson;
 import java.awt.Dimension;
-import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
@@ -416,6 +415,6 @@ public class BYRN {
         fadeOut();
         System.exit(0);
     }
-  
+
     
 }

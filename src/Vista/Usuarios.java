@@ -44,10 +44,7 @@ public class Usuarios extends javax.swing.JPanel {
 
         tlbUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Nombre", "Apellidos", "Correo", "Calle y Número", "Celular", "Rol"
@@ -62,6 +59,7 @@ public class Usuarios extends javax.swing.JPanel {
         tlbUsuarios.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tlbUsuarios.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tlbUsuarios.setFuenteHead(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        tlbUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tlbUsuarios);
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));

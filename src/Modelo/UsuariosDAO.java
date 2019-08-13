@@ -4,6 +4,7 @@ package Modelo;
 import byrn.BYRN;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import java.util.HashMap;
 
 /**
  *
@@ -11,31 +12,23 @@ import com.mashape.unirest.http.exceptions.UnirestException;
  */
 public class UsuariosDAO {
     
-     private User[] use;
+     private HashMap<String,Object>[] use;
 
-    public User[] getUse() {
+    public HashMap<String, Object>[] getUse() {
         return use;
     }
 
-    public void setUse(User[] use) {
+    public void setUse(HashMap<String, Object>[] use) {
         this.use = use;
     }
-     
-     
-     
 
-     
     public UsuariosDAO() {
       
-        
-        
-        
-        
     }
      
      public void obtener() throws UnirestException{
          HttpResponse aux = PeticionHTTP.get("/users", BYRN.getAuth().getToken());
-         use = BYRN.gson.fromJson(aux.getBody().toString(), User[].class);
+         use = BYRN.gson.fromJson(aux.getBody().toString(), HashMap[].class);
      }
     
     

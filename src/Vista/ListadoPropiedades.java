@@ -161,7 +161,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(btnAnadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnEliminarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(btnEditarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,6 +207,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         tblListadoDePropiedades.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        tblListadoDePropiedades.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblListadoDePropiedades);
 
         panImagenDePropiedades.setBackground(new java.awt.Color(40, 153, 118));

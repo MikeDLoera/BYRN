@@ -3,8 +3,6 @@ package Controlador;
 
 import Modelo.AnadirPropiedadDAO;
 import Modelo.EditarPropiedadDAO;
-import Modelo.EstateType;
-import Modelo.Estates;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
 import Modelo.PeticionHTTP;
@@ -47,8 +45,9 @@ public class ControladorListadoPropiedades implements ActionListener{
 
 
         try {
+            
             tabla(false);
-            getTypes();
+            //getTypes();
         } catch (UnirestException ex) {
             
         }
@@ -63,8 +62,8 @@ public class ControladorListadoPropiedades implements ActionListener{
             BYRN.nuevaVentana("Añadir propiedad", ap);
         }
         if (jf.btnEliminarPropiedad==e.getSource()) {
-            int id = getIdSelect();
-            if (id>0) {
+            String id = getIdSelect();
+            if (id!=null) {
                 try {
                     String path = "/estates/"+id;
                     PeticionHTTP.delete(path,BYRN.getAuth().getToken());
@@ -76,23 +75,23 @@ public class ControladorListadoPropiedades implements ActionListener{
             }
         }
         if (jf.btnEditarPropiedad==e.getSource()) {
-            int id = getIdSelect();
-            if (id>0) {
+            String id = getIdSelect();
+            if (id!=null) {
                 EditarPropiedad ed = new EditarPropiedad();
                 App app = BYRN.nuevaVentana("Editar Propiedad", ed);
-                EditarPropiedadDAO edDAO = new EditarPropiedadDAO(getState(id));
-                ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
+                //EditarPropiedadDAO edDAO = new EditarPropiedadDAO(getState(id));
+                //ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
             }else{
                 BYRN.notificacion("Seleccione una fila de la tabla");
             }
         }
         if (jf.btnMasInformacion==e.getSource()) {
-            int id = getIdSelect();
-            if (id>0) {
+            String id = getIdSelect();
+            if (id!=null) {
                 InformacionDePropiedades inf = new InformacionDePropiedades();
-                InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO(getState(id));
+                //InformacionPropiedadesDAO infDAO = new InformacionPropiedadesDAO(getState(id));
                 App app = BYRN.nuevaVentana("Más Información", inf);
-                ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
+                //ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
             }else{
                 BYRN.notificacion("Seleccione una fila de la tabla");
             }
@@ -109,12 +108,15 @@ public class ControladorListadoPropiedades implements ActionListener{
         }
         if (jf.ComboBox==e.getSource()) {
             if (jf.ComboBox.getSelectedIndex()>0) {
-                for (EstateType allEstatesType : dao.getAllEstatesTypes()) {
-                    if (allEstatesType.getName().equals(jf.ComboBox.getSelectedItem())) {
-                        filtrado(allEstatesType.getId());
+                /*int length = dao.getTypes().length;
+                for (int i=0;i<length;i++) {
+                    if (dao.getTypes()[i].get("name").equals(jf.ComboBox.getSelectedItem())) {
+                        String auxId = dao.getTypes()[i].get("id").toString();
+                        int id = Integer.parseInt(auxId.substring(0,auxId.indexOf(".0")));
+                        filtrado(id);
                         break;
                     }
-                }
+                }*/
             }else{
                 if (jf.ComboBox.getSelectedIndex()==0) {
                     try {
@@ -134,7 +136,7 @@ public class ControladorListadoPropiedades implements ActionListener{
     
     private void tabla(boolean filtrado) throws UnirestException{
         if (!filtrado) {
-            dao.allEstates();
+            dao.getAllEstates();
             dao.allUsers();
         }
         DefaultTableModel modelotabla = new DefaultTableModel(){@Override
@@ -145,16 +147,17 @@ public class ControladorListadoPropiedades implements ActionListener{
         modelotabla.addColumn("Tipo");
         jf.tblListadoDePropiedades.setModel(modelotabla);
         Object[] fila = new Object[4];
-        int length = dao.getAllEstate().get("data").size();
+        /*int length = dao.
         for (int i = 0; i < length; i++) {
             String json = BYRN.gson.toJson(dao.getAllEstate().get("data").get(i));
-            HashMap<String, String> estate = BYRN.gson.fromJson(json, HashMap.class);
-            fila[0] = estate.get("id");
+            HashMap estate = BYRN.gson.fromJson(json, HashMap.class);
+            String id = estate.get("id")+"";
+            fila[0] = id.substring(0, id.indexOf(".0"));
             fila[1] = estate.get("name");
-            //fila[2] = dao.getOwnerName(dao.getAllEstates().getData()[i].getOwner_id());
-            //fila[3] = dao.getAllEstates().getData()[i].getEstate_type().getName();
+            fila[2] = dao.getOwnerName(estate.get("owner_id").toString()); 
+            fila[3] = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("estate_type")), HashMap.class).get("name");
             modelotabla.addRow(fila);
-        }
+        }*/
 
     }
     
@@ -167,56 +170,61 @@ public class ControladorListadoPropiedades implements ActionListener{
         modelotabla.addColumn("Tipo");
         jf.tblListadoDePropiedades.setModel(modelotabla);
         Object[] fila = new Object[4];
-        ArrayList<Estates> filtro = new ArrayList();
-        for (Estates data : dao.getAllEstates().getData()) {
-            if (data.getEstate_type().getId()==id) {
-                filtro.add(data);
+        ArrayList<HashMap> filtro = new ArrayList<>();
+        /*int length = dao.getAllEstate().get("data").size();
+        for (int i=0;i<length;i++) {
+            HashMap estate = BYRN.gson.fromJson(BYRN.gson.toJson(dao.getAllEstate().get("data").get(i)), HashMap.class);
+            HashMap type = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("estate_type")), HashMap.class);
+            String auxId = type.get("id").toString();
+            int estateId = Integer.parseInt(auxId.substring(0,auxId.indexOf(".0")));
+            if (id==estateId) {
+                filtro.add(estate);
             }
-        }
+        }*/
         
-        int length = filtro.size();
-        for (int i = 0; i < length; i++) {
-            fila[0] = filtro.get(i).getId();
-            fila[1] = filtro.get(i).getName();
-            fila[2] = dao.getOwnerName(filtro.get(i).getOwner_id());
-            fila[3] = filtro.get(i).getEstate_type().getName();
+        int lengthFiltro = filtro.size();
+        for (int i = 0; i < lengthFiltro; i++) {
+            fila[0] = filtro.get(i).get("id");
+            fila[1] = filtro.get(i).get("name");
+            fila[2] = dao.getOwnerName(filtro.get(i).get("owner_id").toString());
+            fila[3] = BYRN.gson.fromJson(BYRN.gson.toJson(filtro.get(i).get("estate_type")), HashMap.class).get("name");
             modelotabla.addRow(fila);
         }
     }
     
-    private int getIdSelect(){
-        int numReturn;
+    private String getIdSelect(){
+        String numReturn = null;
         if (jf.tblListadoDePropiedades.getSelectedRowCount()==1) {
             int rowSelect = jf.tblListadoDePropiedades.getSelectedRow();
-            numReturn = (int) jf.tblListadoDePropiedades.getValueAt(rowSelect, 0);
+            numReturn = jf.tblListadoDePropiedades.getValueAt(rowSelect, 0)+"";
             
-        }else{
-            numReturn = -1;
         }
         return numReturn;
     }
     
-    private Estates getState(int id){
-        Estates estates = new Estates();
-        int length = dao.getAllEstates().getData().length;
-        for (int i = 0; i < length; i++)     {
-            if (dao.getAllEstates().getData()[i].getId()==id) {
-                estates = dao.getAllEstates().getData()[i];
+    /*private HashMap getState(String id){
+        HashMap estate = null;
+        int length = dao.getAllEstate().get("data").size();
+        for (int i = 0; i < length; i++){
+            String json = BYRN.gson.toJson(dao.getAllEstate().get("data").get(i));
+            HashMap auxEstate = BYRN.gson.fromJson(json, HashMap.class);
+            if (auxEstate.get("id").equals(id)) {
+                estate = auxEstate;
                 break;
             }
         }
-        return estates;
+        return estate;
     }
     
     private void getTypes() throws UnirestException{
         dao.allTypes();
-        int length = dao.getAllEstatesTypes().length;
+        int length = dao.getTypes().length;
         String[] types = new String[length+1];
         types[0] = "Todos";
         for (int i = 1; i < length+1; i++) {
-            types[i] = dao.getAllEstatesTypes()[i-1].getName();
+            types[i] = (String) dao.getTypes()[i-1].get("name");
         }
         jf.ComboBox.setModel(new javax.swing.DefaultComboBoxModel(types));
-    }
+    }*/
     
 }
