@@ -38,14 +38,13 @@ public class ControladorEditarPropiedad implements ActionListener{
     }
     
     private void mostrar(){
-        jf.txtNumeroDePropiedadEdicion.setText(dao.getEstate().get("id").toString());
-        jf.txtNombreDePropiedadEdicion.setText(dao.getEstate().get("name").toString());
-        jf.txtDueñoDePropiedadEdicion.setText(dao.getEstate().get("owner_id").toString());
-        jf.txtTipoDePropiedadEdicion.setText(BYRN.gson.fromJson(BYRN.gson.toJson(dao.getEstate().get("estate_type")), HashMap.class).get("name").toString());
+        jf.txtNumero.setText(dao.getEstate().get("id").toString().replaceAll(".0", ""));
+        jf.txtNombre.setText(dao.getEstate().get("name").toString());
+        jf.txtDueno.setText(dao.getEstate().get("owner_id").toString().replaceAll(".0", ""));
+        //jf.txtTipoDePropiedadEdicion.setText(BYRN.gson.fromJson(BYRN.gson.toJson(dao.getEstate().get("estate_type")), HashMap.class).get("name").toString());
         jf.txtDireccion.setText(dao.getEstate().get("address").toString());
-        jf.txtDescripcionDePropiedadEdicion.setText(dao.getEstate().get("description").toString());
+        jf.txtDescripcion.setText(dao.getEstate().get("description").toString());
         jf.txtArea.setText(dao.getEstate().get("surface_area").toString());
-        jf.txtCiudad.setText(dao.getEstate().get("city_id").toString());
         
     }
     

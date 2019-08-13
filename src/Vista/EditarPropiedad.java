@@ -39,18 +39,18 @@ public class EditarPropiedad extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtNumeroDePropiedadEdicion = new javax.swing.JTextField();
-        txtNombreDePropiedadEdicion = new javax.swing.JTextField();
-        txtDueñoDePropiedadEdicion = new javax.swing.JTextField();
-        txtTipoDePropiedadEdicion = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtDueno = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        txtCiudad = new javax.swing.JTextField();
         txtArea = new javax.swing.JTextField();
-        txtDescripcionDePropiedadEdicion = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
         btnGuardarCambiosDeEdicionDePropiedades = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
+        cmbCiudad = new org.edisoncor.gui.comboBox.ComboBoxRect();
+        cmbTipo = new org.edisoncor.gui.comboBox.ComboBoxRect();
 
         setBackground(new java.awt.Color(143, 198, 94));
 
@@ -63,7 +63,7 @@ public class EditarPropiedad extends javax.swing.JPanel {
         jLabel1.setText("Edición de Propiedades");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel3.setText("Número de Propiedad");
+        jLabel3.setText("Número de propiedad");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel4.setText("Nombre");
@@ -86,18 +86,14 @@ public class EditarPropiedad extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel10.setText("Descripción");
 
-        txtNumeroDePropiedadEdicion.setEditable(false);
-        txtNumeroDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtNumero.setEditable(false);
+        txtNumero.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtNombreDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
-        txtDueñoDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-
-        txtTipoDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtDueno.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         txtDireccion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-
-        txtCiudad.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         txtArea.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         txtArea.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +102,7 @@ public class EditarPropiedad extends javax.swing.JPanel {
             }
         });
 
-        txtDescripcionDePropiedadEdicion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtDescripcion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
 
         btnGuardarCambiosDeEdicionDePropiedades.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarCambiosDeEdicionDePropiedades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
@@ -121,35 +117,48 @@ public class EditarPropiedad extends javax.swing.JPanel {
 
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
+        cmbCiudad.setColorDeBorde(new java.awt.Color(153, 153, 153));
+        cmbCiudad.setFocusable(false);
+        cmbCiudad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+
+        cmbTipo.setColorDeBorde(new java.awt.Color(153, 153, 153));
+        cmbTipo.setFocusable(false);
+        cmbTipo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnGuardarCambiosDeEdicionDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(135, 135, 135)
+                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(272, 272, 272))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(100, 100, 100)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTipoDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDueñoDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombreDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addGap(21, 21, 21)
-                        .addComponent(txtNumeroDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(63, 63, 63)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtDueno)
+                        .addComponent(txtNombre)
+                        .addComponent(cmbTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
+                .addGap(30, 30, 30)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,24 +166,14 @@ public class EditarPropiedad extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(jLabel10)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtDescripcionDePropiedadEdicion, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(txtCiudad)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtArea, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(0, 23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnGuardarCambiosDeEdicionDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148)
-                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(272, 272, 272))))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtArea)
+                        .addComponent(txtDireccion)
+                        .addComponent(cmbCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,18 +189,18 @@ public class EditarPropiedad extends javax.swing.JPanel {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
+                                .addGap(16, 16, 16)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7))
-                                .addGap(36, 36, 36)
+                                .addGap(43, 43, 43)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)
+                                    .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addGap(34, 34, 34)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2))
@@ -209,27 +208,27 @@ public class EditarPropiedad extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
-                                    .addComponent(txtNumeroDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(txtNombreDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtDueñoDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDueno, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtTipoDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addGap(30, 30, 30))
+                                    .addComponent(jLabel6)
+                                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
-                                    .addComponent(txtDescripcionDePropiedadEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)))))
+                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)))))
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardarCambiosDeEdicionDePropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,9 +243,9 @@ public class EditarPropiedad extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -266,6 +265,8 @@ public class EditarPropiedad extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnGuardarCambiosDeEdicionDePropiedades;
     public org.edisoncor.gui.varios.ClockDigital clockDigital1;
+    public org.edisoncor.gui.comboBox.ComboBoxRect cmbCiudad;
+    public org.edisoncor.gui.comboBox.ComboBoxRect cmbTipo;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -281,12 +282,10 @@ public class EditarPropiedad extends javax.swing.JPanel {
     public javax.swing.JSeparator jSeparator2;
     public javax.swing.JSeparator jSeparator3;
     public javax.swing.JTextField txtArea;
-    public javax.swing.JTextField txtCiudad;
-    public javax.swing.JTextField txtDescripcionDePropiedadEdicion;
+    public javax.swing.JTextField txtDescripcion;
     public javax.swing.JTextField txtDireccion;
-    public javax.swing.JTextField txtDueñoDePropiedadEdicion;
-    public javax.swing.JTextField txtNombreDePropiedadEdicion;
-    public javax.swing.JTextField txtNumeroDePropiedadEdicion;
-    public javax.swing.JTextField txtTipoDePropiedadEdicion;
+    public javax.swing.JTextField txtDueno;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }

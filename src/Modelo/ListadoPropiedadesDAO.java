@@ -16,13 +16,15 @@ public class ListadoPropiedadesDAO {
     private HashMap<String,ArrayList> estates;
     private HashMap[] users;
     private HashMap[] types;
-    private ArrayList<HashMap> allEstates = new ArrayList<>();
+    private ArrayList<HashMap> allEstates;
+    private HashMap cities;
+    private HashMap[] negocio;
     
     public ListadoPropiedadesDAO() {
         
     }
     
-    public void allEstates() throws UnirestException{
+    public void allEstates() throws UnirestException{//no se usa
         HttpResponse request;
         String path = "/estates";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
@@ -31,7 +33,8 @@ public class ListadoPropiedadesDAO {
         //System.out.println(estates);
     }
     
-    public void getAllEstates() throws UnirestException{
+    public void estatesList() throws UnirestException{
+        allEstates = new ArrayList<>();
         HttpResponse request;
         String path = "/estates";
         request = PeticionHTTP.get(path,BYRN.getAuth().getToken());
@@ -42,11 +45,9 @@ public class ListadoPropiedadesDAO {
             int l = estates.get("data").size();
             for (int i = 0; i < l; i++) {
                 String json = BYRN.gson.toJson(estates.get("data").get(i));
-                System.out.println(json);
                 HashMap aux = BYRN.gson.fromJson(json, HashMap.class);
                 allEstates.add(aux);
             }
-            System.out.println(estates.get("next_page_url"));
             String next = estates.get("next_page_url")+"";
             if (next.equals("null")) {
                 b = false;
@@ -90,8 +91,37 @@ public class ListadoPropiedadesDAO {
         return ownerName;
     }
     
-    
-    
-    
+    public void List() throws UnirestException{
+        cities = BYRN.gson.fromJson(PeticionHTTP.get("/cities", BYRN.getAuth().getToken()).getBody().toString(), HashMap.class);
+        negocio = BYRN.gson.fromJson(PeticionHTTP.get("/bussiness-types", BYRN.getAuth().getToken()).getBody().toString(), HashMap[].class);
+    }
+
+    public HashMap<String, ArrayList> getEstates() {
+        return estates;
+    }
+
+    public HashMap[] getUsers() {
+        return users;
+    }
+
+    public HashMap[] getTypes() {
+        return types;
+    }
+
+    public ArrayList<HashMap> getAllEstates() {
+        return allEstates;
+    }
+
+    public HashMap getCities() {
+        return cities;
+    }
+
+    public HashMap[] getNegocio() {
+        return negocio;
+    }
+
+    public void setNegocio(HashMap[] negocio) {
+        this.negocio = negocio;
+    }
     
 }

@@ -2,26 +2,35 @@
 package Modelo;
 
 import java.util.HashMap;
-
 /**
  *
  * @author Samlml
  */
 public class EditarPropiedadDAO {
-    private HashMap<String , Object> estate;
+    private HashMap estate;
+    private HashMap cities;
+    private HashMap[] types;
 
-    public EditarPropiedadDAO(HashMap<String, Object> estate) {
+    public EditarPropiedadDAO(HashMap estate, HashMap cities, HashMap[] types) {
         this.estate = estate;
+        this.cities = cities;
+        this.types = types;
     }
-
-    public HashMap<String, Object> getEstate() {
+    
+    public HashMap getEstate() {
         return estate;
     }
 
-    public void setEstate(HashMap<String, Object> estate) {
+    public void setEstate(HashMap estate) {
         this.estate = estate;
     }
-    
-    
+
+    public HashMap getCities() {
+        return cities;
+    }
+
+    public void setCities(HashMap cities) {
+        this.cities = cities;
+    }
     
 }

@@ -39,8 +39,7 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtDueño = new javax.swing.JTextField();
-        txtTipo = new javax.swing.JTextField();
+        txtDueno = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtMetrosCuadrados = new javax.swing.JTextField();
@@ -48,10 +47,11 @@ public class AnadirPropiedad extends javax.swing.JPanel {
         txtPrecio = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        txtTipoDeNegocio = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        cmbCiudad = new org.edisoncor.gui.comboBox.ComboBoxRect();
+        cmbTipo = new org.edisoncor.gui.comboBox.ComboBoxRect();
+        cmbNegocio = new org.edisoncor.gui.comboBox.ComboBoxRect();
 
         buttonColoredAction1.setText("buttonColoredAction1");
 
@@ -59,134 +59,220 @@ public class AnadirPropiedad extends javax.swing.JPanel {
 
         PanAñadirPropiedad.setBackground(new java.awt.Color(233, 248, 223));
         PanAñadirPropiedad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        PanAñadirPropiedad.setLayout(null);
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        PanAñadirPropiedad.add(jSeparator1);
-        jSeparator1.setBounds(520, 60, 20, 420);
 
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel1.setText("Direccion");
-        PanAñadirPropiedad.add(jLabel1);
-        jLabel1.setBounds(80, 170, 120, 21);
+        jLabel1.setText("Dirección");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel7.setText("Descripción");
-        PanAñadirPropiedad.add(jLabel7);
-        jLabel7.setBounds(670, 310, 110, 21);
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel8.setText("Precio por metro");
-        PanAñadirPropiedad.add(jLabel8);
-        jLabel8.setBounds(70, 420, 120, 21);
 
         txtDireccion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtDireccion);
-        txtDireccion.setBounds(320, 160, 150, 30);
 
         txtMetroPorPrecio.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtMetroPorPrecio);
-        txtMetroPorPrecio.setBounds(320, 420, 140, 30);
 
         txtDescripcion.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtDescripcion);
-        txtDescripcion.setBounds(810, 300, 150, 30);
 
         btnGuardarNuevaPropiedad.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnGuardarNuevaPropiedad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/guardar.png"))); // NOI18N
         btnGuardarNuevaPropiedad.setText("Guardar ");
         btnGuardarNuevaPropiedad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardarNuevaPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanAñadirPropiedad.add(btnGuardarNuevaPropiedad);
-        btnGuardarNuevaPropiedad.setBounds(470, 490, 120, 50);
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel10.setText("Añadir Propiedad");
-        PanAñadirPropiedad.add(jLabel10);
-        jLabel10.setBounds(430, 20, 180, 30);
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        PanAñadirPropiedad.add(jSeparator3);
-        jSeparator3.setBounds(0, 60, 520, 10);
 
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        PanAñadirPropiedad.add(clockDigital1);
-        clockDigital1.setBounds(920, 500, 100, 49);
 
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel12.setText("Nombre");
-        PanAñadirPropiedad.add(jLabel12);
-        jLabel12.setBounds(90, 100, 140, 21);
 
         jLabel13.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel13.setText("Dueño");
-        PanAñadirPropiedad.add(jLabel13);
-        jLabel13.setBounds(90, 240, 100, 21);
 
         txtNombre.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtNombre);
-        txtNombre.setBounds(320, 100, 150, 30);
 
-        txtDueño.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        txtDueño.addActionListener(new java.awt.event.ActionListener() {
+        txtDueno.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        txtDueno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDueñoActionPerformed(evt);
+                txtDuenoActionPerformed(evt);
             }
         });
-        PanAñadirPropiedad.add(txtDueño);
-        txtDueño.setBounds(320, 230, 150, 30);
-
-        txtTipo.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtTipo);
-        txtTipo.setBounds(320, 290, 150, 30);
 
         jLabel14.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel14.setText("Tipo");
-        PanAñadirPropiedad.add(jLabel14);
-        jLabel14.setBounds(100, 300, 90, 21);
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel2.setText("Metros Cuadrados");
-        PanAñadirPropiedad.add(jLabel2);
-        jLabel2.setBounds(70, 360, 160, 30);
 
         txtMetrosCuadrados.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtMetrosCuadrados);
-        txtMetrosCuadrados.setBounds(320, 360, 150, 30);
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel3.setText("Precio");
-        PanAñadirPropiedad.add(jLabel3);
-        jLabel3.setBounds(680, 240, 90, 21);
 
         txtPrecio.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtPrecio);
-        txtPrecio.setBounds(810, 230, 150, 30);
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        PanAñadirPropiedad.add(jSeparator2);
-        jSeparator2.setBounds(520, 60, 530, 30);
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         jLabel4.setText("Tipo de negocio");
-        PanAñadirPropiedad.add(jLabel4);
-        jLabel4.setBounds(660, 160, 110, 30);
-
-        txtTipoDeNegocio.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        PanAñadirPropiedad.add(txtTipoDeNegocio);
-        txtTipoDeNegocio.setBounds(810, 160, 150, 30);
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel9.setText("Número de Ciudad");
-        PanAñadirPropiedad.add(jLabel9);
-        jLabel9.setBounds(650, 380, 130, 20);
+        jLabel9.setText("Municipio");
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        PanAñadirPropiedad.add(jSeparator4);
-        jSeparator4.setBounds(0, 480, 1030, 20);
-        PanAñadirPropiedad.add(comboBoxRound1);
-        comboBoxRound1.setBounds(840, 380, 110, 20);
+
+        cmbCiudad.setColorDeBorde(new java.awt.Color(153, 153, 153));
+        cmbCiudad.setFocusable(false);
+        cmbCiudad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+
+        cmbTipo.setColorDeBorde(new java.awt.Color(153, 153, 153));
+        cmbTipo.setFocusable(false);
+        cmbTipo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+
+        cmbNegocio.setColorDeBorde(new java.awt.Color(153, 153, 153));
+        cmbNegocio.setFocusable(false);
+        cmbNegocio.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+
+        javax.swing.GroupLayout PanAñadirPropiedadLayout = new javax.swing.GroupLayout(PanAñadirPropiedad);
+        PanAñadirPropiedad.setLayout(PanAñadirPropiedadLayout);
+        PanAñadirPropiedadLayout.setHorizontalGroup(
+            PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(txtMetrosCuadrados, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                        .addComponent(txtDireccion)
+                                        .addGap(50, 50, 50))
+                                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                        .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtDueno)
+                                            .addComponent(txtNombre)
+                                            .addComponent(cmbTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(58, 58, 58)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMetroPorPrecio)
+                                    .addComponent(txtDescripcion)
+                                    .addComponent(cmbNegocio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50))))
+            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                .addGap(470, 470, 470)
+                .addComponent(btnGuardarNuevaPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                        .addGap(430, 430, 430)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        PanAñadirPropiedadLayout.setVerticalGroup(
+            PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(txtMetroPorPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                        .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbNegocio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(37, 37, 37)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addGap(30, 30, 30)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addGap(30, 30, 30)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanAñadirPropiedadLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel1))
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtDueno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(35, 35, 35)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addGroup(PanAñadirPropiedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMetrosCuadrados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardarNuevaPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -201,14 +287,14 @@ public class AnadirPropiedad extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(PanAñadirPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(PanAñadirPropiedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDueñoActionPerformed
+    private void txtDuenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDuenoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDueñoActionPerformed
+    }//GEN-LAST:event_txtDuenoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -216,7 +302,9 @@ public class AnadirPropiedad extends javax.swing.JPanel {
     public javax.swing.JButton btnGuardarNuevaPropiedad;
     private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
-    private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    public org.edisoncor.gui.comboBox.ComboBoxRect cmbCiudad;
+    public org.edisoncor.gui.comboBox.ComboBoxRect cmbNegocio;
+    public org.edisoncor.gui.comboBox.ComboBoxRect cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -234,12 +322,10 @@ public class AnadirPropiedad extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     public javax.swing.JTextField txtDescripcion;
     public javax.swing.JTextField txtDireccion;
-    public javax.swing.JTextField txtDueño;
+    public javax.swing.JTextField txtDueno;
     public javax.swing.JTextField txtMetroPorPrecio;
     public javax.swing.JTextField txtMetrosCuadrados;
     public javax.swing.JTextField txtNombre;
     public javax.swing.JTextField txtPrecio;
-    public javax.swing.JTextField txtTipo;
-    public javax.swing.JTextField txtTipoDeNegocio;
     // End of variables declaration//GEN-END:variables
 }
