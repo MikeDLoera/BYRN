@@ -23,9 +23,9 @@ public class ControladorInformacionPropiedades{
     }
     
     private void mostrar(){
-        jf.lbDireccion.setText("Dirección: "+dao.getEstate().get("address").toString());
-        jf.lbCiudad.setText("Ciudad: "+BYRN.gson.fromJson(BYRN.gson.toJson(dao.getEstate().get("city")), HashMap.class).get("name"));
-        jf.lbDescripcion.setText("Descipción: "+dao.getEstate().get("description"));
+        jf.lbDireccion.setText(dao.getEstate().get("address").toString());
+        jf.lbCiudad.setText(""+BYRN.gson.fromJson(BYRN.gson.toJson(dao.getEstate().get("city")), HashMap.class).get("name"));
+        jf.lbDescripcion.setText(""+dao.getEstate().get("description"));
     }
     
 }
