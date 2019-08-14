@@ -12,7 +12,7 @@ import Vista.EditarPropiedad;
 import Vista.InformacionDePropiedades;
 import Vista.ListadoPropiedades;
 import byrn.BYRN;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import kong.unirest.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;

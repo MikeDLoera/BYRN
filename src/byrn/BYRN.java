@@ -315,7 +315,7 @@ public class BYRN {
         
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        app.setSize(screenSize.width-20, screenSize.height-40);
+        app.setSize(screenSize.width, screenSize.height-40);
         app.setMinimumSize(app.getSize());
         app.setLocationRelativeTo(null);
         

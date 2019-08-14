@@ -9,12 +9,12 @@ import Vista.App;
 import Vista.Citas;
 import Vista.EditarCita;
 import byrn.BYRN;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import kong.unirest.UnirestException;
 
 /**
  *
@@ -63,15 +63,14 @@ public class ControladorCitas implements ActionListener{
     }
     
 
-     public void tabla() throws UnirestException{
-         dao.obtener();
+     private void tabla() throws UnirestException{
          
          DefaultTableModel modelotabla = new DefaultTableModel();
-        modelotabla.addColumn("Número Cliente");
+            modelotabla.addColumn("Número Cliente");
          modelotabla.addColumn("Fecha");
           modelotabla.addColumn("Hora de Inicio");
            modelotabla.addColumn("Ubicación");
-           modelotabla.addColumn("Tipo de Cita");
+           modelotabla.addColumn("Estatus de Cita");
            jf.tblCitas.setModel(modelotabla);
            
            Object[] fila = new Object[6];
@@ -79,11 +78,11 @@ public class ControladorCitas implements ActionListener{
            int length = dao.getCit().length; 
            
            for (int i = 0; i < length; i++) {
-              fila[0] = dao.getCit()[i].getId();
-               fila[1] = dao.getCit()[i].getDate();
-               fila[2] = dao.getCit()[i].getStart_time();
-                fila[3] = dao.getCit()[i].getLocation();
-                 fila[4] = dao.getCit()[i].getAppoiment_type();
+              fila[0] = dao.getCit()[i].get("id").toString().replaceAll(".0", "");
+               fila[1] = dao.getCit()[i].get("date");
+               fila[2] = dao.getCit()[i].get("start_time");
+                fila[3] = dao.getCit()[i].get("location");
+                 fila[4] = dao.getCit()[i].get("status");
                   
                    modelotabla.addRow(fila);
      

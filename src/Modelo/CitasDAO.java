@@ -3,35 +3,35 @@ package Modelo;
 
 
 import byrn.BYRN;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import kong.unirest.HttpResponse;
+import kong.unirest.UnirestException;
+import java.util.HashMap;
 
 /**
  *
  * @author CST-UTJ
  */
 public class CitasDAO {
-     private Appoiments[] cit;
+     private HashMap[] cit;
 
-    public Appoiments[] getCit() {
+    public HashMap[] getCit() {
         return cit;
     }
 
-    public void setCit(Appoiments[] cit) {
+    public void setCit(HashMap[] cit) {
         this.cit = cit;
     }
      
-
     public CitasDAO() {
-        
-        
-        
-        
+         try {
+             obtener();
+         } catch (UnirestException ex) {
+         }
     }
     
-      public void obtener() throws UnirestException{
+      private void obtener() throws UnirestException{
          HttpResponse aux = PeticionHTTP.get("/appoiments", BYRN.getAuth().getToken());
-         cit = BYRN.gson.fromJson(aux.getBody().toString(), Appoiments[].class);
+         cit = BYRN.gson.fromJson(aux.getBody().toString(), HashMap[].class);
      }
      
 }

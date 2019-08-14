@@ -2,8 +2,8 @@
 package Modelo;
 
 import byrn.BYRN;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import kong.unirest.HttpResponse;
+import kong.unirest.UnirestException;
 import java.util.ArrayList;
 import java.util.HashMap;
 

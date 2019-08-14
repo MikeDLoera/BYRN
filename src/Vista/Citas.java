@@ -136,13 +136,10 @@ public class Citas extends javax.swing.JPanel {
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", "", "", "", null},
-                {"", "", "", "", null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Número Cliente", "Fecha", "Hora de Inicio", "Ubicación", "Tipo de Cita"
+                "Número Cliente", "Fecha", "Hora de Inicio", "Ubicación", "Estatus de cita"
             }
         ));
         tblCitas.setColorBackgoundHead(new java.awt.Color(40, 153, 118));
@@ -154,6 +151,7 @@ public class Citas extends javax.swing.JPanel {
         tblCitas.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblCitas.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblCitas.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        tblCitas.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblCitas);
 
         javax.swing.GroupLayout jCitasLayout = new javax.swing.GroupLayout(jCitas);

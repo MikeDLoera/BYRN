@@ -2,8 +2,8 @@
 package Modelo;
 
 import byrn.BYRN;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import kong.unirest.HttpResponse;
+import kong.unirest.UnirestException;
 import java.util.HashMap;
 
 /**
@@ -19,11 +19,10 @@ public class AnadirPropiedadDAO {
         this.types = types;
         this.cities = cities;
         this.negocio = negocio;
-        
     }
     
-    public void setEstate(String json) throws UnirestException{
-        HttpResponse aux = PeticionHTTP.post("/estates",json , BYRN.getAuth().getToken());
+    public void guardar(HashMap datos) throws UnirestException{
+        
     }
 
     public HashMap[] getTypes() {

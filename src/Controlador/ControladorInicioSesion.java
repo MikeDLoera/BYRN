@@ -4,8 +4,8 @@ package Controlador;
 import Modelo.InicioSesionDAO;
 import Vista.Login;
 import byrn.BYRN;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import kong.unirest.HttpResponse;
+import kong.unirest.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -82,21 +82,19 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
             BYRN.getSesion().setPassword(String.valueOf(jf.txtPass.getPassword()));
             
             HttpResponse request = dao.request();
-            if (request.getStatus() == 200) {
+            
+            if (request.getStatus()==200) {
                 String json = request.getBody().toString();
                 BYRN.setAuth(json);
                 if (jf.cbxRecuerdame.isSelected()) {
                     guardarToken(BYRN.getAuth().getToken());
                 }
-                
-                
-                
-                
                 BYRN.fadeOut();
                 BYRN.dashboard();
             }else {
                 jf.labelExcepcion.setText("¡Datos Incorrectos!");
             }
+        
         } catch (UnirestException ex) {
             System.out.println("No hay conexion :v");
         }
