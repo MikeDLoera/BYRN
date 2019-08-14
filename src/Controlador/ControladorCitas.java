@@ -65,7 +65,8 @@ public class ControladorCitas implements ActionListener{
 
      private void tabla() throws UnirestException{
          
-         DefaultTableModel modelotabla = new DefaultTableModel();
+         DefaultTableModel modelotabla = new DefaultTableModel(){@Override
+        public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
             modelotabla.addColumn("Número Cliente");
          modelotabla.addColumn("Fecha");
           modelotabla.addColumn("Hora de Inicio");

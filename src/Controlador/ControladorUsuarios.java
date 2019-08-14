@@ -60,7 +60,8 @@ public class ControladorUsuarios implements ActionListener {
     private void tabla() throws UnirestException{
         dao.obtener();
         
-        DefaultTableModel modelotabla = new DefaultTableModel();
+        DefaultTableModel modelotabla = new DefaultTableModel(){@Override
+        public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
         modelotabla.addColumn("Nombre");
         modelotabla.addColumn("Apellidos");
         modelotabla.addColumn("Correo");

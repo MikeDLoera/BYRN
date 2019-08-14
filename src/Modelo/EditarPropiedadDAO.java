@@ -32,5 +32,13 @@ public class EditarPropiedadDAO {
     public void setCities(HashMap cities) {
         this.cities = cities;
     }
+
+    public HashMap[] getTypes() {
+        return types;
+    }
+
+    public void setTypes(HashMap[] types) {
+        this.types = types;
+    }
     
 }

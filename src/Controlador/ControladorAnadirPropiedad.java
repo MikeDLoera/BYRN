@@ -52,7 +52,7 @@ public class ControladorAnadirPropiedad implements ActionListener{
                 storeEstate.put("latitude", 20.62388600);
                 storeEstate.put("longitude", -103.088528);
                 // storeEstate.put("images", new JSONArray(new String[0]).toString());
-                System.out.println(storeEstate.toString());
+                //System.out.println(storeEstate.toString());
                 
                 
                 dao.guardar(storeEstate);
