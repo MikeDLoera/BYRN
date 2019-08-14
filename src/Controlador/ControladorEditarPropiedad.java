@@ -46,7 +46,7 @@ public class ControladorEditarPropiedad implements ActionListener{
         jf.txtDueno.setText(dao.getEstate().get("owner_id").toString().replaceAll(".0", ""));
         jf.txtDireccion.setText(dao.getEstate().get("address").toString());
         jf.txtDescripcion.setText(dao.getEstate().get("description").toString());
-        jf.txtArea.setText(dao.getEstate().get("surface_area").toString());
+        jf.txtArea.setText(dao.getEstate().get("surface_area").toString().replaceAll(".0", ""));
         
     }
     

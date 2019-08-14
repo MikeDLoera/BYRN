@@ -45,7 +45,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnSiguente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
         panMostradoDeImagenes = new javax.swing.JPanel();
-        panImage = new org.edisoncor.gui.panel.PanelImage();
+        txtImage = new org.edisoncor.gui.textField.TextFieldRectImage();
         jLabel3 = new javax.swing.JLabel();
         txtBuscador = new javax.swing.JTextField();
         ComboBox = new org.edisoncor.gui.comboBox.ComboBoxRound();
@@ -222,35 +222,28 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnSiguente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/flecha-derecha.png"))); // NOI18N
         btnSiguente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSiguente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSiguente.setFocusPainted(false);
 
         btnAnterior.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/espalda.png"))); // NOI18N
         btnAnterior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAnterior.setFocusPainted(false);
 
         panMostradoDeImagenes.setBackground(new java.awt.Color(255, 255, 255));
         panMostradoDeImagenes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout panImageLayout = new javax.swing.GroupLayout(panImage);
-        panImage.setLayout(panImageLayout);
-        panImageLayout.setHorizontalGroup(
-            panImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 191, Short.MAX_VALUE)
-        );
-        panImageLayout.setVerticalGroup(
-            panImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
+        txtImage.setColorDeBorde(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panMostradoDeImagenesLayout = new javax.swing.GroupLayout(panMostradoDeImagenes);
         panMostradoDeImagenes.setLayout(panMostradoDeImagenesLayout);
         panMostradoDeImagenesLayout.setHorizontalGroup(
             panMostradoDeImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(txtImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
         );
         panMostradoDeImagenesLayout.setVerticalGroup(
             panMostradoDeImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(txtImage, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panImagenDePropiedadesLayout = new javax.swing.GroupLayout(panImagenDePropiedades);
@@ -441,12 +434,12 @@ public class ListadoPropiedades extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbListadoDePropiedades;
     private javax.swing.JLabel lbTitulo;
-    public org.edisoncor.gui.panel.PanelImage panImage;
     private javax.swing.JPanel panImagenDePropiedades;
     public javax.swing.JPanel panMostradoDeImagenes;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     public javax.swing.JPanel panlListadoDePropiedades;
     public rojerusan.RSTableMetro tblListadoDePropiedades;
     public javax.swing.JTextField txtBuscador;
+    public org.edisoncor.gui.textField.TextFieldRectImage txtImage;
     // End of variables declaration//GEN-END:variables
 }

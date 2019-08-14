@@ -1,5 +1,5 @@
 
-package Controlador;
+package byrn;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Utils {
     
     public static ListaLigadaDobleCircular<ImageIcon> urlsArrayToLinkedList(String[] urls) {
-        ListaLigadaDobleCircular<ImageIcon> list = new ListaLigadaDobleCircular();
+        ListaLigadaDobleCircular<ImageIcon> list = new ListaLigadaDobleCircular<>();
         for (String url : urls) {
             list.insertarAlFinal(imageURLToImageIcon(url));
         }

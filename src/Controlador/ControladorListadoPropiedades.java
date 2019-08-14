@@ -12,6 +12,7 @@ import Vista.EditarPropiedad;
 import Vista.InformacionDePropiedades;
 import Vista.ListadoPropiedades;
 import byrn.BYRN;
+import byrn.ListaLigadaDobleCircular;
 import kong.unirest.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,6 +30,7 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorListadoPropiedades implements ActionListener, MouseListener{
     private ListadoPropiedades jf;
     private ListadoPropiedadesDAO dao;
+    private ListaLigadaDobleCircular<ImageIcon> lista;
 
     public ControladorListadoPropiedades(ListadoPropiedades jf, ListadoPropiedadesDAO dao) {
         this.jf = jf;
@@ -228,12 +231,24 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        CarouselController cc;
+        jf.txtImage.setIcon(null);
         int id = getIdSelect();
             if (id>0) {
-                
-                
-                
-                
+                HashMap estate = BYRN.gson.fromJson(PeticionHTTP.get("/estates/"+id, BYRN.getAuth().getToken()).getBody().toString(), HashMap.class);
+                HashMap[] images = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("images")), HashMap[].class);
+                int l = images.length;
+                String urls = "";
+                for (int i = 0; i < l; i++) {
+                    urls+=images[i].get("url");
+                    if (i<l-1) {
+                        urls+=",\n";
+                    }
+                }
+                if (images.length>0) {
+                    //System.out.println(urls);
+                    cc = new CarouselController(urls, jf,this);
+                }
             }
     }
 
@@ -255,6 +270,14 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
     @Override
     public void mouseExited(MouseEvent e) {
         
+    }
+
+    public ListaLigadaDobleCircular getLista() {
+        return lista;
+    }
+
+    public void setLista(ListaLigadaDobleCircular lista) {
+        this.lista = lista;
     }
     
 }

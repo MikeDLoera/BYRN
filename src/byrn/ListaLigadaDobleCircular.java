@@ -1,9 +1,10 @@
 
-package Controlador;
+package byrn;
 
 /**
  *
  * @author ilichh1
+ * @param <T>
  */
 public class ListaLigadaDobleCircular<T> {
     private Nodo<T> inicio;
