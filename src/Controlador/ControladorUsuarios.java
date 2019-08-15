@@ -12,8 +12,7 @@ import byrn.BYRN;
 import kong.unirest.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,8 +20,8 @@ import javax.swing.table.DefaultTableModel;
  * @author CST-UTJ
  */
 public class ControladorUsuarios implements ActionListener {
-       private Usuarios jf;
-    private UsuariosDAO dao;
+    private final Usuarios jf;
+    private final UsuariosDAO dao;
 
     public ControladorUsuarios(Usuarios jf, UsuariosDAO dao) {
         this.jf = jf;
@@ -30,11 +29,8 @@ public class ControladorUsuarios implements ActionListener {
         
         jf.btnAgregarUsuario.addActionListener((ActionListener)this);
         jf.btnEditarUsuario.addActionListener((ActionListener)this);
-           try {
-               tabla();
-           } catch (UnirestException ex) {
-               Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        
+        start();
     }
 
     @Override
@@ -48,14 +44,22 @@ public class ControladorUsuarios implements ActionListener {
         
         
         if (jf.btnEditarUsuario==e.getSource()) {
-            EditarUsuarios jf = new EditarUsuarios();
-            App app = BYRN.nuevaVentana("Editar Usuario", jf);
+            EditarUsuarios eu = new EditarUsuarios();
+            App app = BYRN.nuevaVentana("Editar Usuario", eu);
             EditarUsuariosDAO edidao = new EditarUsuariosDAO();
-            ControladorEditarUsuarios edi = new ControladorEditarUsuarios (jf,edidao,app);
+            ControladorEditarUsuarios edi = new ControladorEditarUsuarios (eu,edidao,app);
         }
     }
     
-    
+    private void start(){
+        Thread hilo = new Thread(){
+            @Override
+            public void run() {
+                tabla();
+            }
+        };
+        hilo.start();
+    }
     
     private void tabla() throws UnirestException{
         dao.obtener();
@@ -71,18 +75,21 @@ public class ControladorUsuarios implements ActionListener {
         jf.tlbUsuarios.setModel(modelotabla);
          
         Object[] fila = new Object[6];
-           
-        int length = dao.getUse().length; //cuantos usuarios existen
-         for (int i = 0; i < length; i++) {
-            fila[0] = dao.getUse()[i].get("name");
-            fila[1] = dao.getUse()[i].get("last_name");
-            fila[2] = dao.getUse()[i].get("email");
-            fila[3] = dao.getUse()[i].get("address");
-            fila[4] = dao.getUse()[i].get("cellphone");
-            fila[5] = dao.getUse()[i].get("status");
+            
+        HashMap aux = dao.getUsuarios().getValor();
+            
+        while(aux!=null){
+            fila[0] = aux.get("name");
+            fila[1] = aux.get("last_name");
+            fila[2] = aux.get("email");
+            fila[3] = aux.get("address");
+            fila[4] = aux.get("cellphone");
+            fila[5] = aux.get("status");
             
             modelotabla.addRow(fila);
+            aux = dao.getUsuarios().getValor();
         }
+        
          
     }
     

@@ -2,6 +2,7 @@
 package Modelo;
 
 import byrn.BYRN;
+import byrn.Cola;
 import kong.unirest.HttpResponse;
 import kong.unirest.UnirestException;
 import java.util.HashMap;
@@ -12,28 +13,21 @@ import java.util.HashMap;
  */
 public class UsuariosDAO {
     
-     private HashMap<String,Object>[] use;
-
-    public HashMap<String, Object>[] getUse() {
-        return use;
-    }
-
-    public void setUse(HashMap<String, Object>[] use) {
-        this.use = use;
-    }
+    private Cola<HashMap> usuarios;
 
     public UsuariosDAO() {
-      
     }
      
-     public void obtener() throws UnirestException{
-         HttpResponse aux = PeticionHTTP.get("/users", BYRN.getAuth().getToken());
-         use = BYRN.gson.fromJson(aux.getBody().toString(), HashMap[].class);
-     }
-    
-    
-    
-    
-    
-    
+    public void obtener() throws UnirestException{
+        usuarios = new Cola<>();
+        HttpResponse aux = PeticionHTTP.get("/users", BYRN.getAuth().getToken());
+        HashMap[] use = BYRN.gson.fromJson(aux.getBody().toString(), HashMap[].class);
+        for (HashMap hashMap : use) {
+            usuarios.insertar(hashMap);
+        }
+    }
+
+    public Cola<HashMap> getUsuarios() {
+        return usuarios;
+    }
 }

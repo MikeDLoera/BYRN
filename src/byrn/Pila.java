@@ -3,10 +3,12 @@ package byrn;
 public class Pila<T> {
     private NodoP<T> inicio;
     private int tamanio;
+    private NodoP<T> nodoActual;
     
     public void Pila(){
         inicio = null;
         tamanio = 0;
+        nodoActual = null;
     }
     
     public boolean esVacia(){
@@ -27,9 +29,25 @@ public class Pila<T> {
             inicio = nuevo;
         }
         tamanio++;
-    } 
+    }
     
-    
+    public T getValor() {
+        if (esVacia()) {
+            return null;
+        }
+
+        if (nodoActual == null) {
+            nodoActual = inicio;
+            return nodoActual.valor;
+        }
+        
+        nodoActual = nodoActual.siguiente;
+        if (nodoActual != null) {
+            return nodoActual.valor;
+        }else{
+            return null;
+        }
+    }
 }
 class NodoP<T>{
     public NodoP siguiente;

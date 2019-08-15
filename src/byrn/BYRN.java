@@ -384,12 +384,14 @@ public class BYRN {
                 addPanelFull(n, false);
                 fadeIn();
                 try {
-                    Thread.sleep(5000);
+                    java.util.concurrent.TimeUnit.SECONDS.sleep(5);
                 } catch (InterruptedException ex) {
+                    
                 }
+                fadeOut();
             }
         };
-        
+        hilo.start();
     }
     
     public static void cerrarSesion(){

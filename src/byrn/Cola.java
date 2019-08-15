@@ -1,14 +1,14 @@
 package byrn;
 
-public class Colas<T>{
-    //Declaración de atributos
+public class Cola<T>{
     private NodoC<T> inicio;
     private NodoC<T> termino;
+    private NodoC<T> nodoActual;
  
-    //Constructor sin parametros
-    public Colas(){
+    public Cola(){
         inicio=null;
         termino=null;
+        nodoActual = null;
     }
   
     public void insertar(T dato){
@@ -22,6 +22,28 @@ public class Colas<T>{
         }else{
             termino.siguiente=i;
             termino=termino.siguiente;
+        }
+    }
+
+    public boolean esVacia(){
+        return inicio == null;
+    }
+    
+    public T getValor() {
+        if (esVacia()) {
+            return null;
+        }
+
+        if (nodoActual == null) {
+            nodoActual = inicio;
+            return nodoActual.valor;
+        }
+        
+        nodoActual = nodoActual.siguiente;
+        if (nodoActual != null) {
+            return nodoActual.valor;
+        }else{
+            return null;
         }
     }
  

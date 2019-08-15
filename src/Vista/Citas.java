@@ -91,18 +91,21 @@ public class Citas extends javax.swing.JPanel {
         btnEditarCita.setText("Editar");
         btnEditarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEditarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarCita.setEnabled(false);
 
         btnAgregarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAgregarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
         btnAgregarCita.setText("Agregar Cita");
         btnAgregarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgregarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregarCita.setEnabled(false);
 
         btnBorarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnBorarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/borrar (1).png"))); // NOI18N
         btnBorarCita.setText("Borrar Cita");
         btnBorarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBorarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBorarCita.setEnabled(false);
 
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
