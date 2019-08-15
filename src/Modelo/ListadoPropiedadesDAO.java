@@ -119,8 +119,12 @@ public class ListadoPropiedadesDAO {
         return arrayEstates;
     }
 
-    public void setArrayEstates(HashMap[] arrayEstates) {
-        this.arrayEstates = arrayEstates;
+    public void setArrayEstates() {
+        arrayEstates = new HashMap[allEstates.size()];
+        for (int i = 0; i < allEstates.size(); i++) {
+            arrayEstates[i] = allEstates.get(i);
+        }
+        //Ordenamiento.quickSort(arrayEstates, 0, arrayEstates.length-1);
     }
     
 }

@@ -1,6 +1,6 @@
 package Vista;
 
-import java.awt.Color;
+import java.awt.Dimension;
 
 /**
  *
@@ -14,8 +14,28 @@ public class DashBoard extends javax.swing.JPanel {
      */
     public DashBoard() {
         initComponents();
+        barraOff();
     }
 
+    public void porcentaje(int p){
+        Thread hilo = new Thread(){
+            @Override
+            public void run() {
+                Dimension tam = panBarra.getSize();
+                panProgreso.setSize((p*tam.width)/100, tam.height);
+            }
+        };
+        hilo.start();
+    }
+    
+    public void barraOff(){
+        try {Thread.sleep(100);} catch (InterruptedException ex) {}
+        panBarra.setVisible(false);
+    }
+    
+    public void barraOn(){
+        panBarra.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +54,8 @@ public class DashBoard extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
         dashCerrarSesion = new javax.swing.JButton();
+        panBarra = new org.edisoncor.gui.panel.PanelNice();
+        panProgreso = new org.edisoncor.gui.panel.PanelNice();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -47,14 +69,6 @@ public class DashBoard extends javax.swing.JPanel {
         dashPropiedades.setContentAreaFilled(false);
         dashPropiedades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dashPropiedades.setFocusPainted(false);
-        dashPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dashPropiedadesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dashPropiedadesMouseExited(evt);
-            }
-        });
 
         dashCitas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dashCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/cuaderno.png"))); // NOI18N
@@ -109,6 +123,23 @@ public class DashBoard extends javax.swing.JPanel {
         dashCerrarSesion.setMinimumSize(new java.awt.Dimension(99, 25));
         dashCerrarSesion.setPreferredSize(new java.awt.Dimension(99, 25));
 
+        panBarra.setBackground(new java.awt.Color(190, 235, 159));
+
+        panProgreso.setBackground(new java.awt.Color(40, 153, 118));
+
+        javax.swing.GroupLayout panBarraLayout = new javax.swing.GroupLayout(panBarra);
+        panBarra.setLayout(panBarraLayout);
+        panBarraLayout.setHorizontalGroup(
+            panBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBarraLayout.createSequentialGroup()
+                .addComponent(panProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panBarraLayout.setVerticalGroup(
+            panBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panProgreso, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,14 +148,19 @@ public class DashBoard extends javax.swing.JPanel {
             .addComponent(jSeparator2)
             .addComponent(dashCitas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(dashPropiedades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(panelImage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
             .addComponent(jSeparator3)
             .addComponent(dashUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator4)
             .addComponent(dashCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addComponent(panelImage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(panBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,22 +183,11 @@ public class DashBoard extends javax.swing.JPanel {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(dashCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(panBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dashPropiedadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashPropiedadesMouseEntered
-        // TODO add your handling code here:
-        
-        
-        
-     
-    }//GEN-LAST:event_dashPropiedadesMouseEntered
-
-    private void dashPropiedadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashPropiedadesMouseExited
-        // TODO add your handling code here:
-    
-    }//GEN-LAST:event_dashPropiedadesMouseExited
 
     
 
@@ -175,6 +200,8 @@ public class DashBoard extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private org.edisoncor.gui.panel.PanelNice panBarra;
+    private org.edisoncor.gui.panel.PanelNice panProgreso;
     public org.edisoncor.gui.panel.PanelImage panelImage2;
     // End of variables declaration//GEN-END:variables
 }

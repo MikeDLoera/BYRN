@@ -145,15 +145,17 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
                 dao.estatesList();
                 dao.allUsers();
                 tabla(dao.getAllEstates());
-                getTypes();
-                
-                /////////////////////////////////////////////////////////////
-                //ordenamiento 
-                
-                dao.listarCiudadesNegocios();
             }
         };
         hilo.start();
+        Thread hilo2 = new Thread(){
+            @Override
+            public void run() {
+                getTypes();
+                dao.listarCiudadesNegocios();
+            }
+        };
+        hilo2.start();
     }
     
     private void tabla(ArrayList<HashMap> lista){

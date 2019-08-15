@@ -2,7 +2,7 @@
 package Vista;
 
 import java.awt.Image;
-import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,8 +14,12 @@ public class Start extends javax.swing.JFrame {
      * Creates new form Start
      */
     public Start() {
-        initComponents();
         
+    }
+    
+    private void setIcon(){
+        Image icon = new ImageIcon(getClass().getResource("")).getImage();
+        this.setIconImage(icon);
     }
 
     /**
@@ -29,7 +33,7 @@ public class Start extends javax.swing.JFrame {
 
         contenedor = new javax.swing.JPanel();
 
-        setIconImage(getIconImage());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         contenedor.setBackground(new java.awt.Color(255, 255, 255));
