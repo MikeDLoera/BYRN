@@ -146,6 +146,10 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
                 dao.allUsers();
                 tabla(dao.getAllEstates());
                 getTypes();
+                
+                /////////////////////////////////////////////////////////////
+                //ordenamiento 
+                
                 dao.listarCiudadesNegocios();
             }
         };
