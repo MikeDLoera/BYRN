@@ -37,25 +37,17 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         this.dao = dao;
         
         jf.btnAnadirPropiedad.addActionListener((ActionListener)this);
-        jf.btnAnterior.addActionListener((ActionListener)this);
         jf.btnEditarPropiedad.addActionListener((ActionListener)this);
         jf.btnEliminarPropiedad.addActionListener((ActionListener)this);
         jf.btnExcel.addActionListener((ActionListener)this);
         jf.btnMasInformacion.addActionListener((ActionListener)this);
-        jf.btnSiguente.addActionListener((ActionListener)this);
 
         jf.btnBusqueda.addActionListener((ActionListener)this);
         jf.ComboBox.addActionListener((ActionListener)this);
         
         jf.tblListadoDePropiedades.addMouseListener((MouseListener)this);
         
-        try {
-            tabla(false);
-            getTypes();
-            dao.List();
-        } catch (UnirestException ex) {
-            
-        }
+        start();
     }
     
     @Override
@@ -73,7 +65,18 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
                     String path = "/estates/"+id;
                     PeticionHTTP.delete(path,BYRN.getAuth().getToken());
                     BYRN.notificacion("La propiedad se elimino correctamente");
-                    tabla(false);
+                    tabla(new ArrayList());
+                    Thread hilo = new Thread(){
+                        @Override
+                        public void run() {
+                            dao.estatesList();
+                            tabla(dao.getAllEstates());
+                        }
+                    };
+                    hilo.start();
+                    jf.btnAnterior.setEnabled(false);
+                    jf.btnSiguente.setEnabled(false);
+                    jf.txtImage.setIcon(null);
                 } catch (UnirestException ex) {
                     
                 }
@@ -105,19 +108,12 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         if (jf.btnExcel==e.getSource()) {
             
         }
-        if (jf.btnAnterior==e.getSource()) {
-            
-        }
-        if (jf.btnSiguente==e.getSource()) {
-            
-        }
         if (jf.ComboBox==e.getSource()) {
             if (jf.ComboBox.getSelectedIndex()>0) {
                 int length = dao.getTypes().length;
                 for (int i=0;i<length;i++) {
                     if (dao.getTypes()[i].get("name").equals(jf.ComboBox.getSelectedItem())) {
-                        String auxId = dao.getTypes()[i].get("id").toString();
-                        int id = Integer.parseInt(auxId.substring(0,auxId.indexOf(".0")));
+                        int id = Integer.parseInt(dao.getTypes()[i].get("id").toString().replaceAll(".0", ""));
                         filtrado(id);
                         break;
                     }
@@ -125,22 +121,38 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
             }else{
                 if (jf.ComboBox.getSelectedIndex()==0) {
                     try {
-                        tabla(true);
+                        tabla(dao.getAllEstates());
                     } catch (UnirestException ex) {
                     }
                 }
             }
         }
         if (jf.btnBusqueda==e.getSource()) {
-            
+            Thread hilo = new Thread(){
+                @Override
+                public void run() {
+                    busqueda();
+                }
+            };
+            hilo.start();
         }
     }
     
-    private void tabla(boolean filtrado) throws UnirestException{
-        if (!filtrado) {
-            dao.estatesList();
-            dao.allUsers();
-        }
+    private void start(){
+        Thread hilo = new Thread(){
+            @Override
+            public void run() {
+                dao.estatesList();
+                dao.allUsers();
+                tabla(dao.getAllEstates());
+                getTypes();
+                dao.listarCiudadesNegocios();
+            }
+        };
+        hilo.start();
+    }
+    
+    private void tabla(ArrayList<HashMap> lista){
         DefaultTableModel modelotabla = new DefaultTableModel(){@Override
         public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
         modelotabla.addColumn("Número de Propiedad");
@@ -149,9 +161,9 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         modelotabla.addColumn("Tipo");
         jf.tblListadoDePropiedades.setModel(modelotabla);
         Object[] fila = new Object[4];
-        int l = dao.getAllEstates().size();
+        int l = lista.size();
         for (int i = 0; i < l; i++) {
-            HashMap estate = dao.getAllEstates().get(i);
+            HashMap estate = lista.get(i);
             String id = estate.get("id")+"";
             fila[0] = id.substring(0, id.indexOf(".0"));
             fila[1] = estate.get("name");
@@ -163,35 +175,31 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
     }
     
     private void filtrado(int id){
-        DefaultTableModel modelotabla = new DefaultTableModel(){@Override
-        public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
-        modelotabla.addColumn("Número de Propiedad");
-        modelotabla.addColumn("Nombre");
-        modelotabla.addColumn("Dueño");
-        modelotabla.addColumn("Tipo");
-        jf.tblListadoDePropiedades.setModel(modelotabla);
-        Object[] fila = new Object[4];
         ArrayList<HashMap> filtro = new ArrayList<>();
         int l = dao.getAllEstates().size();
         for (int i = 0; i < l; i++) {
             HashMap estate = dao.getAllEstates().get(i);
             HashMap type = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("estate_type")), HashMap.class);
-            String auxId = type.get("id").toString();
-            int estateId = Integer.parseInt(auxId.substring(0,auxId.indexOf(".0")));
+            int estateId = Integer.parseInt(type.get("id").toString().replaceAll(".0", ""));
             if (id==estateId) {
                 filtro.add(estate);
             }
         }
-        
-        int lengthFiltro = filtro.size();
-        for (int i = 0; i < lengthFiltro; i++) {
-            String idE = filtro.get(i).get("id").toString();
-            fila[0] = idE.substring(0,idE.indexOf(".0"));
-            fila[1] = filtro.get(i).get("name");
-            fila[2] = dao.getOwnerName(filtro.get(i).get("owner_id").toString());
-            fila[3] = BYRN.gson.fromJson(BYRN.gson.toJson(filtro.get(i).get("estate_type")), HashMap.class).get("name");
-            modelotabla.addRow(fila);
+        tabla(filtro);
+    }
+    
+    private void busqueda(){
+        String name = jf.txtBuscador.getText();
+        name = name.toLowerCase();
+        ArrayList<HashMap> busqueda = new ArrayList<>();
+            
+        int l = dao.getAllEstates().size();
+        for (int i = 0; i < l; i++) {
+            if (dao.getAllEstates().get(i).get("name").toString().toLowerCase().contains(name)) {
+                busqueda.add(dao.getAllEstates().get(i));
+            }
         }
+        tabla(busqueda);
     }
     
     private int getIdSelect(){
@@ -227,49 +235,64 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
             types[i] = (String) dao.getTypes()[i-1].get("name");
         }
         jf.ComboBox.setModel(new javax.swing.DefaultComboBoxModel(types));
+        jf.ComboBox.setOpaque(true);
     }
+    
+    public void setImages(){
+        CarouselController cc;
+        jf.btnAnterior.setEnabled(false);
+        jf.btnSiguente.setEnabled(false);
+        jf.txtImage.setIcon(null);
+        int id = getIdSelect();
+        if (id>0) {
+            HashMap estate = BYRN.gson.fromJson(PeticionHTTP.get("/estates/"+id, BYRN.getAuth().getToken()).getBody().toString(), HashMap.class);
+            HashMap[] images = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("images")), HashMap[].class);
+            int l = images.length;
+            String urls = "";
+            for (int i = 0; i < l; i++) {
+                urls+=images[i].get("url");
+                if (i<l-1) {
+                    urls+=",\n";
+                }
+            }
+            if (images.length>0) {
+                cc = new CarouselController(urls,this);        
+                if (lista.getLargo()>1) {
+                    jf.btnAnterior.setEnabled(true);
+                    jf.btnSiguente.setEnabled(true);
+                }
+            }
+        }
+    }
+        
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        CarouselController cc;
-        jf.txtImage.setIcon(null);
-        int id = getIdSelect();
-            if (id>0) {
-                HashMap estate = BYRN.gson.fromJson(PeticionHTTP.get("/estates/"+id, BYRN.getAuth().getToken()).getBody().toString(), HashMap.class);
-                HashMap[] images = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("images")), HashMap[].class);
-                int l = images.length;
-                String urls = "";
-                for (int i = 0; i < l; i++) {
-                    urls+=images[i].get("url");
-                    if (i<l-1) {
-                        urls+=",\n";
-                    }
+        if (e.getSource()==jf.tblListadoDePropiedades) {
+            Thread hilo = new Thread(){
+                @Override
+                public void run() {
+                    setImages();
                 }
-                if (images.length>0) {
-                    //System.out.println(urls);
-                    cc = new CarouselController(urls, jf,this);
-                }
-            }
+            };
+            hilo.start();
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
     }
 
     public ListaLigadaDobleCircular getLista() {
@@ -278,6 +301,10 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
 
     public void setLista(ListaLigadaDobleCircular lista) {
         this.lista = lista;
+    }
+
+    public ListadoPropiedades getJf() {
+        return jf;
     }
     
 }

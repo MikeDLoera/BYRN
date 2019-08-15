@@ -19,10 +19,10 @@ public class CarouselController{
     
     public static String HARDCODED_URLS;
 
-    public CarouselController(String urls, ListadoPropiedades lp, ControladorListadoPropiedades c){
+    public CarouselController(String urls, ControladorListadoPropiedades c){
         HARDCODED_URLS = urls;
         this.c = c;
-        this.view=lp;
+        this.view=c.getJf();
         onInit();
         downloadImages();
     }
@@ -48,6 +48,7 @@ public class CarouselController{
         convertTextToURLs();
         imageUrlsToLinkedList();
         next();
+            
     }
     
     private void imageUrlsToLinkedList() {

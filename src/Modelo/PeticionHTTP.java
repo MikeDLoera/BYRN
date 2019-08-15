@@ -49,4 +49,8 @@ public class PeticionHTTP {
         .asJson ();
         return response;
     }
+
+    public static String getUrl() {
+        return url;
+    }
 }

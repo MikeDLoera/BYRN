@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.InicioSesionDAO;
+import Modelo.PeticionHTTP;
 import Vista.Login;
 import byrn.BYRN;
 import kong.unirest.HttpResponse;
@@ -36,7 +37,7 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
         jf.cbxRecuerdame.addKeyListener((KeyListener)this);
         jf.btnAcceder.addKeyListener((KeyListener)this);
         
-        
+        PeticionHTTP.get("", "");
     }
     
     public void guardarToken(String token){
@@ -56,13 +57,13 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
             try {
                 fichero.close();
             } catch (IOException ex) {
-                Logger.getLogger(InicioSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(InicioSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         try {
             auth.createNewFile();
         } catch (IOException ex) {
-            Logger.getLogger(InicioSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(InicioSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

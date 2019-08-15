@@ -45,14 +45,14 @@ public class Dash extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(100, 300));
         setLayout(null);
 
-        menu.setBackground(new java.awt.Color(255, 255, 255));
+        menu.setBackground(new java.awt.Color(204, 204, 204));
         menu.setPreferredSize(new java.awt.Dimension(300, 450));
-        menu.setLayout(new java.awt.BorderLayout());
+        menu.setLayout(new java.awt.GridLayout());
         add(menu);
         menu.setBounds(0, 0, 80, 200);
 
-        contenido.setBackground(new java.awt.Color(255, 255, 255));
-        contenido.setLayout(new java.awt.BorderLayout());
+        contenido.setBackground(new java.awt.Color(153, 153, 153));
+        contenido.setLayout(new java.awt.GridLayout());
         add(contenido);
         contenido.setBounds(80, 0, 230, 200);
     }// </editor-fold>//GEN-END:initComponents

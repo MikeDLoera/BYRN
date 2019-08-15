@@ -28,10 +28,11 @@ public class App extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BYRN - Propiedades");
         setResizable(false);
+        getContentPane().setLayout(new java.awt.GridLayout());
 
         contenedor.setBackground(new java.awt.Color(255, 255, 255));
-        contenedor.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(contenedor, java.awt.BorderLayout.CENTER);
+        contenedor.setLayout(new java.awt.GridLayout());
+        getContentPane().add(contenedor);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

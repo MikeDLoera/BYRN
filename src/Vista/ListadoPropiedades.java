@@ -212,6 +212,7 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         tblListadoDePropiedades.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tblListadoDePropiedades.setFuenteHead(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        tblListadoDePropiedades.setMultipleSeleccion(false);
         tblListadoDePropiedades.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblListadoDePropiedades);
 
@@ -222,17 +223,21 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         btnSiguente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/flecha-derecha.png"))); // NOI18N
         btnSiguente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSiguente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSiguente.setEnabled(false);
         btnSiguente.setFocusPainted(false);
 
         btnAnterior.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/espalda.png"))); // NOI18N
         btnAnterior.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAnterior.setEnabled(false);
         btnAnterior.setFocusPainted(false);
 
         panMostradoDeImagenes.setBackground(new java.awt.Color(255, 255, 255));
         panMostradoDeImagenes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtImage.setEditable(false);
+        txtImage.setBackground(new java.awt.Color(255, 255, 255));
         txtImage.setColorDeBorde(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panMostradoDeImagenesLayout = new javax.swing.GroupLayout(panMostradoDeImagenes);
@@ -277,16 +282,6 @@ public class ListadoPropiedades extends javax.swing.JPanel {
         jLabel3.setText("Buscador:");
 
         txtBuscador.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        txtBuscador.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscadorCaretUpdate(evt);
-            }
-        });
-        txtBuscador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscadorActionPerformed(evt);
-            }
-        });
 
         ComboBox.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ComboBox.setColorDeBorde(new java.awt.Color(143, 198, 94));
@@ -396,22 +391,6 @@ public class ListadoPropiedades extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtBuscadorCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscadorCaretUpdate
-        // TODO add your handling code here:
-         String valor = txtBuscador.getText();
-            
-                for (int i = 0; i < tblListadoDePropiedades.getRowCount(); i++) {
-                    if (tblListadoDePropiedades.getValueAt(i, 0).equals(valor)) {
-                       
-                        tblListadoDePropiedades.changeSelection(i, 0, false, false);
-                    }
-                }
-    }//GEN-LAST:event_txtBuscadorCaretUpdate
-
-    private void txtBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscadorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

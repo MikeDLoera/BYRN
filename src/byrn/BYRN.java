@@ -48,6 +48,7 @@ public class BYRN {
     private static Start start = new Start();
     private static App app = new App();
     private static Dash dashboard = new Dash();
+    private static DashBoard dashMenu = new DashBoard();
     private static AuthUser authUser = new AuthUser();
     private static DecodedToken decodedToken;
     private static InicioSesionMOD sesion = new InicioSesionMOD();
@@ -283,7 +284,7 @@ public class BYRN {
         //app.setExtendedState(MAXIMIZED_BOTH);
         addPanelFull(dashboard,true);
         //se crea nuevo menu
-        DashBoard dashMenu = new DashBoard();
+        
         ControladorDashBoard cd = new ControladorDashBoard(dashMenu);
         //se crea la vista principal
         ListadoPropiedades propiedades = new ListadoPropiedades();
@@ -336,6 +337,10 @@ public class BYRN {
         
         
     }
+
+    public static DashBoard getDashMenu() {
+        return dashMenu;
+    }
     
     public static String carpetaLocal(){
         return System.getProperty("java.io.tmpdir");
@@ -368,13 +373,23 @@ public class BYRN {
     
     public static void notificacion(String mensaje){
         if (start.isVisible()){start.setVisible(false);}
-        Notificacion n = new Notificacion();
-        ControladorNotificacion cn = new ControladorNotificacion(mensaje, n);
-        int x = (int) app.getWidth() - n.getPreferredSize().width - 20;
-        int y = (int) app.getHeight() - n.getPreferredSize().height - 20;
-        start.setLocation(x, y);
-        addPanelFull(n, false);
-        fadeIn();
+        Thread hilo = new Thread(){
+            @Override
+            public void run() {
+                Notificacion n = new Notificacion();
+                ControladorNotificacion cn = new ControladorNotificacion(mensaje, n);
+                int x = (int) app.getWidth() - n.getPreferredSize().width - 20;
+                int y = (int) app.getHeight() - n.getPreferredSize().height - 20;
+                start.setLocation(x, y);
+                addPanelFull(n, false);
+                fadeIn();
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException ex) {
+                }
+            }
+        };
+        
     }
     
     public static void cerrarSesion(){

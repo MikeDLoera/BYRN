@@ -24,6 +24,7 @@ public class ListadoPropiedadesDAO {
         
     }
     
+    //no usar
     public void allEstates() throws UnirestException{//no se usa
         HttpResponse request;
         String path = "/estates";
@@ -91,13 +92,9 @@ public class ListadoPropiedadesDAO {
         return ownerName;
     }
     
-    public void List() throws UnirestException{
+    public void listarCiudadesNegocios() throws UnirestException{
         cities = BYRN.gson.fromJson(PeticionHTTP.get("/cities", BYRN.getAuth().getToken()).getBody().toString(), HashMap.class);
         negocio = BYRN.gson.fromJson(PeticionHTTP.get("/bussiness-types", BYRN.getAuth().getToken()).getBody().toString(), HashMap[].class);
-    }
-
-    public HashMap<String, ArrayList> getEstates() {
-        return estates;
     }
 
     public HashMap[] getUsers() {
