@@ -1,14 +1,10 @@
 
 package Controlador;
 
-import Modelo.AnadirPropiedadDAO;
-import Modelo.EditarPropiedadDAO;
 import Modelo.InformacionPropiedadesDAO;
 import Modelo.ListadoPropiedadesDAO;
 import Modelo.PeticionHTTP;
-import Vista.AnadirPropiedad;
 import Vista.App;
-import Vista.EditarPropiedad;
 import Vista.InformacionDePropiedades;
 import Vista.ListadoPropiedades;
 import byrn.BYRN;
@@ -53,10 +49,11 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
     @Override
     public void actionPerformed(ActionEvent e) {
         if (jf.btnAnadirPropiedad==e.getSource()) {
-            AnadirPropiedad ap = new AnadirPropiedad();
+            /*AnadirPropiedad ap = new AnadirPropiedad();
             AnadirPropiedadDAO apDAO = new AnadirPropiedadDAO(dao.getTypes(),dao.getCities(),dao.getNegocio());
             ControladorAnadirPropiedad cap = new ControladorAnadirPropiedad(ap, apDAO);
-            BYRN.nuevaVentana("Añadir propiedad", ap);
+            BYRN.nuevaVentana("Añadir propiedad", ap);*/
+            com.byrn.ByrnEstateForm.newEstateForm(PeticionHTTP.getBaseurl(), BYRN.getAuth().getToken());
         }
         if (jf.btnEliminarPropiedad==e.getSource()) {
             int id = getIdSelect();
@@ -85,10 +82,11 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         if (jf.btnEditarPropiedad==e.getSource()) {
             int id = getIdSelect();
             if (id>0) {
-                EditarPropiedad ed = new EditarPropiedad();
+                /*EditarPropiedad ed = new EditarPropiedad();
                 App app = BYRN.nuevaVentana("Editar Propiedad", ed);
                 EditarPropiedadDAO edDAO = new EditarPropiedadDAO(getState(id),dao.getCities(),dao.getTypes());
-                ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);
+                ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);*/
+                com.byrn.ByrnEstateForm.newEstateForm(PeticionHTTP.getBaseurl(), BYRN.getAuth().getToken(),id);
             }else{
                 BYRN.notificacion("Seleccione una fila de la tabla");
             }

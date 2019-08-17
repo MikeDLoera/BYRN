@@ -15,8 +15,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author CST-UTJ
@@ -41,12 +39,15 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
     }
     
     private void start(){
-        try{
-            HttpResponse request = PeticionHTTP.get("/", null);
-        }catch(UnirestException ue){
-            
-        }
-        
+        Thread hilo = new Thread(){
+            @Override
+            public void run(){
+            try{
+                HttpResponse request = PeticionHTTP.get("/", null);
+            }catch(UnirestException ue){}
+          }  
+        };
+        hilo.start();
     }
     
     public void guardarToken(String token){

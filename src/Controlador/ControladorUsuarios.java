@@ -1,14 +1,8 @@
 
 package Controlador;
 
-import Modelo.AgregarUsuarioDAO;
-import Modelo.EditarUsuariosDAO;
 import Modelo.UsuariosDAO;
-import Vista.AgregarUsuario;
-import Vista.App;
-import Vista.EditarUsuarios;
 import Vista.Usuarios;
-import byrn.BYRN;
 import kong.unirest.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,15 +21,14 @@ public class ControladorUsuarios implements ActionListener {
         this.jf = jf;
         this.dao = dao;
         
-        jf.btnAgregarUsuario.addActionListener((ActionListener)this);
-        jf.btnEditarUsuario.addActionListener((ActionListener)this);
+        jf.btnBusqueda.addActionListener((ActionListener)this);
         
         start();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (jf.btnAgregarUsuario==e.getSource()) {
+        /*if (jf.btnAgregarUsuario==e.getSource()) {
             AgregarUsuario a = new AgregarUsuario();
             App app = BYRN.nuevaVentana("Agregar Usuario", a);
             AgregarUsuarioDAO adao = new AgregarUsuarioDAO();
@@ -48,6 +41,10 @@ public class ControladorUsuarios implements ActionListener {
             App app = BYRN.nuevaVentana("Editar Usuario", eu);
             EditarUsuariosDAO edidao = new EditarUsuariosDAO();
             ControladorEditarUsuarios edi = new ControladorEditarUsuarios (eu,edidao,app);
+        }*/
+        if (jf.btnBusqueda==e.getSource()) {
+            String name = jf.txtBusqueda.getText();
+            tabla(name);
         }
     }
     
@@ -55,14 +52,16 @@ public class ControladorUsuarios implements ActionListener {
         Thread hilo = new Thread(){
             @Override
             public void run() {
-                tabla();
+                tabla(null);
             }
         };
         hilo.start();
     }
     
-    private void tabla() throws UnirestException{
-        dao.obtener();
+    private void tabla(String name) throws UnirestException{
+        if (name==null) {
+            dao.obtener();
+        }
         
         DefaultTableModel modelotabla = new DefaultTableModel(){@Override
         public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
@@ -77,17 +76,33 @@ public class ControladorUsuarios implements ActionListener {
         Object[] fila = new Object[6];
             
         HashMap aux = dao.getUsuarios().getValor();
+        
+        if (name!=null) {
+            while(aux!=null){
+                String nameAux = aux.get("name").toString()+aux.get("last_name").toString();
+                if (nameAux.toLowerCase().contains(name)) {
+                    fila[0] = aux.get("name");
+                    fila[1] = aux.get("last_name");
+                    fila[2] = aux.get("email");
+                    fila[3] = aux.get("address");
+                    fila[4] = aux.get("cellphone");
+                    fila[5] = aux.get("status");
+                    modelotabla.addRow(fila);
+                }
+                aux = dao.getUsuarios().getValor();
+            }
+        }else{
+            while(aux!=null){
+                fila[0] = aux.get("name");
+                fila[1] = aux.get("last_name");
+                fila[2] = aux.get("email");
+                fila[3] = aux.get("address");
+                fila[4] = aux.get("cellphone");
+                fila[5] = aux.get("status");
+                modelotabla.addRow(fila);
+                aux = dao.getUsuarios().getValor();
+            }
             
-        while(aux!=null){
-            fila[0] = aux.get("name");
-            fila[1] = aux.get("last_name");
-            fila[2] = aux.get("email");
-            fila[3] = aux.get("address");
-            fila[4] = aux.get("cellphone");
-            fila[5] = aux.get("status");
-            
-            modelotabla.addRow(fila);
-            aux = dao.getUsuarios().getValor();
         }
         
          
