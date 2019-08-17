@@ -175,6 +175,7 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
             fila[1] = estate.get("name");
             fila[2] = dao.getOwnerName(estate.get("owner_id").toString()); 
             fila[3] = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("estate_type")), HashMap.class).get("name");
+            //System.out.println(estate.get("estate_type"));
             modelotabla.addRow(fila);
         }
 

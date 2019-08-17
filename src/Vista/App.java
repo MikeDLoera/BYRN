@@ -1,6 +1,9 @@
 
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author CST-UTJ
@@ -9,10 +12,14 @@ public class App extends javax.swing.JFrame {
 
     /** Creates new form App */
     public App() {
+        setIcon();
         initComponents();
-        
     }
     
+    private void setIcon(){
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/img/ico.png"));
+        setIconImage(icon);
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
