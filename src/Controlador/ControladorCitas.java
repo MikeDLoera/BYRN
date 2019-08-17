@@ -1,14 +1,8 @@
 
 package Controlador;
 
-import Modelo.AgregarCitaDAO;
 import Modelo.CitasDAO;
-import Modelo.EditarCitaDAO;
-import Vista.AgregarCita;
-import Vista.App;
 import Vista.Citas;
-import Vista.EditarCita;
-import byrn.BYRN;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -27,17 +21,13 @@ public class ControladorCitas implements ActionListener{
         this.jf = jf;
         this.dao = dao;
         
-        jf.btnAgregarCita.addActionListener((ActionListener)this);
-        jf.btnBorarCita.addActionListener((ActionListener)this);
-        jf.btnEditarCita.addActionListener((ActionListener)this);
-        
         start();
     }
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (jf.btnAgregarCita==e.getSource()) {
+        /*if (jf.btnAgregarCita==e.getSource()) {
             AgregarCita ac = new AgregarCita();
             App app =  BYRN.nuevaVentana("Agregar cita", ac) ;
             AgregarCitaDAO acdao = new AgregarCitaDAO();
@@ -53,7 +43,7 @@ public class ControladorCitas implements ActionListener{
             EditarCitaDAO cDAO = new EditarCitaDAO();
             ControladorEditarCita cc = new ControladorEditarCita(c, cDAO,app);
             
-        }
+        }*/
         
     }
     

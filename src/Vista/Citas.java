@@ -28,9 +28,6 @@ public class Citas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
         jPanel3 = new javax.swing.JPanel();
-        btnEditarCita = new javax.swing.JButton();
-        btnAgregarCita = new javax.swing.JButton();
-        btnBorarCita = new javax.swing.JButton();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCitas = new rojerusan.RSTableMetro();
@@ -66,7 +63,7 @@ public class Citas extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(522, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(439, 439, 439)
                 .addComponent(panelImage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -86,27 +83,6 @@ public class Citas extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnEditarCita.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnEditarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/editar.png"))); // NOI18N
-        btnEditarCita.setText("Editar");
-        btnEditarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEditarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEditarCita.setEnabled(false);
-
-        btnAgregarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnAgregarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/mas.png"))); // NOI18N
-        btnAgregarCita.setText("Agregar Cita");
-        btnAgregarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAgregarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAgregarCita.setEnabled(false);
-
-        btnBorarCita.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnBorarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/borrar (1).png"))); // NOI18N
-        btnBorarCita.setText("Borrar Cita");
-        btnBorarCita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBorarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBorarCita.setEnabled(false);
-
         clockDigital1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -114,13 +90,7 @@ public class Citas extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(btnAgregarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addComponent(btnBorarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(btnEditarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -128,12 +98,7 @@ public class Citas extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEditarCita)
-                        .addComponent(btnBorarCita))
-                    .addComponent(btnAgregarCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clockDigital1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -187,9 +152,6 @@ public class Citas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAgregarCita;
-    public javax.swing.JButton btnBorarCita;
-    public javax.swing.JButton btnEditarCita;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private org.edisoncor.gui.comboBox.ComboBoxRectIcon comboBoxRectIcon1;
     public javax.swing.JPanel jCitas;

@@ -10,7 +10,7 @@ import kong.unirest.UnirestException;
  * @author CST-UTJ
  */
 public class PeticionHTTP {
-    private static String baseurl = "https://byrn-dev.herokuapp.com/";
+    private static String baseurl = "https://byrn-dev.herokuapp.com";
     private static String url = baseurl+"/api";
     
     public static HttpResponse get(String path, String token) throws UnirestException {
