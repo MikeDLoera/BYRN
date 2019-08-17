@@ -35,6 +35,9 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
         jf.cbxRecuerdame.addKeyListener((KeyListener)this);
         jf.btnAcceder.addKeyListener((KeyListener)this);
         
+        jf.txtUsuario.setText("juan@example.com");
+        jf.cbxRecuerdame.setVisible(false);
+        
         start();
     }
     
