@@ -90,6 +90,11 @@ public class ListadoPropiedadesDAO {
         cities = BYRN.gson.fromJson(PeticionHTTP.get("/cities", BYRN.getAuth().getToken()).getBody().toString(), HashMap.class);
         negocio = BYRN.gson.fromJson(PeticionHTTP.get("/bussiness-types", BYRN.getAuth().getToken()).getBody().toString(), HashMap[].class);
     }
+    
+    public String oneState(int id){
+        HttpResponse aux = PeticionHTTP.get("/estates/"+id, BYRN.getAuth().getToken());
+        return aux.getBody().toString();
+    }
 
     public HashMap[] getUsers() {
         return users;
@@ -124,7 +129,6 @@ public class ListadoPropiedadesDAO {
         for (int i = 0; i < allEstates.size(); i++) {
             arrayEstates[i] = allEstates.get(i);
         }
-        //Ordenamiento.quickSort(arrayEstates, 0, arrayEstates.length-1);
     }
     
 }

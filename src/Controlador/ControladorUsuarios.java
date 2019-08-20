@@ -3,6 +3,7 @@ package Controlador;
 
 import Modelo.UsuariosDAO;
 import Vista.Usuarios;
+import byrn.BYRN;
 import kong.unirest.UnirestException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -86,7 +87,7 @@ public class ControladorUsuarios implements ActionListener {
                     fila[2] = aux.get("email");
                     fila[3] = aux.get("address");
                     fila[4] = aux.get("cellphone");
-                    fila[5] = aux.get("status");
+                    fila[5] = getRoles(aux.get("roles"));
                     modelotabla.addRow(fila);
                 }
                 aux = dao.getUsuarios().getValor();
@@ -98,14 +99,29 @@ public class ControladorUsuarios implements ActionListener {
                 fila[2] = aux.get("email");
                 fila[3] = aux.get("address");
                 fila[4] = aux.get("cellphone");
-                fila[5] = aux.get("status");
+                fila[5] = getRoles(aux.get("roles"));
                 modelotabla.addRow(fila);
                 aux = dao.getUsuarios().getValor();
             }
-            
         }
-        
-         
+    }
+    
+    
+    private String getRoles(Object value){
+        HashMap[] roles = BYRN.gson.fromJson(BYRN.gson.toJson(value), HashMap[].class);
+        int l = roles.length;
+        if (l>0) {
+            String rol = "";
+            for (int i = 0; i < l; i++) {
+                rol+=roles[i].get("display_name").toString();
+                if (i<l-1) {
+                    rol+=", ";
+                }
+            }
+            return rol;
+        }else{
+            return "Predeterminado";
+        }
     }
     
     

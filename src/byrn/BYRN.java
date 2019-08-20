@@ -359,16 +359,52 @@ public class BYRN {
         return authUser;
     }
     
+    public static void guardarArchivo(String contenido,String name){
+        File auth = new File(carpetaLocal()+name);
+        
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try{
+            fichero = new FileWriter(auth);
+            pw = new PrintWriter(fichero);
+            pw.println(contenido);
+
+        } catch (IOException e) {
+            
+        }
+        if (null != fichero){
+            try {
+                fichero.close();
+            } catch (IOException ex) {
+            }
+        }
+        try {
+            auth.createNewFile();
+        } catch (IOException ex) {
+        }
+    }
+    
     //usar en caso de error en el json
     public static String jsonOrdenado(String json){
         String a="";
+        boolean dentro = false;
         for (int i = 0; i < json.length(); i++) {
+            if (json.charAt(i)=='}'||json.charAt(i)==']') {
+                if (!dentro) {
+                    a+="\n";
+                }
+            }
             a+=json.charAt(i);
-            if (json.charAt(i)==',') {
-                a+="\n";
+            if (json.charAt(i)==','||json.charAt(i)=='{'||json.charAt(i)=='[') {
+                if (!dentro) {
+                    a+="\n";
+                }
+            }
+            if (json.charAt(i)=='"'&&json.charAt(i-1)!='\\') {
+                dentro = !dentro;
             }
         }
-        System.out.println(a);
+        //System.out.println(a);
         return a;
     }
     

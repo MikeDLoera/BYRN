@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import org.json.JSONObject;
+import org.json.XML;
 
 /**
  *
@@ -35,7 +37,7 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         jf.btnAnadirPropiedad.addActionListener((ActionListener)this);
         jf.btnEditarPropiedad.addActionListener((ActionListener)this);
         jf.btnEliminarPropiedad.addActionListener((ActionListener)this);
-        jf.btnExcel.addActionListener((ActionListener)this);
+        jf.btnPdf.addActionListener((ActionListener)this);
         jf.btnMasInformacion.addActionListener((ActionListener)this);
 
         jf.btnBusqueda.addActionListener((ActionListener)this);
@@ -53,30 +55,49 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
             AnadirPropiedadDAO apDAO = new AnadirPropiedadDAO(dao.getTypes(),dao.getCities(),dao.getNegocio());
             ControladorAnadirPropiedad cap = new ControladorAnadirPropiedad(ap, apDAO);
             BYRN.nuevaVentana("Añadir propiedad", ap);*/
-            com.byrn.ByrnEstateForm.newEstateForm(PeticionHTTP.getBaseurl(), BYRN.getAuth().getToken());
+            Thread hilo = new Thread(){
+                @Override
+                public void run(){
+                    com.byrn.ByrnEstateForm.newEstateForm(PeticionHTTP.getBaseurl(), BYRN.getAuth().getToken());
+                    for(;;){
+                        if (com.byrn.ByrnEstateForm.saved) {
+                            com.byrn.ByrnEstateForm.saved = false;
+                            BYRN.notificacion("Propiedad guardada con éxito.");
+                            break;
+                        }
+                        try { Thread.sleep(100);} catch (InterruptedException ex) {}
+                    }
+                }
+            };
+            hilo.start();
         }
         if (jf.btnEliminarPropiedad==e.getSource()) {
             int id = getIdSelect();
+            int selected = jf.tblListadoDePropiedades.getSelectedRow();
             if (id>0) {
                 try {
-                    String path = "/estates/"+id;
-                    PeticionHTTP.delete(path,BYRN.getAuth().getToken());
-                    BYRN.notificacion("La propiedad se elimino correctamente");
-                    tabla(new ArrayList());
+                    
+                    
                     Thread hilo = new Thread(){
                         @Override
                         public void run() {
-                            dao.estatesList();
-                            tabla(dao.getAllEstates());
+                            String path = "/estates/"+id;
+                            PeticionHTTP.delete(path,BYRN.getAuth().getToken());
+                            BYRN.notificacion("La propiedad se elimino correctamente");
+                            DefaultTableModel model = (DefaultTableModel)jf.tblListadoDePropiedades.getModel();
+                            model.removeRow(selected);
+                            jf.tblListadoDePropiedades.setModel(model);
+                            jf.btnAnterior.setEnabled(false);
+                            jf.btnSiguente.setEnabled(false);
+                            jf.txtImage.setIcon(null);
                         }
                     };
                     hilo.start();
-                    jf.btnAnterior.setEnabled(false);
-                    jf.btnSiguente.setEnabled(false);
-                    jf.txtImage.setIcon(null);
                 } catch (UnirestException ex) {
                     
                 }
+            }else{
+                BYRN.notificacion(mensaje);
             }
         }
         if (jf.btnEditarPropiedad==e.getSource()) {
@@ -86,9 +107,24 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
                 App app = BYRN.nuevaVentana("Editar Propiedad", ed);
                 EditarPropiedadDAO edDAO = new EditarPropiedadDAO(getState(id),dao.getCities(),dao.getTypes());
                 ControladorEditarPropiedad con = new ControladorEditarPropiedad(ed, edDAO,app);*/
-                com.byrn.ByrnEstateForm.newEstateForm(PeticionHTTP.getBaseurl(), BYRN.getAuth().getToken(),id);
+                Thread hilo = new Thread(){
+                    @Override
+                    public void run(){
+                        com.byrn.ByrnEstateForm.newEstateForm(PeticionHTTP.getBaseurl(), BYRN.getAuth().getToken(),id);
+                        for(;;){
+                            if (com.byrn.ByrnEstateForm.saved) {
+                                com.byrn.ByrnEstateForm.saved = false;
+                                BYRN.notificacion("Propiedad guardada con éxito.");
+                                break;
+                            }
+                            try{Thread.sleep(100);}catch(InterruptedException ex){}
+                        }
+                    }
+                };
+                hilo.start();
+                
             }else{
-                BYRN.notificacion("Seleccione una fila de la tabla");
+                BYRN.notificacion(mensaje);
             }
         }
         if (jf.btnMasInformacion==e.getSource()) {
@@ -99,19 +135,26 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
                 App app = BYRN.nuevaVentana("Más Información", inf);
                 ControladorInformacionPropiedades con = new ControladorInformacionPropiedades(inf,infDAO);
             }else{
-                BYRN.notificacion("Seleccione una fila de la tabla");
+                BYRN.notificacion(mensaje);
             }
            
         }
-        if (jf.btnExcel==e.getSource()) {
-            
+        if (jf.btnPdf==e.getSource()) {
+            int id = getIdSelect();
+            if (id>0) {
+                //aqui el reporte 
+                
+            }else{
+                BYRN.notificacion(mensaje);
+            }
         }
         if (jf.ComboBox==e.getSource()) {
             if (jf.ComboBox.getSelectedIndex()>0) {
                 int length = dao.getTypes().length;
                 for (int i=0;i<length;i++) {
                     if (dao.getTypes()[i].get("name").equals(jf.ComboBox.getSelectedItem())) {
-                        int id = Integer.parseInt(dao.getTypes()[i].get("id").toString().replaceAll(".0", ""));
+                        String idAux = dao.getTypes()[i].get("id").toString();
+                        int id = Integer.parseInt(idAux.substring(0,idAux.indexOf('.')));
                         filtrado(id);
                         break;
                     }
@@ -150,11 +193,12 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
             @Override
             public void run() {
                 getTypes();
-                dao.listarCiudadesNegocios();
             }
         };
         hilo2.start();
     }
+    
+    private String mensaje = "Seleccione una fila de la tabla";
     
     private void tabla(ArrayList<HashMap> lista){
         DefaultTableModel modelotabla = new DefaultTableModel(){@Override
@@ -185,7 +229,8 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         for (int i = 0; i < l; i++) {
             HashMap estate = dao.getAllEstates().get(i);
             HashMap type = BYRN.gson.fromJson(BYRN.gson.toJson(estate.get("estate_type")), HashMap.class);
-            int estateId = Integer.parseInt(type.get("id").toString().replaceAll(".0", ""));
+            String idAux = type.get("id").toString();
+            int estateId = Integer.parseInt(idAux.substring(0,idAux.indexOf('.')));
             if (id==estateId) {
                 filtro.add(estate);
             }
@@ -207,14 +252,7 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
         tabla(busqueda);
     }
     
-    private int getIdSelect(){
-        if (jf.tblListadoDePropiedades.getSelectedRowCount()==1) {
-            int rowSelect = jf.tblListadoDePropiedades.getSelectedRow();
-            return Integer.parseInt(jf.tblListadoDePropiedades.getValueAt(rowSelect, 0)+"");
-        }else{
-            return -1;
-        }
-    }
+    
     
     private HashMap getState(int id){
         HashMap estate = null;
@@ -229,6 +267,15 @@ public class ControladorListadoPropiedades implements ActionListener, MouseListe
             }
         }
         return estate;
+    }
+    
+    private int getIdSelect(){
+        if (jf.tblListadoDePropiedades.getSelectedRowCount()==1) {
+            int rowSelect = jf.tblListadoDePropiedades.getSelectedRow();
+            return Integer.parseInt(jf.tblListadoDePropiedades.getValueAt(rowSelect, 0)+"");
+        }else{
+            return -1;
+        }
     }
     
     private void getTypes() throws UnirestException{

@@ -61,6 +61,7 @@ public class Ordenamiento {
     }
     
     private static int getId(HashMap map){
-        return Integer.parseInt(map.get("id").toString().replaceAll(".0", ""));
+        String idAux = map.get("id").toString();
+        return Integer.parseInt(idAux.substring(0,idAux.indexOf('.')));
     }
 }

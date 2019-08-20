@@ -26,7 +26,6 @@ public class Usuarios extends javax.swing.JPanel {
         panUsuariosWeb = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tlbUsuarios = new rojerusan.RSTableMetro();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
@@ -36,7 +35,7 @@ public class Usuarios extends javax.swing.JPanel {
         txtBusqueda = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(143, 198, 94));
-        setLayout(null);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         panUsuariosWeb.setBackground(new java.awt.Color(233, 248, 223));
         panUsuariosWeb.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -54,14 +53,14 @@ public class Usuarios extends javax.swing.JPanel {
         tlbUsuarios.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tlbUsuarios.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tlbUsuarios.setColorSelBackgound(new java.awt.Color(0, 0, 0));
+        tlbUsuarios.setFocusable(false);
         tlbUsuarios.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tlbUsuarios.setFuenteFilas(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tlbUsuarios.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tlbUsuarios.setFuenteHead(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        tlbUsuarios.setRowSelectionAllowed(false);
         tlbUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tlbUsuarios);
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -87,7 +86,7 @@ public class Usuarios extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(411, Short.MAX_VALUE)
+                .addContainerGap(347, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(309, 309, 309)
                 .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,38 +135,48 @@ public class Usuarios extends javax.swing.JPanel {
             .addGroup(panUsuariosWebLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panUsuariosWebLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(panUsuariosWebLayout.createSequentialGroup()
+                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(btnBusqueda)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(panUsuariosWebLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnBusqueda)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panUsuariosWebLayout.setVerticalGroup(
             panUsuariosWebLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panUsuariosWebLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addGap(6, 6, 6)
                 .addGroup(panUsuariosWebLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtBusqueda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap())
         );
 
-        add(panUsuariosWeb);
-        panUsuariosWeb.setBounds(10, 10, 1140, 510);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panUsuariosWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(panUsuariosWeb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -178,7 +187,6 @@ public class Usuarios extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel panUsuariosWeb;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     public rojerusan.RSTableMetro tlbUsuarios;
