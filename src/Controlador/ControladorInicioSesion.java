@@ -99,7 +99,13 @@ public class ControladorInicioSesion implements ActionListener,KeyListener{
                 String json = request.getBody().toString();
                 BYRN.setAuth(json);
                 if (jf.cbxRecuerdame.isSelected()) {
-                    guardarToken(BYRN.getAuth().getToken());
+                    Thread hilo = new Thread(){
+                    @Override
+                        public void run() {
+                            guardarToken(BYRN.getAuth().getToken());
+                        }
+                    };
+                    
                 }
                 BYRN.fadeOut();
                 BYRN.dashboard();

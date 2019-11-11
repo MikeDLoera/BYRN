@@ -80,8 +80,8 @@ public class ControladorUsuarios implements ActionListener {
         
         if (name!=null) {
             while(aux!=null){
-                String nameAux = aux.get("name").toString()+aux.get("last_name").toString();
-                if (nameAux.toLowerCase().contains(name)) {
+                String nameAux = aux.get("name").toString()+" "+aux.get("last_name").toString();
+                if (nameAux.toLowerCase().contains(name.toLowerCase())) {
                     fila[0] = aux.get("name");
                     fila[1] = aux.get("last_name");
                     fila[2] = aux.get("email");
